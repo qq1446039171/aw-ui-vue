@@ -20,4 +20,7 @@ Vue.use(WUI)
 import 'aw-ui-kit/dist/css/demo.css'
 import { Demo } from 'aw-ui-kit'
 Vue.use(Demo)
+
+// 使用 
+<aw-demo/>
 ```

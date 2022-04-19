@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'w-card',
+  name: 'aw-card',
   props: {
     width: {
       type: Number, // 卡片宽度
