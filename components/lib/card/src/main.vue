@@ -1,10 +1,10 @@
 <template>
-  <div class="w-card" :style="width ? { width: width + 'px' } : {}">
-    <div class="w-card-img" :style="imgHeight ? { height: imgHeight + 'px' } : {}">
+  <div class="aw-card" :style="width ? { width: width + 'px' } : {}">
+    <div class="aw-card-img" :style="imgHeight ? { height: imgHeight + 'px' } : {}">
       <img :src="imgSrc" alt="img" />
     </div>
-    <div class="w-card-summary" v-if="summary">{{summary}}</div>
-    <div class="w-card-summary" v-else>
+    <div class="aw-card-summary" v-if="summary">{{summary}}</div>
+    <div class="aw-card-summary" v-else>
       <slot></slot>
     </div>
     <slot name="footer"></slot>

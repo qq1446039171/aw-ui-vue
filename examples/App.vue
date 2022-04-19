@@ -2,11 +2,11 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <aw-demo />
-    <w-card
+    <aw-card
       imgSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0515%2F465567a6j00qadpfz001cc000hs00b4c.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652526457&t=7733278d88991dc2480111b439e7d507"
       summary="Node.js+Express+Koa2+开发Web Server博客"
     />
-    <w-card
+    <aw-card
       imgSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0515%2F465567a6j00qadpfz001cc000hs00b4c.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652526457&t=7733278d88991dc2480111b439e7d507"
       summary="Node.js+Express+Koa2+开发Web Server博客"
     >
@@ -16,8 +16,8 @@
           <div class="price">￥899.00</div>
         </div>
       </template>
-    </w-card>
-    <w-card
+    </aw-card>
+    <aw-card
       imgSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0515%2F465567a6j00qadpfz001cc000hs00b4c.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652526457&t=7733278d88991dc2480111b439e7d507"
       summary="Node.js+Express+Koa2+开发Web Server博客"
       :width="370"
@@ -30,7 +30,7 @@
           <div class="price">￥899.00</div>
         </div>
       </template>
-    </w-card>
+    </aw-card>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 {
   "name": "aw-ui-kit",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "组件库",
   "main": "dist/index.umd.js",
   "keywords": [
@@ -13,6 +13,10 @@
     "dist",
     "components"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/hbowen/aw-ui-kit"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
@@ -22,7 +26,9 @@
     "build": "npm run build:js && npm run build:css",
     "lint": "vue-cli-service lint",
     "build:js": "webpack --config ./webpack.components.js",
-    "build:css": "npx gulp sass"
+    "build:css": "npx gulp sass",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "@vue/compiler-sfc": "^3.2.33",
@@ -46,6 +52,7 @@
     "sass-loader": "^7.3.1",
     "vue-loader": "^15.9.6",
     "vue-template-compiler": "^2.6.14",
+    "vuepress": "^1.9.7",
     "webpack-cli": "^4.9.2"
   },
   "eslintConfig": {
