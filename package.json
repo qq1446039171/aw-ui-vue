@@ -1,15 +1,35 @@
 {
-  "name": "module-library",
+  "name": "aw-ui-kit",
   "version": "0.1.0",
-  "private": true,
+  "description": "组件库",
+  "main": "dist/index.umd.js",
+  "keywords": [
+    "aw-ui",
+    "ui",
+    "vue"
+  ],
+  "author": "aw_hbw",
+  "files": [
+    "dist",
+    "components"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "vue-cli-service serve ",
+    "build": "npm run build:js && npm run build:css",
+    "lint": "vue-cli-service lint",
+    "build:js": "webpack --config ./webpack.components.js",
+    "build:css": "npx gulp sass"
   },
   "dependencies": {
+    "@vue/compiler-sfc": "^3.2.33",
     "core-js": "^3.8.3",
-    "vue": "^2.6.14"
+    "node-sass": "^4.12.0",
+    "vue": "^2.6.14",
+    "webpack": "^4.41.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -19,7 +39,14 @@
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
-    "vue-template-compiler": "^2.6.14"
+    "gulp": "^4.0.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.50.0",
+    "sass-loader": "^7.3.1",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.14",
+    "webpack-cli": "^4.9.2"
   },
   "eslintConfig": {
     "root": true,
