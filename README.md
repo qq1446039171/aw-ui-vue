@@ -1,4 +1,4 @@
-# aw-ui 组件库
+# aw-ui-kit 组件库
 
 ### 快速开始
 
@@ -13,10 +13,10 @@ npm install aw-ui-kit
 ```js
 // 全部引入
 import 'aw-ui-kit/dist/css/index.css'
-import WUI from 'aw-ui-kit'
-Vue.use(WUI)
+import AwUI from 'aw-ui-kit'
+Vue.use(AwUI)
 
-//  按需引入
+//  按需引入(还有点小问题)
 import 'aw-ui-kit/dist/css/demo.css'
 import { Demo } from 'aw-ui-kit'
 Vue.use(Demo)
