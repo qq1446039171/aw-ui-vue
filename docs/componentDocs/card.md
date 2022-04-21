@@ -4,12 +4,12 @@
 
 ### 示例
 
-<aw-card imgSrc="/example.jpg" summary="这是一个测试案例"/>
+<aw-card imgSrc="/aw-ui-kit/example.jpg" summary="这是一个测试案例"/>
 
 ### 代码
 
 ```html
-<aw-card imgSrc="/example.jpg" summary="这是一个测试案例" />
+<aw-card imgSrc="/aw-ui-kit/example.jpg" summary="这是一个测试案例" />
 ```
 
 ### Attributes
