@@ -1,5 +1,6 @@
 module.exports = {
   base:'/aw-ui-kit/',
+  title: 'Aw-ui-kit',
   themeConfig: {
     sidebar: [
       '/',
@@ -8,8 +9,8 @@ module.exports = {
     ],
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Guide', link: '/guide/' },
-      { text: 'External', link: 'https://google.com' },
+      { text: 'Gitee', link: 'https://gitee.com/hbowen/aw-ui-kit' },
+      { text: 'Npm', link: 'https://www.npmjs.com/package/aw-ui-kit' },
     ]
   }
 }
