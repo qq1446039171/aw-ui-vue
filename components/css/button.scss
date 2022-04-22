@@ -29,7 +29,12 @@
     border-color: #c6e2ff;
     background-color: #ecf5ff;
   }
+
+  + .is-round {
+    border-radius: 20px;
+  }
 }
+
 .aw-button-primary {
   color: #fff;
   background-color: #409eff;

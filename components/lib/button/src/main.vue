@@ -1,5 +1,5 @@
 <template>
-  <button class="aw-button" :class="['aw-button-' + type, 'aw-button-' + size]">
+  <button class="aw-button" :class="['aw-button-' + type, 'aw-button-' + size, round ? 'is-round' : '']">
     <span>
       <slot></slot>
     </span>
@@ -17,6 +17,10 @@ export default {
     size: {
       type: String,
       default: 'normal'
+    },
+    round: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
