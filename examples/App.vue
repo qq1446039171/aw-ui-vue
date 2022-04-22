@@ -24,13 +24,19 @@
       :imgHeight="90"
     >
       Node.js+Express+Koa2+开发Web Server博客
-        <template slot="footer">
+      <template slot="footer">
         <div class="footer">
           <div class="level">中级 . 523人报名</div>
           <div class="price">￥899.00</div>
         </div>
       </template>
     </aw-card>
+    <aw-button>默认按2钮</aw-button>
+    <aw-button type="primary">主要按钮</aw-button>
+    <aw-button type="success" size="medium">成功按钮</aw-button>
+    <aw-button type="info" size="small">信息按钮</aw-button>
+    <aw-button type="warning" size="mini">警告按钮</aw-button>
+    <aw-button type="danger">危险按钮</aw-button>
   </div>
 </template>
 

@@ -2,10 +2,10 @@ module.exports = {
   base:'/aw-ui-kit/',
   title: 'Aw-ui-kit',
   themeConfig: {
+      logo: '/logo.png',
     sidebar: [
       '/',
       '/componentDocs/card',
-  
     ],
     nav: [
       { text: 'Home', link: '/' },
