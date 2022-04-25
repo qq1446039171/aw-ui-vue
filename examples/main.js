@@ -27,7 +27,7 @@ Vue.use(Link)  // Demo.install -> Vue.component
 Vue.use(Tree)  // Demo.install -> Vue.component
 Vue.component(Item, Item)
 Vue.config.productionTip = false
-
+ 
 new Vue({
   render: h => h(App),
 }).$mount('#app')
