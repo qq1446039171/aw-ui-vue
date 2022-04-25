@@ -1,5 +1,5 @@
 <template>
-  <button class="aw-button" :class="['aw-button-' + type, 'aw-button-' + size, round ? 'is-round' : '']">
+  <button class="aw-button" :class="['aw-button-' + type, 'aw-button-' + size, round ? 'is-round' : '',disabled ? 'is-disabled' : '']">
     <span>
       <slot></slot>
     </span>

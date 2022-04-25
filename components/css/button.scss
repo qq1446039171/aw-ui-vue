@@ -19,17 +19,19 @@
   padding: 12px 20px;
   font-size: 14px;
   border-radius: 4px;
-  &:focus {
-    color: #409eff;
-    border-color: #c6e2ff;
-    background-color: #ecf5ff;
-  }
+
   &:hover {
     color: #409eff;
     border-color: #c6e2ff;
     background-color: #ecf5ff;
   }
-
+  + .is-disabled {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
   + .is-round {
     border-radius: 20px;
   }
@@ -44,6 +46,12 @@
     border-color: #66b1ff;
     color: #fff;
   }
+}
+.aw-button-primary.is-disabled {
+  color: #fff;
+  cursor: not-allowed;
+  background-color: #a0cfff;
+  border-color: #a0cfff;
 }
 .aw-button-success {
   color: #fff;

@@ -31,9 +31,9 @@
         </div>
       </template>
     </aw-card>
-    <aw-button>默认按2钮</aw-button>
-    <aw-button type="primary" round>主要按钮</aw-button>
-    <aw-button type="success" size="medium">成功按钮</aw-button>
+    <aw-button disabled>默认按2钮</aw-button>
+    <aw-button type="primary" round disabled>主要按钮</aw-button>
+    <aw-button type="success" size="medium" >成功按钮</aw-button>
     <aw-button type="info" size="small" >信息按钮</aw-button>
     <aw-button type="warning" size="mini" round>警告按钮</aw-button>
     <aw-button type="danger">危险按钮</aw-button>
