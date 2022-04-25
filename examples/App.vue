@@ -1,3 +1,11 @@
+<!--
+ * @Description: 首页
+ * @Version: 2.0
+ * @Author: 黄博文
+ * @Date: 2022-04-24 20:53:16
+ * @LastEditors: 黄博文
+ * @LastEditTime: 2022-04-25 21:57:44
+-->
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
@@ -40,16 +48,42 @@
 
     <aw-link disabled>默认按钮</aw-link>
     <aw-link type="primary" url="/home">主要按钮</aw-link>
-    <aw-link type="success" >成功按钮</aw-link>
-    <aw-link type="info" >信息按钮</aw-link>
-    <aw-link type="warning" >警告按钮</aw-link>
-    <aw-link type="danger" >危险按钮</aw-link>
+    <aw-link type="success">成功按钮</aw-link>
+    <aw-link type="info">信息按钮</aw-link>
+    <aw-link type="warning">警告按钮</aw-link>
+    <aw-link type="danger">危险按钮</aw-link>
+
+    <aw-tree :model="treeData"></aw-tree>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      treeData: {
+        name: 'My Tree',
+        children: [
+          { name: 'hello' },
+          {
+            name: 'child folder',
+            children: [
+              {
+                name: 'child folder',
+                children: [{ name: 'hello' }, { name: 'wat' }]
+              },
+              { name: 'hello' },
+              {
+                name: 'child folder',
+                children: [{ name: 'hello' }, { name: 'wat' }]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
 }
 </script>
 
