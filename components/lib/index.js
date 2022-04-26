@@ -1,9 +1,21 @@
+/*
+ * @Description:
+ * @Version: 2.0
+ * @Author: 黄博文
+ * @Date: 2022-04-18 16:55:39
+ * @LastEditors: 黄博文
+ * @LastEditTime: 2022-04-26 14:02:05
+ */
 import Demo from './demo'
 import Card from './card'
+import Button from './button'
+import Link from './link'
 
 const components = {
   Demo,
-  Card
+  Card,
+  Button,
+  Link
 }
 const install = function (Vue) {
   if (install.installed) return

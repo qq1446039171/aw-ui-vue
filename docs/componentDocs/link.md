@@ -6,11 +6,13 @@ Link 文字链接
 
 <br/>
 <aw-link type="primary" url="/home?index=1">主要按钮</aw-link>
+<aw-link type="primary" url="/home?index=1" disabled>主要按钮</aw-link>
 
 ### 代码
 
 ```html
 <aw-link type="primary" url="/home?index=1">主要按钮</aw-link>
+<aw-link type="primary" url="/home?index=1" disabled>主要按钮</aw-link>
 ```
 
 ### Attributes

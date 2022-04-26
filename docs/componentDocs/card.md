@@ -5,12 +5,52 @@
 ### 示例
 
 <br/>
-<aw-card imgSrc="/aw-ui-kit/example.jpg" summary="这是一个测试案例"/>
+<aw-card imgSrc="/aw-ui-vue/example.jpg" summary="这是一个测试案例"/>
+<br/>
+<aw-card
+      imgSrc="/aw-ui-vue/example.jpg"
+      summary="Node.js+Express+Koa2+开发Web Server博客"
+      :width="370"
+      :imgHeight="90"
+    >
+      Node.js+Express+Koa2+开发Web Server博客
+      <template slot="footer">
+        <div class="footer" style="padding: 0 8px;font-size: 12px;text-align: left;">
+          <div class="level" style="color: #9199a1;margin-bottom: 8px;">中级 . 523人报名</div>
+          <div class="price" style="color: #f01414;">￥899.00</div>
+        </div>
+      </template>
+    </aw-card>
 
 ### 代码
 
 ```html
-<aw-card imgSrc="/aw-ui-kit/example.jpg" summary="这是一个测试案例" />
+<aw-card imgSrc="/aw-ui-vue/example.jpg" summary="这是一个测试案例" />
+
+<aw-card imgSrc="/aw-ui-vue/example.jpg" summary="Node.js+Express+Koa2+开发Web Server博客" :width="370" :imgHeight="90">
+  Node.js+Express+Koa2+开发Web Server博客
+  <template slot="footer">
+    <div class="footer">
+      <div class="level">中级 . 523人报名</div>
+      <div class="price">￥899.00</div>
+    </div>
+  </template>
+</aw-card>
+
+<style lang="scss" scope>
+  .footer {
+    padding: 0 8px;
+    font-size: 12px;
+    text-align: left;
+    .level {
+      color: #9199a1;
+      margin-bottom: 8px;
+    }
+    .price {
+      color: #f01414;
+    }
+  }
+</style>
 ```
 
 ### Attributes

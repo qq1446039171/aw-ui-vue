@@ -4,7 +4,7 @@
  * @Author: 黄博文
  * @Date: 2022-04-24 20:53:16
  * @LastEditors: 黄博文
- * @LastEditTime: 2022-04-25 21:57:44
+ * @LastEditTime: 2022-04-26 10:34:53
 -->
 <template>
   <div id="app">
@@ -53,7 +53,7 @@
     <aw-link type="warning">警告按钮</aw-link>
     <aw-link type="danger">危险按钮</aw-link>
 
-    <aw-tree :model="treeData"></aw-tree>
+    <!-- <aw-tree :model="treeData"></aw-tree> -->
   </div>
 </template>
 

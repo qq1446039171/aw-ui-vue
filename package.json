@@ -1,10 +1,10 @@
 {
-  "name": "aw-ui-kit",
-  "version": "1.0.1",
+  "name": "aw-ui-vue",
+  "version": "1.0.7",
   "description": "组件库",
   "main": "dist/index.umd.js",
   "keywords": [
-    "aw-ui-kit",
+    "aw-ui-vue",
     "ui",
     "vue"
   ],
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/hbowen/aw-ui-kit"
+    "url": "https://gitee.com/hbowen/aw-ui-vue"
   },
   "publishConfig": {
     "access": "public",
