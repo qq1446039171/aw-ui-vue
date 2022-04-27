@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <TreeItem class="item" v-for="model1 in model" :key="model1.index" :model="model1"> </TreeItem>
+    <TreeItem  v-for="model1 in model" :key="model1.index" :model="model1"> </TreeItem>
   </ul>
 </template>
 

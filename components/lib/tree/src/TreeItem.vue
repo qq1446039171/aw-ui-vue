@@ -7,7 +7,7 @@
       </span>
       <span class="aw-tree-title"> {{ model.label }}</span>
     </div>
-    <ul v-if="isFolder && open" class="aw-tree-animation">
+    <ul v-if="isFolder && open" >
       <TreeItem v-for="model1 in model.children" :key="model1.index" :model="model1"> </TreeItem>
     </ul>
   </li>
