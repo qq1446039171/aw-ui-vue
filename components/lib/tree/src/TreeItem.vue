@@ -1,36 +1,41 @@
 <template>
-  <div>
-    <TreeItem class="item" v-for="model1 in model" :key="model1.index" :model="model1"> </TreeItem>
-  </div>
+  <li>
+    <div :class="{ bold: isFolder }" @click="toggle" >
+      {{ model.label }}
+      <span v-if="isFolder">[{{ open ? '-' : '+' }}]</span>
+    </div>
+    <ul  v-if="isFolder && open">
+      <!-- <TreeItem class="item" v-for="model in model.children" :key="model.index" :model="model"> </TreeItem> -->
+      <TreeItem class="item" v-for="model1 in model.children" :key="model1.index" :model="model1"> </TreeItem>
+      <!-- <li class="add" @click="addChild">+</li> -->
+    </ul>
+  </li>
 </template>
 
 <script>
-import TreeItem from './TreeItem'
 export default {
-  name: 'aw-tree',
-  components: {
-    TreeItem
-  },
+  name: 'TreeItem',
+
   props: {
-    model: Array
+    model: Object
   },
-  data() {
+  data () {
     return {
       open: false
     }
   },
   computed: {
-    isFolder() {
+    isFolder () {
       return this.model.children && this.model.children.length
     }
   },
   methods: {
-    toggle() {
+    toggle () {
       console.log(this.isFolder)
       if (this.isFolder) {
         this.open = !this.open
       }
-    }
+    },
     // changeType () {
     //   if (!this.isFolder) {
     //     this.$set(this.model, 'children', [])
