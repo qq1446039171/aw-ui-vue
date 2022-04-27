@@ -1,13 +1,14 @@
 <template>
-  <li>
-    <div :class="{ bold: isFolder }" @click="toggle" >
-      {{ model.label }}
-      <span v-if="isFolder">[{{ open ? '-' : '+' }}]</span>
+  <li class="aw-tree-item">
+    <div :class="isFolder ? 'aw-tree-folder' : ''" @click="toggle">
+      <span v-if="isFolder">
+        <i class="aw-icon icon-arrow-right" v-if="!open"></i>
+        <i class="aw-icon icon-arrow-down" v-else></i>
+      </span>
+      <span class="aw-tree-title"> {{ model.label }}</span>
     </div>
-    <ul  v-if="isFolder && open">
-      <!-- <TreeItem class="item" v-for="model in model.children" :key="model.index" :model="model"> </TreeItem> -->
-      <TreeItem class="item" v-for="model1 in model.children" :key="model1.index" :model="model1"> </TreeItem>
-      <!-- <li class="add" @click="addChild">+</li> -->
+    <ul v-if="isFolder && open" class="aw-tree-animation">
+      <TreeItem v-for="model1 in model.children" :key="model1.index" :model="model1"> </TreeItem>
     </ul>
   </li>
 </template>
@@ -19,23 +20,23 @@ export default {
   props: {
     model: Object
   },
-  data () {
+  data() {
     return {
       open: false
     }
   },
   computed: {
-    isFolder () {
+    isFolder() {
       return this.model.children && this.model.children.length
     }
   },
   methods: {
-    toggle () {
+    toggle() {
       console.log(this.isFolder)
       if (this.isFolder) {
         this.open = !this.open
       }
-    },
+    }
     // changeType () {
     //   if (!this.isFolder) {
     //     this.$set(this.model, 'children', [])

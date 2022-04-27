@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <ul>
     <TreeItem class="item" v-for="model1 in model" :key="model1.index" :model="model1"> </TreeItem>
-  </div>
+  </ul>
 </template>
 
 <script>

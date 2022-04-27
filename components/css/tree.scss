@@ -1,11 +1,38 @@
-.aw-item {
+.aw-tree {
   cursor: pointer;
+  &-folder {
+    // font-weight: bold;
+  }
+  &-title {
+    padding-left: 1em;
+  }
 }
-.bold {
-  font-weight: bold;
+.aw-tree-folder {
+  &:hover{
+    background-color: #f5f5f5;
+  }
+  .aw-tree-title {
+    cursor: pointer;
+    padding: 0 0 0 0px;
+  }
 }
+.aw-icon {
+  color: #c0c4cc;
+  font-weight: 300;
+  cursor: pointer;
+  // transform: rotate(0deg);
+  // transition: transform 0.3s ease-in-out;
+}
+
+// .icon-arrow-right.expanded {
+//   transform: rotate(90deg);
+// }
+
 ul {
   padding-left: 1em;
   line-height: 1.5em;
-  list-style-type: dot;
+  list-style-type: none;
+  li {
+    margin: 8px 0;
+  }
 }

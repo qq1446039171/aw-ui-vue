@@ -52,8 +52,9 @@
     <aw-link type="info">信息按钮</aw-link>
     <aw-link type="warning">警告按钮</aw-link>
     <aw-link type="danger">危险按钮</aw-link>
-
-    <aw-tree :model="treeData"></aw-tree>
+    <div style="margin-top: 50px">
+      <aw-tree :model="treeData"></aw-tree>
+    </div>
   </div>
 </template>
 
@@ -147,7 +148,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }
