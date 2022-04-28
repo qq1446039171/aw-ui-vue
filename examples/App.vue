@@ -53,7 +53,10 @@
     <aw-link type="warning">警告按钮</aw-link>
     <aw-link type="danger">危险按钮</aw-link>
     <div style="margin-top: 50px">
-      <aw-tree :model="treeData"></aw-tree>
+      <aw-tree :treeData="treeData"></aw-tree>
+    </div>
+    <div style="margin-top: 50px">
+      <aw-tree :treeData="treeData" type="file"></aw-tree>
     </div>
   </div>
 </template>

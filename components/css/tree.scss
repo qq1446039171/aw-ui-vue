@@ -1,11 +1,5 @@
 .aw-tree {
   cursor: pointer;
-  &-folder {
-    // font-weight: bold;
-  }
-  &-title {
-    padding-left: 1em;
-  }
 }
 .aw-tree-folder {
   &:hover{
@@ -20,14 +14,7 @@
   color: #c0c4cc;
   font-weight: 300;
   cursor: pointer;
-  // transform: rotate(0deg);
-  // transition: transform 0.3s ease-in-out;
 }
-
-// .icon-arrow-right.expanded {
-//   transform: rotate(90deg);
-// }
-
 ul {
   padding-left: 1em;
   line-height: 1.5em;

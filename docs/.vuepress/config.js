@@ -8,6 +8,8 @@ module.exports = {
       '/componentDocs/card',
       '/componentDocs/button',
       '/componentDocs/link',
+      '/componentDocs/tree',
+
     ],
     nav: [
       { text: 'Home', link: '/' },

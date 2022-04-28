@@ -51,4 +51,31 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scope>
+@import './icon.css';
+.aw-tree {
+  cursor: pointer;
+}
+.aw-tree-folder {
+  &:hover {
+    background-color: #f5f5f5;
+  }
+  .aw-tree-title {
+    cursor: pointer;
+    padding: 0 0 0 0px;
+  }
+}
+.aw-icon {
+  color: #c0c4cc;
+  font-weight: 300;
+  cursor: pointer;
+}
+ul {
+  // padding-left: 1em;
+  line-height: 1.5em;
+  list-style-type: none;
+  li {
+    margin: 8px 0;
+  }
+}
+</style>
