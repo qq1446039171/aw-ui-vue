@@ -1,6 +1,6 @@
 <template>
   <li class="aw-tree-item">
-    <div :class="isFolder ? 'aw-tree-folder' : ''" @click="toggle">
+    <div :class="isFolder ? 'aw-tree-folder' : ''" @click="toggle(treeItem)">
       <span v-if="isFolder">
         <i class="aw-icon" :class="treeType == 'file' ? 'icon-plus2' : 'icon-arrow-right'" v-if="!open"></i>
         <i class="aw-icon" :class="treeType == 'file' ? 'icon-ban' : 'icon-arrow-down'" v-else></i>
@@ -16,7 +16,13 @@
       </span>
     </div>
     <ul v-if="isFolder && open">
-      <TreeItem v-for="treeItem in treeItem.children" :key="treeItem.index" :treeItem="treeItem" :treeType="treeType">
+      <TreeItem
+        v-for="treeItem in treeItem.children"
+        :key="treeItem.index"
+        :treeItem="treeItem"
+        :treeType="treeType"
+        @node-click="nodeClick(treeItem)"
+      >
       </TreeItem>
     </ul>
   </li>
@@ -41,11 +47,14 @@ export default {
     }
   },
   methods: {
-    toggle() {
-      console.log(this.isFolder)
+    toggle(data) {
       if (this.isFolder) {
         this.open = !this.open
       }
+      this.$emit('node-click', data)
+    },
+    nodeClick(data) {
+      this.$emit('node-click', data)
     }
   }
 }

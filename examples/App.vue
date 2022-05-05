@@ -56,7 +56,7 @@
       <aw-tree :treeData="treeData"></aw-tree>
     </div>
     <div style="margin-top: 50px">
-      <aw-tree :treeData="treeData" type="file"></aw-tree>
+      <aw-tree :treeData="treeData" type="file" @node-click="handleNodeClick"></aw-tree>
     </div>
   </div>
 </template>
@@ -141,6 +141,11 @@ export default {
           ]
         }
       ]
+    }
+  },
+  methods:{
+    handleNodeClick(node) {
+      console.log(node)
     }
   }
 }

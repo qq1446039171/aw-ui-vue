@@ -61,13 +61,13 @@ Tree 树组件
 <br/>
  <aw-tree :treeData="treeData" ></aw-tree>
  <br/>
- <aw-tree :treeData="treeData" :type="treeType"></aw-tree>
+ <aw-tree :treeData="treeData" type="file"></aw-tree>
 
 ### 代码
 
 ```html
 类型一：<aw-tree :treeData="treeData"></aw-tree> 
-类型二：<aw-tree :treeData="treeData" :type="treeType"></aw-tree>
+类型二：<aw-tree :treeData="treeData" type="file"></aw-tree>
 
 <script>
   export default {
@@ -128,4 +128,4 @@ Tree 树组件
 | 属性     | 说明         | 类型   | 可选值 | 是否必要 | 默认值 |
 | :------- | :----------- | :----- | :----- | :------- | :----- |
 | treeData | 展示数据     | array  | -      | true     | -      |
-| type     | 是否禁用状态 | string | file   | false    | false  |
+| type     | 图标展示类型 | string | file   | false    | false  |
