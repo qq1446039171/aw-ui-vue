@@ -21,7 +21,7 @@
         :key="treeItem.index"
         :treeItem="treeItem"
         :treeType="treeType"
-        @node-click="nodeClick(treeItem)"
+        @node-click="nodeClick"
       >
       </TreeItem>
     </ul>

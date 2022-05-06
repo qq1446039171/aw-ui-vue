@@ -5,7 +5,7 @@
       :key="treeItem.index"
       :treeItem="treeItem"
       :treeType="type"
-      @node-click="nodeClick(treeItem)"
+      @node-click="nodeClick"
     >
     </TreeItem>
   </ul>
@@ -28,11 +28,6 @@ export default {
   data() {
     return {
       open: false
-    }
-  },
-  computed: {
-    isFolder() {
-      return this.treeData.children && this.treeData.children.length
     }
   },
   methods: {

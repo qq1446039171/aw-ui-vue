@@ -54,6 +54,11 @@ Tree 树组件
           }
         ]
       }
+    },
+    methods:{
+      handleNodeClick(node) {
+        console.log(node)
+      }
     }
   }
 </script>
@@ -61,13 +66,13 @@ Tree 树组件
 <br/>
  <aw-tree :treeData="treeData" ></aw-tree>
  <br/>
- <aw-tree :treeData="treeData" type="file"></aw-tree>
+ <aw-tree :treeData="treeData" type="file" @node-click="handleNodeClick"></aw-tree>
 
 ### 代码
 
 ```html
 类型一：<aw-tree :treeData="treeData"></aw-tree> 
-类型二：<aw-tree :treeData="treeData" type="file"></aw-tree>
+类型二：<aw-tree :treeData="treeData" type="file" @node-click="handleNodeClick"></aw-tree>
 
 <script>
   export default {
@@ -118,6 +123,11 @@ Tree 树组件
           }
         ]
       }
+    },
+    methods:{
+      handleNodeClick(node) {
+        console.log(node)
+      }
     }
   }
 </script>
@@ -127,5 +137,12 @@ Tree 树组件
 
 | 属性     | 说明         | 类型   | 可选值 | 是否必要 | 默认值 |
 | :------- | :----------- | :----- | :----- | :------- | :----- |
-| treeData | 展示数据     | array  | -      | true     | -      |
+| node-click | 展示数据     | array  | -      | true     | -      |
 | type     | 图标展示类型 | string | file   | false    | false  |
+
+
+### Events
+
+| 事件     | 说明         | 回调参数   
+| :------- | :----------- | :----- | 
+| treeData | 节点被点击时的回调    | 传递给 data 属性的数组中该节点所对应的对象  | 

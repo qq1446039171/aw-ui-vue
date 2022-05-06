@@ -1,6 +1,15 @@
 <template>
   <ul>
-    <TreeItem v-for="treeItem in treeData" :key="treeItem.index" :treeItem="treeItem" :treeType="type"> </TreeItem>
+    <!-- <TreeItem v-for="treeItem in treeData" :key="treeItem.index" :treeItem="treeItem" :treeType="type" > </TreeItem> -->
+
+    <TreeItem
+      v-for="treeItem in treeData"
+      :key="treeItem.index"
+      :treeItem="treeItem"
+      :treeType="type"
+      @node-click="nodeClick"
+    >
+    </TreeItem>
   </ul>
 </template>
 
@@ -29,11 +38,8 @@ export default {
     }
   },
   methods: {
-    toggle() {
-      console.log(this.isFolder)
-      if (this.isFolder) {
-        this.open = !this.open
-      }
+    nodeClick(data) {
+      this.$emit('node-click', data)
     }
     // changeType () {
     //   if (!this.isFolder) {
