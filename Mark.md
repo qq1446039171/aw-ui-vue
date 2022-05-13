@@ -6,3 +6,11 @@
 ### 文档打包 npm run docs:build 
 ### 最后在提交 
 
+
+```js
+package.json 中  
+"files": [
+    "dist",
+    "components"
+],
+```

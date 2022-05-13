@@ -10,21 +10,25 @@ import Demo from './demo'
 import Card from './card'
 import Button from './button'
 import Link from './link'
+import Tree from './tree'
+import Label from './label'
 
 const components = {
   Demo,
   Card,
   Button,
-  Link
+  Link,
+  Tree,
+  Label
 }
-console.log(components)
+// console.log(components)
 const install = function (Vue) {
   if (install.installed) return
   Object.keys(components).forEach((key) => {
     Vue.component(components[key].name, components[key])
   })
 }
-console.log(install)
+// console.log(install)
 const API = {
   install
 }

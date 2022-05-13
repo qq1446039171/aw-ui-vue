@@ -58,6 +58,7 @@
     <div style="margin-top: 50px">
       <aw-tree :treeData="treeData" type="file" @node-click="handleNodeClick"></aw-tree>
     </div>
+    <aw-label required width="90px">黄博文</aw-label>
   </div>
 </template>
 
