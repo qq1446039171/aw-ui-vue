@@ -18,8 +18,7 @@ import Button from '../components/lib/button/index'
 import Link from '../components/lib/link/index'
 import Tree from '../components/lib/tree/index'
 import Label from '../components/lib/label/index'
-
-
+import Table from '../components/lib/ProTable/index'
 
 Vue.use(Demo)  // Demo.install -> Vue.component
 Vue.use(Card)  // Demo.install -> Vue.component
@@ -27,6 +26,7 @@ Vue.use(Button)  // Demo.install -> Vue.component
 Vue.use(Link)  // Demo.install -> Vue.component
 Vue.use(Tree)  // Demo.install -> Vue.component
 Vue.use(Label)  // Demo.install -> Vue.component
+Vue.use(Table)  // Demo.install -> Vue.component
 
 Vue.config.productionTip = false
  
