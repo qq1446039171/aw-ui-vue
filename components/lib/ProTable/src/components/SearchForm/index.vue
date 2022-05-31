@@ -19,7 +19,29 @@
 import SearchFormItem from './components/SearchFormItem.vue'
 export default {
   name: 'aw-table-searchForm',
-  props: ['columns', 'searchParam', 'size', 'search', 'reset'],
+  props: {
+    columns: {
+      type: Array,
+      default: () => []
+    },
+    searchParam: {
+      type: Object,
+      default: () => ({})
+    },
+    size: {
+      type: String,
+      default: 'small'
+    },
+    search: {
+      type: Function,
+      default: () => ({})
+    },
+    reset: {
+      type: Function,
+      default: () => ({})
+    }
+  },
+  // props: ['columns', 'searchParam', 'size', 'search', 'reset'],
   components: { SearchFormItem },
   data() {
     return {

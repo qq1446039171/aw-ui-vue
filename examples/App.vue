@@ -8,8 +8,8 @@
 -->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <aw-demo />
+    <!-- <img alt="Vue logo" src="./assets/logo.png" />
+    <aw-demo /> -->
     <!-- <aw-card
       imgSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0515%2F465567a6j00qadpfz001cc000hs00b4c.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652526457&t=7733278d88991dc2480111b439e7d507"
       summary="Node.js+Express+Koa2+开发Web Server博客"
@@ -39,7 +39,7 @@
         </div>
       </template>
     </aw-card> -->
-    <aw-button>默认按2钮</aw-button>
+    <!-- <aw-button>默认按2钮</aw-button>
     <aw-button type="primary" round>主要按钮</aw-button>
     <aw-button type="success" size="medium">成功按钮</aw-button>
     <aw-button type="info" size="small">信息按钮</aw-button>
@@ -58,7 +58,7 @@
     <div style="margin-top: 50px">
       <aw-tree :treeData="treeData" type="file" @node-click="handleNodeClick"></aw-tree>
     </div>
-    <aw-label required width="90px">黄博文</aw-label>
+    <aw-label required width="90px">黄博文</aw-label> -->
     <aw-table
       :columns="columns"
       :request="getUserList"
@@ -144,16 +144,16 @@ export default {
           search: true
         },
         {
-          prop: 'gender',
-          label: '性别',
-          width: '140',
-          enum: [
+          prop: 'gender', // 关键字段
+          label: '性别',  // 查询条件提示词
+          width: '140', //表格宽度
+          enum: [   // 查询条件的枚举值
             { label: '男', value: 1 },
             { label: '女', value: 2 }
           ],
-          search: true,
-          sortable: true,
-          searchType: 'select'
+          search: true,  // 是否为查询条件
+          sortable: true, // 是否可排序
+          searchType: 'select'  // 查询类型
         },
         // {
         //   prop: 'createTime',
@@ -486,7 +486,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
-  margin-top: 60px;
+    padding: 20px;
 }
 .footer {
   padding: 0 8px;

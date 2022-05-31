@@ -20,7 +20,7 @@
       </div>
       <div class="header-button-ri" v-if="toolButton">
         <el-button icon="el-icon-refresh" circle @click="getTableList" :size="size"> </el-button>
-        <el-button icon="el-icon-s-operation" circle :size="size"> </el-button>
+        <!-- <el-button icon="el-icon-s-operation" circle :size="size"> </el-button> -->
         <el-button
           type="primary"
           icon="el-icon-search"
@@ -114,7 +114,7 @@ export default {
     // 列配置项
     columns: {
       type: Array,
-      default: []
+      default: () => {[]}
     },
     // 初始化请求参数 ==> 非必传（默认为{}）
     initParam: {
@@ -226,6 +226,7 @@ export default {
         // 更新查询参数
         this.updatedTotalParam()
         Object.assign(this.totalParam, this.initParam)
+        console.log('查询条件',this.totalParam)
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)

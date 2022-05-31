@@ -11,6 +11,11 @@ import App from './App.vue'
 // import '../components/css/demo.scss'
 // import '../components/css/card.scss'
 // import '../components/css/button.scss'
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 import '../components/css/index.scss'
 import Demo from '../components/lib/demo/index'
 import Card from '../components/lib/card/index'
