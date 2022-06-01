@@ -12,6 +12,7 @@ import Button from './button'
 import Link from './link'
 import Tree from './tree'
 import Label from './label'
+import Table from './label'
 
 const components = {
   Demo,
@@ -19,7 +20,8 @@ const components = {
   Button,
   Link,
   Tree,
-  Label
+  Label,
+  Table
 }
 // console.log(components)
 const install = function (Vue) {
