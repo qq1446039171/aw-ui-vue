@@ -6,5 +6,6 @@ module.exports ={
        filename:'index.html'
      }
    },
+   lintOnSave:false,
 }
 

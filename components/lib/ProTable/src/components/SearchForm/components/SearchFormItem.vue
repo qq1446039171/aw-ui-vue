@@ -2,7 +2,7 @@
   <div>
     <!--  输入框 -->
     <template v-if="item.searchType == undefined || item.searchType == 'text'">
-      <el-input v-model="searchParam[item.prop]" placeholder="请输入"></el-input>
+      <el-input v-model="searchParam[item.prop]" placeholder="请输入" clearable></el-input>
     </template>
     <!--  选择器  multipleSelect 多选的意思-->
     <template v-if="item.searchType == 'select' || item.searchType == 'multipleSelect'">
