@@ -1,5 +1,5 @@
 <template>
-  <div class="table-box">
+  <div class="aw-table">
     <!-- 查询表单 -->
     <!--     v-if="searchParam"-->
     <SearchForm
@@ -13,7 +13,7 @@
       <slot name="searchForm"></slot>
     </SearchForm>
     <!-- 表格头部 操作按钮 -->
-    <div class="table-header">
+    <div class="aw-table-header">
       <div class="header-button-lf">
         <slot name="tableHeader" :ids="selectedListIds" :isSelected="isSelected"></slot>
         <!-- <slot name="" :ids="selectedListIds" :isSelected="isSelected"></slot> -->
@@ -33,7 +33,7 @@
     </div>
     <!-- 表格主体 -->
     <el-table
-      max-height="575"
+      :max-height="height"
       ref="tableRef"
       :data="tableData"
       :size="size"
@@ -82,7 +82,7 @@
                 :src="scope.row[item.prop]"
                 :preview-src-list="[scope.row[item.prop]]"
                 fit="cover"
-                class="table-image"
+                class="aw-table-image"
                 preview-teleported
               />
 
@@ -100,6 +100,7 @@
       :pageable="pageable"
       :handleSizeChange="handleSizeChange"
       :handleCurrentChange="handleCurrentChange"
+      class="aw-table-pagination"
     ></Pagination>
   </div>
 </template>
@@ -108,13 +109,15 @@
 import SearchForm from './components/SearchForm/index.vue'
 import Pagination from './components/Pagination.vue'
 export default {
-  name:'aw-table',
+  name: 'aw-table',
   components: { SearchForm, Pagination },
   props: {
     // 列配置项
     columns: {
       type: Array,
-      default: () => {[]}
+      default: () => {
+        ;[]
+      }
     },
     // 初始化请求参数 ==> 非必传（默认为{}）
     initParam: {
@@ -150,6 +153,10 @@ export default {
     pagination: {
       type: Boolean,
       default: true
+    },
+    height: {
+      type: Number,
+      default: 575
     }
   },
   data() {
@@ -226,7 +233,7 @@ export default {
         // 更新查询参数
         this.updatedTotalParam()
         Object.assign(this.totalParam, this.initParam)
-        console.log('查询条件',this.totalParam)
+        console.log('查询条件', this.totalParam)
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)
@@ -269,10 +276,9 @@ export default {
      * */
     search() {
       this.pageable.pageNum = 1
-    
-      this.getTableList()
-        console.log({ ...this.totalParam, ...this.initParam })
 
+      this.getTableList()
+      console.log({ ...this.totalParam, ...this.initParam })
     },
 
     /**
@@ -327,49 +333,4 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.table-box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  /*  表格 search 样式 */
-  .table-search {
-    display: flex;
-    margin-bottom: 10px;
-    .search-operation {
-      white-space: nowrap;
-      margin-left: 15px;
-      .search-isOpen {
-        margin-left: 20px;
-      }
-    }
-  }
-  .el-pagination {
-    display: flex;
-    margin: 23px 0 10px 0;
-    justify-content: flex-end;
-  }
-}
-
-/* 表格 header 样式 */
-.table-header {
-  .header-button-lf {
-    float: left;
-    .el-button {
-      margin-bottom: 20px;
-    }
-  }
-  .header-button-ri {
-    float: right;
-    .el-button {
-      margin-bottom: 20px;
-    }
-  }
-}
-// table 中 image 图片样式
-.table-image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-</style>
+<style lang="scss"></style>

@@ -1,0 +1,44 @@
+.aw-table {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /*  表格 search 样式 */
+  .aw-table-search {
+    display: flex;
+    margin-bottom: 10px;
+    .aw-table-search-operation {
+      white-space: nowrap;
+      margin-left: 15px;
+      .search-isOpen {
+        margin-left: 20px;
+      }
+    }
+  }
+  .aw-table-pagination {
+    display: flex;
+    margin: 23px 0 10px 0;
+    justify-content: flex-end;
+  }
+}
+
+/* 表格 header 样式 */
+.aw-table-header {
+  .header-button-lf {
+    float: left;
+    .el-button {
+      margin-bottom: 20px;
+    }
+  }
+  .header-button-ri {
+    float: right;
+    .el-button {
+      margin-bottom: 20px;
+    }
+  }
+}
+// table 中 image 图片样式
+.aw-table-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="table-search" v-if="columns.length">
+  <div class="aw-table-search" v-if="columns.length">
     <!-- :style="`max-width: ${maxWidth}px`" -->
     <el-form ref="formRef" :model="searchParam" :size="size" :inline="true" label-width="100px">
       <el-form-item :label="`${item.label} :`" v-for="item in columns" :key="item.prop">
@@ -8,7 +8,7 @@
 
       <slot></slot>
     </el-form>
-    <div class="search-operation">
+    <div class="aw-table-search-operation">
       <el-button type="primary" icon="el-icon-search" @click="search" :size="size">搜索</el-button>
       <el-button icon="el-icon-delete" @click="reset" :size="size">重置</el-button>
     </div>

@@ -61,6 +61,7 @@
     <aw-label required width="90px">黄博文</aw-label> -->
     <aw-table
       :columns="columns"
+      :height="600"
       :request="getUserList"
       :initParam="initParam"
       :resetInitParam="resetInitParam"
@@ -145,15 +146,16 @@ export default {
         },
         {
           prop: 'gender', // 关键字段
-          label: '性别',  // 查询条件提示词
+          label: '性别', // 查询条件提示词
           width: '140', //表格宽度
-          enum: [   // 查询条件的枚举值
+          enum: [
+            // 查询条件的枚举值
             { label: '男', value: 1 },
             { label: '女', value: 2 }
           ],
-          search: true,  // 是否为查询条件
+          search: true, // 是否为查询条件
           sortable: true, // 是否可排序
-          searchType: 'select'  // 查询类型
+          searchType: 'select' // 查询类型
         },
         // {
         //   prop: 'createTime',
@@ -486,7 +488,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #2c3e50;
-    padding: 20px;
+  padding: 20px;
 }
 .footer {
   padding: 0 8px;
