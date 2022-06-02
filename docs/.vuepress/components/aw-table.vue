@@ -237,10 +237,10 @@ export default {
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)
-        const { pageNum, pageSize, totalElements, rows } = data
+        const { pageNum, pageSize, total, rows } = data
         //  从后端拿数据
         this.tableData = rows || []
-        this.updatePageable({ pageNum, pageSize, totalElements })
+        this.updatePageable({ pageNum, pageSize, total })
       } catch (error) {
         console.log(error)
       }
@@ -334,6 +334,9 @@ export default {
 </script>
 
 <style lang="scss">
+table {
+  margin: 0 !important;
+}
 .aw-table {
   display: flex;
   flex-direction: column;

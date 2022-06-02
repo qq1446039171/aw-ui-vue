@@ -125,7 +125,7 @@ Table 表格组件
               ],
               pageNum: 1,
               pageSize: 10,
-              total: 15
+              total: 3
             })
           }, 300)
         })
@@ -366,7 +366,7 @@ Table 表格组件
               ],
               pageNum: 1,
               pageSize: 10,
-              total: 15
+              total: 3
             })
           }, 300)
         })
