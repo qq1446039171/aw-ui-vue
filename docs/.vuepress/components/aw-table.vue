@@ -170,7 +170,7 @@ export default {
         // 每页显示条数
         pageSize: 10,
         // 总条数
-        total: 0
+        totalElements: 0
       },
       // 查询参数(只包括查询)
       searchParam: {},
@@ -237,10 +237,10 @@ export default {
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)
-        const { pageNum, pageSize, total, rows } = data
+        const { pageNum, pageSize, totalElements, rows } = data
         //  从后端拿数据
         this.tableData = rows || []
-        this.updatePageable({ pageNum, pageSize, total })
+        this.updatePageable({ totalElements })
       } catch (error) {
         console.log(error)
       }

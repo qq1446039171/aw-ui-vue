@@ -285,7 +285,7 @@ export default {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve({
-            rows: [
+            content: [
               {
                 id: '1',
                 username: '侯秀英',
@@ -469,7 +469,7 @@ export default {
             ],
             pageNum: 1,
             pageSize: 10,
-            total: 15
+            totalElements: 15
           })
         }, 300)
       })

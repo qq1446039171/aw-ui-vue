@@ -237,10 +237,11 @@ export default {
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)
-        const { pageNum, pageSize, total, rows } = data
+        const { pageNum, pageSize, totalElements, content } = data
         //  从后端拿数据
-        this.tableData = rows || []
-        this.updatePageable({ pageNum, pageSize, total })
+        this.tableData = content || []
+        //  加入后端未返回 pageNum  pageSize 。那我们只需要总条数就可以了
+        this.updatePageable({ totalElements })
       } catch (error) {
         console.log(error)
       }
