@@ -12,7 +12,7 @@ import Button from './button'
 import Link from './link'
 import Tree from './tree'
 import Label from './label'
-import Table from './label'
+import Table from './table'
 
 const components = {
   Demo,

@@ -51,13 +51,12 @@
 
 <script>
 export default {
-    name: 'aw-table-searchFormItem',
+  name: 'aw-table-searchFormItem',
   props: ['item', 'searchParam'],
   data() {
     return {}
   },
-  mounted() {
-  },
+  mounted() {},
   methods: {
     daterangeChange(val) {
       console.log(val)

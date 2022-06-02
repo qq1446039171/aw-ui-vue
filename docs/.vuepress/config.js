@@ -9,6 +9,7 @@ module.exports = {
       '/componentDocs/button',
       '/componentDocs/link',
       '/componentDocs/tree',
+      '/componentDocs/table',
 
     ],
     nav: [
