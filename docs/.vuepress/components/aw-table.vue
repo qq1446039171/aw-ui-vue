@@ -237,9 +237,9 @@ export default {
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)
-        const { pageNum, pageSize, totalElements, rows } = data
+        const { pageNum, pageSize, totalElements, content } = data
         //  从后端拿数据
-        this.tableData = rows || []
+        this.tableData = content || []
         this.updatePageable({ totalElements })
       } catch (error) {
         console.log(error)
@@ -276,9 +276,7 @@ export default {
      * */
     search() {
       this.pageable.pageNum = 1
-
       this.getTableList()
-      console.log({ ...this.totalParam, ...this.initParam })
     },
 
     /**
@@ -295,6 +293,22 @@ export default {
       })
       this.getTableList()
     },
+
+    /**
+     * @description 表格数据刷新 普遍用于表格数据改变后更新的操作
+     * @return void
+     * */
+    refresh() {
+      this.pageable.pageNum = 1
+      this.searchParam = {}
+      this.resetInitParam()
+      // 重置搜索表单的时，如果有默认搜索参数，则重置默认的搜索参数
+      Object.keys(this.initSearchParam).forEach((key) => {
+        this.searchParam[key] = this.initSearchParam[key]
+      })
+      this.getTableList()
+    },
+
     /**
      * @description 每页条数改变
      * @param val 当前条数

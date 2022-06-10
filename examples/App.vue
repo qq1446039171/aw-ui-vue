@@ -1,11 +1,3 @@
-<!--
- * @Description: 首页
- * @Version: 2.0
- * @Author: 黄博文
- * @Date: 2022-04-24 20:53:16
- * @LastEditors: 黄博文
- * @LastEditTime: 2022-04-26 10:34:53
--->
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png" />
@@ -39,26 +31,6 @@
         </div>
       </template>
     </aw-card> -->
-    <!-- <aw-button>默认按2钮</aw-button>
-    <aw-button type="primary" round>主要按钮</aw-button>
-    <aw-button type="success" size="medium">成功按钮</aw-button>
-    <aw-button type="info" size="small">信息按钮</aw-button>
-    <aw-button type="warning" size="mini" round>警告按钮</aw-button>
-    <aw-button type="danger">危险按钮</aw-button>
-
-    <aw-link disabled>默认按钮</aw-link>
-    <aw-link type="primary" url="/home">主要按钮</aw-link>
-    <aw-link type="success">成功按钮</aw-link>
-    <aw-link type="info">信息按钮</aw-link>
-    <aw-link type="warning">警告按钮</aw-link>
-    <aw-link type="danger">危险按钮</aw-link>
-    <div style="margin-top: 50px">
-      <aw-tree :treeData="treeData"></aw-tree>
-    </div>
-    <div style="margin-top: 50px">
-      <aw-tree :treeData="treeData" type="file" @node-click="handleNodeClick"></aw-tree>
-    </div>
-    <aw-label required width="90px">黄博文</aw-label> -->
     <aw-table
       :columns="columns"
       :height="600"
@@ -109,7 +81,7 @@
       <!-- 表格操作 -->
       <template #operation="scope">
         <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
-        <el-button type="text">删除</el-button>
+        <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
       </template>
     </aw-table>
   </div>
@@ -199,88 +171,10 @@ export default {
           width: 150,
           fixed: 'right'
         }
-      ],
-      treeData: [
-        {
-          label: '一级 1',
-          children: [
-            {
-              label: '二级 1-1',
-              children: [
-                {
-                  label: '三级 1-1-1'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: '一级 2',
-          children: [
-            {
-              label: '二级 2-1',
-              children: [
-                {
-                  label: '三级 2-1-1'
-                }
-              ]
-            },
-            {
-              label: '二级 2-2',
-              children: [
-                {
-                  label: '三级 2-2-1'
-                }
-              ]
-            }
-          ]
-        },
-        {
-          label: '一级 3',
-          children: [
-            {
-              label: '二级 3-1',
-              children: [
-                {
-                  label: '三级 3-1-1'
-                }
-              ]
-            },
-            {
-              label: '二级 3-2',
-              children: [
-                {
-                  label: '三级 3-2-1',
-                  children: [
-                    {
-                      label: '二级 3-1',
-                      children: [
-                        {
-                          label: '三级 3-1-1'
-                        }
-                      ]
-                    },
-                    {
-                      label: '二级 3-2',
-                      children: [
-                        {
-                          label: '三级 3-2-1'
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
       ]
     }
   },
   methods: {
-    handleNodeClick(node) {
-      console.log(node)
-    },
     getUserList() {
       return new Promise((resolve) => {
         setTimeout(() => {
@@ -476,6 +370,12 @@ export default {
     },
     resetInitParam() {
       this.initParam = {}
+    },
+    batchDelete(ids) {
+      console.log('需要删除的对象id：', ids)
+    },
+    deleteAccount(id) {
+      console.log('需要删除的对象id：', id)
     }
   }
 }

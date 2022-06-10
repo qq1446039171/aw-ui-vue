@@ -5,7 +5,7 @@
     :page-sizes="[10, 25, 50, 100]"
     :background="true"
     layout="total, sizes, prev, pager, next, jumper"
-    :total="pageable.total"
+    :total="pageable.totalElements"
     @size-change="handleSizeChange"
     @current-change="handleCurrentChange"
   ></el-pagination>

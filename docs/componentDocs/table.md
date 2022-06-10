@@ -3,6 +3,7 @@
 Table 表格组件
 
 ### 示例
+
 <script>
   export default {
   data() {
@@ -85,7 +86,7 @@ Table 表格组件
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve({
-              rows: [
+              content: [
                 {
                   id: '1',
                   username: '侯秀英',
@@ -132,6 +133,16 @@ Table 表格组件
       },
       resetInitParam() {
         this.initParam = {}
+      },
+      batchDelete(ids) {
+      console.log( ids)
+      },
+      deleteAccount(id) {
+        console.log(id)
+      },
+      //  重新获取表格数据
+      refresh() {
+        this.$refs.ProTable.refresh()
       }
     }
   }
@@ -186,8 +197,8 @@ Table 表格组件
       </template>
       <!-- 表格操作 -->
       <template #operation="scope">
-        <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
-        <el-button type="text">删除</el-button>
+         <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
+        <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
       </template>
     </aw-table>
 
@@ -254,7 +265,7 @@ Table 表格组件
           {
             type: 'selection',
             width: 80,
-            fixed: 'left'
+            fixed: 'left' // 固定列
           },
           {
             type: 'index',
@@ -322,11 +333,12 @@ Table 表格组件
       }
     },
     methods: {
+      //  模拟后端请求
       getUserList() {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve({
-              rows: [
+              content: [
                 {
                   id: '1',
                   username: '侯秀英',
@@ -373,18 +385,30 @@ Table 表格组件
       },
       resetInitParam() {
         this.initParam = {}
+      },
+      batchDelete(ids) {
+        console.log(ids)
+      },
+      deleteAccount(id) {
+        console.log(id)
+      },
+      //  重新获取表格数据
+      refresh() {
+        this.$refs.ProTable.refresh()
       }
     }
   }
 </script>
 ```
 
-### Attributes
+### Table Attributes
 
-| 属性       | 说明         | 类型   | 可选值 | 是否必要 | 默认值 |
-| :--------- | :----------- | :----- | :----- | :------- | :----- |
-| node-click | 展示数据     | array  | -      | true     | -      |
-| type       | 图标展示类型 | string | file   | false    | false  |
+| 属性           | 说明                                                      | 类型     | 是否必要 | 默认值 |
+| :------------- | :-------------------------------------------------------- | :------- | :------- | :----- |
+| columns        | 列配置项(包含 table 中的 columns 与 搜索栏中的字段 )      | Object   | true     | -      |
+| initParam      | 初始化请求参数                                            | Object   | -        | -      |
+| request        | 请求表数据方法                                            | Function | true     | -      |
+| resetInitParam | 重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置) | Object   | -        | -      |
 
 ### Events
 

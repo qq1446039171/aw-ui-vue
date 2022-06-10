@@ -41,7 +41,6 @@ export default {
       default: () => ({})
     }
   },
-  // props: ['columns', 'searchParam', 'size', 'search', 'reset'],
   components: { SearchFormItem },
   data() {
     return {
