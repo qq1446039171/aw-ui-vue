@@ -392,7 +392,7 @@ Table 表格组件
       deleteAccount(id) {
         console.log(id)
       },
-      //  重新获取表格数据
+      //  重新获取表格数据,在删除一项数据或添加完一个数据后可使用。
       refresh() {
         this.$refs.ProTable.refresh()
       }
@@ -403,15 +403,22 @@ Table 表格组件
 
 ### Table Attributes
 
-| 属性           | 说明                                                      | 类型     | 是否必要 | 默认值 |
-| :------------- | :-------------------------------------------------------- | :------- | :------- | :----- |
-| columns        | 列配置项(包含 table 中的 columns 与 搜索栏中的字段 )      | Object   | true     | -      |
-| initParam      | 初始化请求参数                                            | Object   | -        | -      |
-| request        | 请求表数据方法                                            | Function | true     | -      |
-| resetInitParam | 重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置) | Object   | -        | -      |
+| 属性           | 说明                                                      | 类型     | 默认值 | 可选值                |
+| :------------- | :-------------------------------------------------------- | :------- | :----- | :-------------------- |
+| columns        | 列配置项(包含 table 中的 columns 与 搜索栏中的字段 )      | Object   | -      | -                     |
+| request        | 请求表数据方法                                            | Function | -      | -                     |
+| initParam      | 初始化请求参数                                            | Object   | -      | -                     |
+| resetInitParam | 重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置) | Function | -      | -                     |
+| toolButton     | 是否显示表格功能按钮(刷新以及显示隐藏搜索栏)              | Boolean  | true   | true / false          |
+| size           | 整个页面中 Element 组件的大小                             | string   | small  | medium / small / mini |
+| border         | 表格边框                                                  | Boolean  | true   | true / false          |
+| pagination     | 是否需要分页组件                                          | Boolean  | true   | true / false          |
+| height         | 表格高度（超出此高度 Table 会滚动）                       | Number   | -      | -                     |
 
-### Events
+### Slots
 
-| 事件     | 说明               | 回调参数                                   |
-| :------- | :----------------- | :----------------------------------------- |
-| treeData | 节点被点击时的回调 | 传递给 data 属性的数组中该节点所对应的对象 |
+| 事件                                  | 说明                  |
+| :------------------------------------ | :-------------------- |
+| searchForm                            | 搜索栏尾部内容        |
+| tableHeader                           | 表格头部 操作按钮     |
+| columns 中的每一个 prop 对应一个 slot | 自定义配置每一列 slot |
