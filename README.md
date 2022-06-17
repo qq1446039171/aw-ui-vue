@@ -16,11 +16,6 @@ import 'aw-ui-vue/dist/css/index.css'
 import AwUI from 'aw-ui-vue'
 Vue.use(AwUI)
 
-//  按需引入(还有点小问题)
-import 'aw-ui-vue/dist/css/demo.css'
-import { Demo } from 'aw-ui-vue'
-Vue.use(Demo)
-
 // 使用 
 <aw-demo/>
 ```
