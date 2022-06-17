@@ -26,10 +26,11 @@ async function getComponents(dirPath, list) {
 }
 getComponents('components/lib', list)
 module.exports = {
-  entry: list,
+  // entry: list,  取消打包多入口
+  entry: './components/lib/index.js',
   mode: 'development',
   output: {
-    filename: '[name].umd.js',
+    filename: 'index.umd.js',
     path: path.resolve(__dirname, 'dist'),
     library: 'mui',
     libraryTarget: 'umd'
