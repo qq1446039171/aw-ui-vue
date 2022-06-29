@@ -1,6 +1,5 @@
-@REM npm run build
-@REM npm run docs:build
-
-git init
+npm run build 
+npm run docs:build 
 git add -A
 git commit -m '自动化'
+git push

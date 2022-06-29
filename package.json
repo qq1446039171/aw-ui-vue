@@ -28,7 +28,7 @@
     "build:css": "npx gulp sass",
     "docs:dev": "vuepress dev docs --temp .temp",
     "docs:build": "vuepress build docs",
-    "deploy": "bash deploy.sh"
+    "deploy": "npm run build  & npm run docs:build &   git add -A && git commit -m 'update' && git push"
   },
   "dependencies": {
     "async-validator": "^4.1.1",
