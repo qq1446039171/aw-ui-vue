@@ -15,6 +15,8 @@
 
 ### 最后在提交
 
+### 库打包,文档打包,代码提交 npm run deploy
+
 ```js
 package.json 中
 "files": [
