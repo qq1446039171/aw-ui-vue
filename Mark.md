@@ -9,7 +9,7 @@
 
 ### 库打包 npm run build
 
-### 上传 npm
+### 上传 npm publish
 
 ### 文档打包 npm run docs:build
 
