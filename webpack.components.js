@@ -33,7 +33,7 @@ module.exports = {
     // filename: '[name].umd.js', //取消打包多入口
     filename: 'index.umd.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'mui',
+    library: 'Aui',
     libraryTarget: 'umd'
   },
   plugins: [new VueLoaderPlugin()],
