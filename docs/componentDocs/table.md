@@ -519,17 +519,20 @@ Table 表格组件
 
 ### Table Attributes
 
-| 属性           | 说明                                                      | 类型     | 默认值 | 可选值                |
-| :------------- | :-------------------------------------------------------- | :------- | :----- | :-------------------- |
-| columns        | 列配置项(包含 table 中的 columns 与 搜索栏中的字段 )      | Object   | -      | -                     |
-| request        | 请求表数据方法                                            | Function | -      | -                     |
-| initParam      | 初始化请求参数                                            | Object   | -      | -                     |
-| resetInitParam | 重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置) | Function | -      | -                     |
-| toolButton     | 是否显示表格功能按钮(刷新以及显示隐藏搜索栏)              | Boolean  | true   | true / false          |
-| size           | 整个页面中 Element 组件的大小                             | string   | small  | medium / small / mini |
-| border         | 表格边框                                                  | Boolean  | true   | true / false          |
-| pagination     | 是否需要分页组件                                          | Boolean  | true   | true / false          |
-| height         | 表格高度（超出此高度 Table 会滚动）                       | Number   | -      | -                     |
+| 属性           | 说明                                                      | 类型     | 默认值             | 可选值                |
+| :------------- | :-------------------------------------------------------- | :------- | :----------------- | :-------------------- |
+| columns        | 列配置项(包含 table 中的 columns 与 搜索栏中的字段 )      | Object   | -                  | - 必填                |
+| request        | 请求表数据方法                                            | Function | -                  | - 必填                |
+| initParam      | 初始化请求参数                                            | Object   | -                  | -                     |
+| resetInitParam | 重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置) | Function | -                  | -                     |
+| toolButton     | 是否显示表格功能按钮(刷新以及显示隐藏搜索栏)              | Boolean  | true               | true / false          |
+| size           | 整个页面中 Element 组件的大小                             | string   | small              | medium / small / mini |
+| border         | 表格边框                                                  | Boolean  | true               | true / false          |
+| pagination     | 是否需要分页组件                                          | Boolean  | true               | true / false          |
+| height         | 表格高度（超出此高度 Table 会滚动）                       | Number   | -                  | -                     |
+| isShowSearch   | 是否显示查询条件                                          | Boolean  | true               | -                     |
+| pageSizes      | 分页大小                                                  | Array    | [10, 50, 100, 200] | -                     |
+| labelWidth     | 表单域标签的宽度                                          | Number   | 100                | -                     |
 
 ### Slots
 

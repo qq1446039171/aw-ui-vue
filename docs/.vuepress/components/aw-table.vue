@@ -173,7 +173,7 @@ export default {
     },
     //  分页大小
     pageSizes: {
-      default: () => [10, 50, 100, 500],
+      default: () => [10, 50, 100, 200],
       type: Array
     },
     // 表单域标签的宽度
