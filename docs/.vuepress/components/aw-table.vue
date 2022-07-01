@@ -1,22 +1,29 @@
 <template>
   <div class="aw-table">
     <!-- 查询表单 -->
-    <!--     v-if="searchParam"-->
+    <!--     v-if="searchParam" 为什么不要这个呢因为有时我不需要columns中的搜索栏-->
     <SearchForm
       v-show="isShowSearch"
       :columns="searchColumns"
       :searchParam="searchParam"
+      :labelWidth="labelWidth"
       :search="search"
       :reset="reset"
       :size="size"
     >
-      <slot name="searchForm"></slot>
+      <!--  查询条件中 前置插槽 -->
+      <template slot="searchForm">
+        <slot name="searchForm"></slot>
+      </template>
+      <!--  查询条件中 后置插槽 -->
+      <template slot="searchButton">
+        <slot name="searchButton" :ids="selectedListIds" :isSelected="isSelected"></slot>
+      </template>
     </SearchForm>
     <!-- 表格头部 操作按钮 -->
     <div class="aw-table-header">
       <div class="header-button-lf">
         <slot name="tableHeader" :ids="selectedListIds" :isSelected="isSelected"></slot>
-        <!-- <slot name="" :ids="selectedListIds" :isSelected="isSelected"></slot> -->
       </div>
       <div class="header-button-ri" v-if="toolButton">
         <el-button icon="el-icon-refresh" circle @click="getTableList" :size="size"> </el-button>
@@ -36,7 +43,6 @@
       :max-height="height"
       ref="tableRef"
       :data="tableData"
-      :size="size"
       :border="border"
       :row-key="getRowKeys"
       v-loading="loading"
@@ -50,7 +56,7 @@
           :label="item.label"
           :width="item.width"
           :fixed="item.fixed"
-          align="center"
+          :align="item.align ? item.align : 'center'"
         >
         </el-table-column>
         <el-table-column
@@ -59,7 +65,7 @@
           :label="item.label"
           :width="item.width"
           :fixed="item.fixed"
-          align="center"
+          :align="item.align ? item.align : 'center'"
         >
         </el-table-column>
         <el-table-column
@@ -71,7 +77,7 @@
           :show-overflow-tooltip="true"
           :resizable="true"
           :fixed="item.fixed"
-          align="center"
+          :align="item.align ? item.align : 'center'"
           v-slot="scope"
         >
           <template :scope="scope.row">
@@ -98,6 +104,7 @@
     <Pagination
       v-if="pagination"
       :pageable="pageable"
+      :pageSizes="pageSizes"
       :handleSizeChange="handleSizeChange"
       :handleCurrentChange="handleCurrentChange"
       class="aw-table-pagination"
@@ -154,9 +161,25 @@ export default {
       type: Boolean,
       default: true
     },
+    // 表格高度
     height: {
       type: Number,
       default: 575
+    },
+    // 是否显示查询条件
+    isShowSearch: {
+      type: Boolean,
+      default: true
+    },
+    //  分页大小
+    pageSizes: {
+      default: () => [10, 50, 100, 500],
+      type: Array
+    },
+    // 表单域标签的宽度
+    labelWidth: {
+      type: Number,
+      default: 100
     }
   },
   data() {
@@ -166,11 +189,11 @@ export default {
       // 分页数据
       pageable: {
         // 当前页数
-        pageNum: 1,
+        page: 1,
         // 每页显示条数
-        pageSize: 10,
+        size: 10,
         // 总条数
-        totalElements: 0
+        total: 0
       },
       // 查询参数(只包括查询)
       searchParam: {},
@@ -179,8 +202,6 @@ export default {
       // 总参数(包含分页和查询参数)
       totalParam: {},
       loading: true,
-      // 是否显示查询条件
-      isShowSearch: true,
       // 是否选中数据
       isSelected: false,
       // 选中的数据列表
@@ -210,8 +231,8 @@ export default {
     },
     pageParam() {
       return {
-        pageNum: this.pageable.pageNum,
-        pageSize: this.pageable.pageSize
+        page: this.pageable.page,
+        size: this.pageable.size
       }
     },
     selectedListIds() {
@@ -237,10 +258,14 @@ export default {
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)
-        const { pageNum, pageSize, totalElements, content } = data
+        let medium = data.data ? data.data : data
+
+        const { page, size, total, rows } = medium
+
         //  从后端拿数据
-        this.tableData = content || []
-        this.updatePageable({ totalElements })
+        this.tableData = rows || []
+        //  假如后端未返回 page  size 。那我们只需要总条数就可以了
+        this.updatePageable({ total })
       } catch (error) {
         console.log(error)
       }
@@ -275,7 +300,7 @@ export default {
      * @return void
      * */
     search() {
-      this.pageable.pageNum = 1
+      this.pageable.page = 1
       this.getTableList()
     },
 
@@ -283,40 +308,38 @@ export default {
      * @description 表格数据重置
      * @return void
      * */
-    reset() {
-      this.pageable.pageNum = 1
+    async reset() {
+      this.pageable.page = 1
       this.searchParam = {}
-      this.resetInitParam()
+      await this.resetInitParam()
       // 重置搜索表单的时，如果有默认搜索参数，则重置默认的搜索参数
       Object.keys(this.initSearchParam).forEach((key) => {
         this.searchParam[key] = this.initSearchParam[key]
       })
       this.getTableList()
     },
-
     /**
      * @description 表格数据刷新 普遍用于表格数据改变后更新的操作
      * @return void
      * */
-    refresh() {
-      this.pageable.pageNum = 1
+    async refresh() {
+      this.pageable.page = 1
       this.searchParam = {}
-      this.resetInitParam()
+      await this.resetInitParam()
       // 重置搜索表单的时，如果有默认搜索参数，则重置默认的搜索参数
       Object.keys(this.initSearchParam).forEach((key) => {
         this.searchParam[key] = this.initSearchParam[key]
       })
       this.getTableList()
     },
-
     /**
      * @description 每页条数改变
      * @param val 当前条数
      * @return void
      * */
     handleSizeChange(number) {
-      this.pageable.pageNum = 1
-      this.pageable.pageSize = number
+      this.pageable.page = 1
+      this.pageable.size = number
       this.getTableList()
     },
 
@@ -326,7 +349,7 @@ export default {
      * @return void
      * */
     handleCurrentChange(number) {
-      this.pageable.pageNum = number
+      this.pageable.page = number
       this.getTableList()
     },
 
@@ -349,7 +372,7 @@ export default {
 
 <style lang="scss">
 table {
-  margin: 0 !important;
+  margin: 0;
 }
 .aw-table {
   display: flex;

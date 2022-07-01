@@ -1,36 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png" />
-    <aw-demo /> -->
-    <!-- <aw-card
-      imgSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0515%2F465567a6j00qadpfz001cc000hs00b4c.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652526457&t=7733278d88991dc2480111b439e7d507"
-      summary="Node.js+Express+Koa2+开发Web Server博客"
-    />
-    <aw-card
-      imgSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0515%2F465567a6j00qadpfz001cc000hs00b4c.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652526457&t=7733278d88991dc2480111b439e7d507"
-      summary="Node.js+Express+Koa2+开发Web Server博客"
-    >
-      <template slot="footer">
-        <div class="footer">
-          <div class="level">中级 . 523人报名</div>
-          <div class="price">￥899.00</div>
-        </div>
-      </template>
-    </aw-card>
-    <aw-card
-      imgSrc="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0515%2F465567a6j00qadpfz001cc000hs00b4c.jpg&refer=http%3A%2F%2Fdingyue.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1652526457&t=7733278d88991dc2480111b439e7d507"
-      summary="Node.js+Express+Koa2+开发Web Server博客"
-      :width="370"
-      :imgHeight="90"
-    >
-      Node.js+Express+Koa2+开发Web Server博客
-      <template slot="footer">
-        <div class="footer">
-          <div class="level">中级 . 523人报名</div>
-          <div class="price">￥899.00</div>
-        </div>
-      </template>
-    </aw-card> -->
     <aw-table
       :columns="columns"
       :height="600"
@@ -179,7 +148,7 @@ export default {
       return new Promise((resolve) => {
         setTimeout(() => {
           resolve({
-            content: [
+            rows: [
               {
                 id: '1',
                 username: '侯秀英',
@@ -363,7 +332,7 @@ export default {
             ],
             pageNum: 1,
             pageSize: 10,
-            totalElements: 15
+            total: 15
           })
         }, 300)
       })

@@ -1,7 +1,7 @@
 ### 运行程序
 
 1. webpack 版本: "webpack": "^5.0.0-beta.12",
-
+2. "webpack-cli": "^4.9.2"
 ### 运行 vuepress
 
 1. webpack 版本需要在 4.0 几的版本 "webpack": "4.44.1"

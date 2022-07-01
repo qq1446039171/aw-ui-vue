@@ -6,261 +6,15 @@ Table 表格组件
 
 <script>
   export default {
-  data() {
-      return {
-        size: 'small',
-        // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
-        initParam: {},
-        columns: [
-          {
-            type: 'selection',
-            width: 80,
-            fixed: 'left'
-          },
-          {
-            type: 'index',
-            label: '#',
-            width: 80
-          },
-          {
-            type: 'expand',
-            label: 'Expand',
-            width: 120
-          },
-          {
-            prop: 'username',
-            label: '用户姓名',
-            search: true
-          },
-          {
-            prop: 'gender', // 关键字段
-            label: '性别', // 查询条件提示词
-            width: '140', //表格宽度
-            enum: [
-              // 查询条件的枚举值
-              { label: '男', value: 1 },
-              { label: '女', value: 2 }
-            ],
-            search: true, // 是否为查询条件
-            sortable: true, // 是否可排序
-            searchType: 'select' // 查询类型
-          },
-          {
-            prop: 'idCard',
-            label: '身份证号',
-            search: true
-          },
-          {
-            prop: 'email',
-            label: '邮箱',
-            search: true
-          },
-          {
-            prop: 'address',
-            label: '居住地址',
-            search: true
-          },
-          {
-            prop: 'status',
-            label: '用户状态',
-            sortable: true,
-            width: 180
-          },
-          {
-            prop: 'avatar',
-            label: '头像',
-            width: 140,
-            image: true
-          },
-          {
-            prop: 'operation',
-            label: '操作',
-            width: 150,
-            fixed: 'right'
-          }
-        ],
-      }
-    },
-    methods: {
-      getUserList() {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve({
-              content: [
-                {
-                  id: '1',
-                  username: '侯秀英',
-                  gender: 1,
-                  age: 30,
-                  idCard: '05763240829223234475',
-                  email: 'v.wydgaw@xvfa.ch',
-                  address: '吉林省 松原市',
-                  createTime: '1983-10-30 20:07:53',
-                  status: 1,
-                  avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-                },
-                {
-                  id: '2',
-                  username: '黄博文',
-                  gender: 2,
-                  age: 22,
-                  idCard: '05763240829223234475',
-                  email: 'v.wydgaw@xvfa.ch',
-                  address: '湖南 长沙市',
-                  createTime: '1983-10-30 20:07:53',
-                  status: 2,
-                  avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-                },
-                {
-                  id: '3',
-                  username: '黄博文',
-                  gender: 2,
-                  age: 22,
-                  idCard: '05763240829223234475',
-                  email: 'v.wydgaw@xvfa.ch',
-                  address: '湖南 长沙市',
-                  createTime: '1983-10-30 20:07:53',
-                  status: 2,
-                  avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-                }
-              ],
-              pageNum: 1,
-              pageSize: 10,
-              totalElements: 3
-            })
-          }, 300)
-        })
-      },
-      resetInitParam() {
-        this.initParam = {}
-      },
-      batchDelete(ids) {
-      console.log( ids)
-      },
-      deleteAccount(id) {
-        console.log(id)
-      },
-      //  重新获取表格数据
-      refresh() {
-        this.$refs.ProTable.refresh()
-      }
-    }
-  }
-</script>
-
-<br/>
- <aw-table
-      :columns="columns"
-      :height="600"
-      :request="getUserList"
-      :initParam="initParam"
-      :resetInitParam="resetInitParam"
-      :size="size"
-      ref="ProTable"
-    >
-      <template slot="searchForm">
-        <el-date-picker
-          v-model="initParam.createTime"
-          value-format="yyyy-MM-dd"
-          type="daterange"
-          range-separator="至"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-          :size="size"
-        >
-        </el-date-picker>
-      </template>
-      <template slot="tableHeader" slot-scope="scope">
-        <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
-        <el-button type="primary" icon="el-icon-upload2" plain :size="size">批量添加用户</el-button>
-        <el-button type="primary" icon="el-icon-download" plain :size="size">导出用户数据</el-button>
-        <el-button
-          type="danger"
-          icon="el-icon-delete"
-          plain
-          :size="size"
-          :disabled="!scope.isSelected"
-          @click="batchDelete(scope.ids)"
-        >
-          批量删除用户
-        </el-button>
-      </template>
-      <template slot="gender" slot-scope="scope">
-        <div>
-          {{ scope.row.gender == '1' ? '男' : '女' }}
-        </div>
-      </template>
-      <template slot="status" slot-scope="scope">
-        <div>
-          {{ scope.row.status ? '开启' : '关闭' }}
-        </div>
-      </template>
-      <!-- 表格操作 -->
-      <template #operation="scope">
-         <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
-        <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
-      </template>
-    </aw-table>
-
-### 代码
-
-```html
-<aw-table
-  :columns="columns"
-  :height="600"
-  :request="getUserList"
-  :initParam="initParam"
-  :resetInitParam="resetInitParam"
-  :size="size"
-  ref="ProTable"
->
-  <template slot="searchForm">
-    <el-date-picker
-      v-model="initParam.createTime"
-      value-format="yyyy-MM-dd"
-      type="daterange"
-      range-separator="至"
-      start-placeholder="开始日期"
-      end-placeholder="结束日期"
-      :size="size"
-    >
-    </el-date-picker>
-  </template>
-  <template slot="tableHeader" slot-scope="scope">
-    <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
-    <el-button type="primary" icon="el-icon-upload2" plain :size="size">批量添加用户</el-button>
-    <el-button type="primary" icon="el-icon-download" plain :size="size">导出用户数据</el-button>
-    <el-button
-      type="danger"
-      icon="el-icon-delete"
-      plain
-      :size="size"
-      :disabled="!scope.isSelected"
-      @click="batchDelete(scope.ids)"
-    >
-      批量删除用户
-    </el-button>
-  </template>
-  <template slot="gender" slot-scope="scope">
-    <div>{{ scope.row.gender == '1' ? '男' : '女' }}</div>
-  </template>
-  <template slot="status" slot-scope="scope">
-    <div>{{ scope.row.status ? '开启' : '关闭' }}</div>
-  </template>
-  <!-- 表格操作 -->
-  <template #operation="scope">
-    <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
-    <el-button type="text">删除</el-button>
-  </template>
-</aw-table>
-
-<script>
-  export default {
     data() {
       return {
+        time: '',
         size: 'small',
         // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
-        initParam: {},
+        initParam: {
+          createBeginTime: null, // 搜索时间开始
+          createEndTime: null // 搜索时间结束
+        },
         columns: [
           {
             type: 'selection',
@@ -314,14 +68,14 @@ Table 表格组件
           {
             prop: 'status',
             label: '用户状态',
-            sortable: true,
+            sortable: true, // 是否可排序
             width: 180
           },
           {
             prop: 'avatar',
             label: '头像',
             width: 140,
-            image: true
+            image: true // 是否为图片,true可以点击放大查看
           },
           {
             prop: 'operation',
@@ -332,13 +86,19 @@ Table 表格组件
         ]
       }
     },
+    created() {
+      this.initParam = {
+        createBeginTime: this.getBeforeDate(''),
+        createEndTime: this.getBeforeDate('today')
+      }
+    },
     methods: {
       //  模拟后端请求
       getUserList() {
         return new Promise((resolve) => {
           setTimeout(() => {
             resolve({
-              content: [
+              rows: [
                 {
                   id: '1',
                   username: '侯秀英',
@@ -378,19 +138,375 @@ Table 表格组件
               ],
               pageNum: 1,
               pageSize: 10,
-              totalElements: 3
+              total: 3
             })
           }, 300)
         })
       },
+      // 获取日期年月日
+      getBeforeDate(type) {
+        let date = new Date()
+        let year = date.getFullYear()
+        let month = date.getMonth() + 1
+        let day = null
+        if (type == 'today') {
+          day = date.getDate()
+        } else {
+          day = date.getDate() - 1
+        }
+        if (month < 10) {
+          month = '0' + month
+        }
+        if (day < 10) {
+          day = '0' + day
+        }
+        let time = null
+        if (type == 'today') {
+          time = year + '-' + month + '-' + day + ' 23:59:59'
+        } else {
+          time = year + '-' + month + '-' + day + ' 00:00:00'
+        }
+        return time
+      },
       resetInitParam() {
-        this.initParam = {}
+        this.time = ''
+        this.initParam = {
+          createBeginTime: this.getBeforeDate(''),
+          createEndTime: this.getBeforeDate('today')
+        }
+      },
+      datePickerChange(val) {
+        if (val) {
+          this.initParam.createBeginTime = val[0]
+          this.initParam.createEndTime = val[1]
+        } else {
+          //  清空时间
+          this.initParam = {
+            createBeginTime: this.getBeforeDate(''),
+            createEndTime: this.getBeforeDate('today')
+          }
+        }
       },
       batchDelete(ids) {
         console.log(ids)
       },
       deleteAccount(id) {
         console.log(id)
+        this.$refs.ProTable.getTableList()
+      },
+      //  重新获取表格数据,在删除一项数据或添加完一个数据后可使用。
+      refresh() {
+        this.$refs.ProTable.refresh()
+      }
+    }
+  }
+</script>
+
+<br/>
+  <aw-table
+    :columns="columns"
+    :height="600"
+    :request="getUserList"
+    :pageSizes="[ 5, 10, 20, 30, 40, 50]"
+    :initParam="initParam"
+    :resetInitParam="resetInitParam"
+    :size="size"
+    ref="ProTable"
+  >
+    <template slot="searchForm">
+      <el-form-item label="结算时间:">
+        <el-date-picker
+          v-model="time"
+          value-format="yyyy-MM-dd HH:mm:ss"
+          type="datetimerange"
+          range-separator="至"
+          :start-placeholder="initParam.createBeginTime"
+          :end-placeholder="initParam.createEndTime"
+          :size="size"
+          :default-time="['00:00:00', '23:59:59']"
+          :unlink-panels="true"
+          @change="datePickerChange"
+        >
+        </el-date-picker>
+      </el-form-item>
+    </template>
+    <template slot="tableHeader" slot-scope="scope">
+      <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
+      <el-button type="primary" icon="el-icon-upload2" plain :size="size">批量添加用户</el-button>
+      <el-button type="primary" icon="el-icon-download" plain :size="size">导出用户数据</el-button>
+      <el-button
+        type="danger"
+        icon="el-icon-delete"
+        plain
+        :size="size"
+        :disabled="!scope.isSelected"
+        @click="batchDelete(scope.ids)"
+      >
+        批量删除用户
+      </el-button>
+    </template>
+    <template slot="gender" slot-scope="scope">
+      <div>{{ scope.row.gender == '1' ? '男' : '女' }}</div>
+    </template>
+    <template slot="status" slot-scope="scope">
+      <div>{{ scope.row.status ? '开启' : '关闭' }}</div>
+    </template>
+    <!-- 表格操作 -->
+    <template #operation="scope">
+      <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
+      <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
+    </template>
+  </aw-table>
+
+### 代码
+
+```html
+<aw-table
+  :columns="columns"
+  :height="600"
+  :request="getUserList"
+  :pageSizes="[ 5, 10, 20, 30, 40, 50]"
+  :initParam="initParam"
+  :resetInitParam="resetInitParam"
+  :size="size"
+  ref="ProTable"
+>
+  <template slot="searchForm">
+    <el-form-item label="结算时间:">
+      <el-date-picker
+        v-model="time"
+        value-format="yyyy-MM-dd HH:mm:ss"
+        type="datetimerange"
+        range-separator="至"
+        :start-placeholder="initParam.createBeginTime"
+        :end-placeholder="initParam.createEndTime"
+        :size="small"
+        :default-time="['00:00:00', '23:59:59']"
+        :unlink-panels="true"
+        @change="datePickerChange"
+      >
+      </el-date-picker>
+    </el-form-item>
+  </template>
+  <template slot="tableHeader" slot-scope="scope">
+    <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
+    <el-button type="primary" icon="el-icon-upload2" plain :size="size">批量添加用户</el-button>
+    <el-button type="primary" icon="el-icon-download" plain :size="size">导出用户数据</el-button>
+    <el-button
+      type="danger"
+      icon="el-icon-delete"
+      plain
+      :size="size"
+      :disabled="!scope.isSelected"
+      @click="batchDelete(scope.ids)"
+    >
+      批量删除用户
+    </el-button>
+  </template>
+  <template slot="gender" slot-scope="scope">
+    <div>{{ scope.row.gender == '1' ? '男' : '女' }}</div>
+  </template>
+  <template slot="status" slot-scope="scope">
+    <div>{{ scope.row.status ? '开启' : '关闭' }}</div>
+  </template>
+  <!-- 表格操作 -->
+  <template #operation="scope">
+    <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
+    <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
+  </template>
+</aw-table>
+
+<script>
+  export default {
+    data() {
+      return {
+        time: '',
+        size: 'small',
+        // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
+        initParam: {
+          createBeginTime: null, // 搜索时间开始
+          createEndTime: null // 搜索时间结束
+        },
+        columns: [
+          {
+            type: 'selection',
+            width: 80,
+            fixed: 'left' // 固定列
+          },
+          {
+            type: 'index',
+            label: '#',
+            width: 80
+          },
+          {
+            type: 'expand',
+            label: 'Expand',
+            width: 120
+          },
+          {
+            prop: 'username',
+            label: '用户姓名',
+            search: true
+          },
+          {
+            prop: 'gender', // 关键字段
+            label: '性别', // 查询条件提示词
+            width: '140', //表格宽度
+            enum: [
+              // 查询条件的枚举值
+              { label: '男', value: 1 },
+              { label: '女', value: 2 }
+            ],
+            search: true, // 是否为查询条件
+            sortable: true, // 是否可排序
+            searchType: 'select' // 查询类型
+          },
+
+          {
+            prop: 'idCard',
+            label: '身份证号',
+            search: true
+          },
+          {
+            prop: 'email',
+            label: '邮箱',
+            search: true
+          },
+          {
+            prop: 'address',
+            label: '居住地址',
+            search: true
+          },
+          {
+            prop: 'status',
+            label: '用户状态',
+            sortable: true, // 是否可排序
+            width: 180
+          },
+          {
+            prop: 'avatar',
+            label: '头像',
+            width: 140,
+            image: true // 是否为图片,true可以点击放大查看
+          },
+          {
+            prop: 'operation',
+            label: '操作',
+            width: 150,
+            fixed: 'right'
+          }
+        ]
+      }
+    },
+    created() {
+      this.initParam = {
+        createBeginTime: this.getBeforeDate(''),
+        createEndTime: this.getBeforeDate('today')
+      }
+    },
+    methods: {
+      //  模拟后端请求
+      getUserList() {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              rows: [
+                {
+                  id: '1',
+                  username: '侯秀英',
+                  gender: 1,
+                  age: 30,
+                  idCard: '05763240829223234475',
+                  email: 'v.wydgaw@xvfa.ch',
+                  address: '吉林省 松原市',
+                  createTime: '1983-10-30 20:07:53',
+                  status: 1,
+                  avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
+                },
+                {
+                  id: '2',
+                  username: '黄博文',
+                  gender: 2,
+                  age: 22,
+                  idCard: '05763240829223234475',
+                  email: 'v.wydgaw@xvfa.ch',
+                  address: '湖南 长沙市',
+                  createTime: '1983-10-30 20:07:53',
+                  status: 2,
+                  avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
+                },
+                {
+                  id: '3',
+                  username: '黄博文',
+                  gender: 2,
+                  age: 22,
+                  idCard: '05763240829223234475',
+                  email: 'v.wydgaw@xvfa.ch',
+                  address: '湖南 长沙市',
+                  createTime: '1983-10-30 20:07:53',
+                  status: 2,
+                  avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
+                }
+              ],
+              pageNum: 1,
+              pageSize: 10,
+              total: 3
+            })
+          }, 300)
+        })
+      },
+      // 获取日期年月日  type == 'today' 获取今天的日期到23:59:59  其他值都为昨天的日期到00:00:00
+      getBeforeDate(type) {
+        let date = new Date()
+        let year = date.getFullYear()
+        let month = date.getMonth() + 1
+        let day = null
+        if (type == 'today') {
+          day = date.getDate()
+        } else {
+          day = date.getDate() - 1
+        }
+        if (month < 10) {
+          month = '0' + month
+        }
+        if (day < 10) {
+          day = '0' + day
+        }
+        let time = null
+        if (type == 'today') {
+          time = year + '-' + month + '-' + day + ' 23:59:59'
+        } else {
+          time = year + '-' + month + '-' + day + ' 00:00:00'
+        }
+        return time
+      },
+      resetInitParam() {
+        this.time = ''
+        this.initParam = {
+          createBeginTime: this.getBeforeDate(''),
+          createEndTime: this.getBeforeDate('today')
+        }
+      },
+      // 时间选择器清空更改
+      datePickerChange(val) {
+        if (val) {
+          this.initParam.createBeginTime = val[0]
+          this.initParam.createEndTime = val[1]
+        } else {
+          //  清空时间
+          this.initParam = {
+            createBeginTime: this.getBeforeDate(''),
+            createEndTime: this.getBeforeDate('today')
+          }
+        }
+      },
+      batchDelete(ids) {
+        console.log(ids)
+      },
+      //  删除后又重新获取一遍表格数据
+      deleteAccount(id) {
+        console.log(id)
+        this.$refs.ProTable.getTableList()
       },
       //  重新获取表格数据,在删除一项数据或添加完一个数据后可使用。
       refresh() {
