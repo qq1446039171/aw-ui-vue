@@ -17,13 +17,13 @@
       </template>
       <!--  查询条件中 后置插槽 -->
       <template slot="searchButton">
-        <slot name="searchButton" :ids="selectedListIds" :isSelected="isSelected"></slot>
+        <slot name="searchButton" :list="selectedData" :isSelected="isSelected"></slot>
       </template>
     </SearchForm>
     <!-- 表格头部 操作按钮 -->
     <div class="aw-table-header">
       <div class="header-button-lf">
-        <slot name="tableHeader" :ids="selectedListIds" :isSelected="isSelected"></slot>
+        <slot name="tableHeader" :list="selectedData" :isSelected="isSelected"></slot>
       </div>
       <div class="header-button-ri" v-if="toolButton">
         <el-button icon="el-icon-refresh" circle @click="getTableList" :size="size"> </el-button>
@@ -180,6 +180,11 @@ export default {
     labelWidth: {
       type: Number,
       default: 100
+    },
+    //  表格数据特殊标识符
+    tag: {
+      type: String,
+      default: 'id'
     }
   },
   data() {
@@ -189,9 +194,9 @@ export default {
       // 分页数据
       pageable: {
         // 当前页数
-        page: 1,
+        pageNum: 1,
         // 每页显示条数
-        size: 10,
+        pageSize: 10,
         // 总条数
         total: 0
       },
@@ -231,12 +236,12 @@ export default {
     },
     pageParam() {
       return {
-        page: this.pageable.page,
-        size: this.pageable.size
+        pageNum: this.pageable.pageNum,
+        pageSize: this.pageable.pageSize
       }
     },
-    selectedListIds() {
-      return this.selectedList.map((item) => item.id)
+    selectedData() {
+      return this.selectedList.map((item) => item)
     }
   },
   mounted() {
@@ -260,7 +265,7 @@ export default {
         // 解构后台返回的分页数据(如果有分页更新分页信息)
         let medium = data.data ? data.data : data
 
-        const { page, size, total, rows } = medium
+        const { pageNum, pageSize, total, rows } = medium
 
         //  从后端拿数据
         this.tableData = rows || []
@@ -300,7 +305,7 @@ export default {
      * @return void
      * */
     search() {
-      this.pageable.page = 1
+      this.pageable.pageNum = 1
       this.getTableList()
     },
 
@@ -309,7 +314,7 @@ export default {
      * @return void
      * */
     async reset() {
-      this.pageable.page = 1
+      this.pageable.pageNum = 1
       this.searchParam = {}
       await this.resetInitParam()
       // 重置搜索表单的时，如果有默认搜索参数，则重置默认的搜索参数
@@ -323,7 +328,7 @@ export default {
      * @return void
      * */
     async refresh() {
-      this.pageable.page = 1
+      this.pageable.pageNum = 1
       this.searchParam = {}
       await this.resetInitParam()
       // 重置搜索表单的时，如果有默认搜索参数，则重置默认的搜索参数
@@ -338,8 +343,8 @@ export default {
      * @return void
      * */
     handleSizeChange(number) {
-      this.pageable.page = 1
-      this.pageable.size = number
+      this.pageable.pageNum = 1
+      this.pageable.pageSize = number
       this.getTableList()
     },
 
@@ -349,7 +354,7 @@ export default {
      * @return void
      * */
     handleCurrentChange(number) {
-      this.pageable.page = number
+      this.pageable.pageNum = number
       this.getTableList()
     },
 
@@ -364,16 +369,13 @@ export default {
     },
     // 获取行数据的 Key,用来优化 Table 的渲染;在使用跨页多选时,该属性是必填的
     getRowKeys(row) {
-      return row.id
+      return row[this.tag]
     }
   }
 }
 </script>
 
-<style lang="scss">
-table {
-  margin: 0;
-}
+<style lang="scss" scope>
 .aw-table {
   display: flex;
   flex-direction: column;

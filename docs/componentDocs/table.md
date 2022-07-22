@@ -187,8 +187,8 @@ Table 表格组件
           }
         }
       },
-      batchDelete(ids) {
-        console.log(ids)
+      batchDelete(data) {
+        console.log(data)
       },
       deleteAccount(id) {
         console.log(id)
@@ -240,7 +240,7 @@ Table 表格组件
         plain
         :size="size"
         :disabled="!scope.isSelected"
-        @click="batchDelete(scope.ids)"
+        @click="batchDelete(scope)"
       >
         批量删除用户
       </el-button>
@@ -298,7 +298,7 @@ Table 表格组件
       plain
       :size="size"
       :disabled="!scope.isSelected"
-      @click="batchDelete(scope.ids)"
+      @click="batchDelete(scope)"
     >
       批量删除用户
     </el-button>
@@ -500,8 +500,8 @@ Table 表格组件
           }
         }
       },
-      batchDelete(ids) {
-        console.log(ids)
+      batchDelete(data) {
+        console.log(data)
       },
       //  删除后又重新获取一遍表格数据
       deleteAccount(id) {
@@ -533,6 +533,7 @@ Table 表格组件
 | isShowSearch   | 是否显示查询条件                                          | Boolean  | true               | -                     |
 | pageSizes      | 分页大小                                                  | Array    | [10, 50, 100, 200] | -                     |
 | labelWidth     | 表单域标签的宽度                                          | Number   | 100                | -                     |
+| tag     | 表格数据唯一标识符                                          | String   | id                | -                     |
 
 ### Slots
 

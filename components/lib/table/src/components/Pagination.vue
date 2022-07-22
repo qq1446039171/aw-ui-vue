@@ -1,7 +1,7 @@
 <template>
   <el-pagination
-    :currentPage="pageable.page"
-    :page-size="pageable.size"
+    :currentPage="pageable.pageNum"
+    :page-size="pageable.pageSize"
     :page-sizes="pageSizes"
     :background="true"
     layout="total, sizes, prev, pager, next, jumper"
