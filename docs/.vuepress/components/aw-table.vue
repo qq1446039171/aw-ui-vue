@@ -376,6 +376,9 @@ export default {
 </script>
 
 <style lang="scss" scope>
+table {
+  margin: 0;
+}
 .aw-table {
   display: flex;
   flex-direction: column;
