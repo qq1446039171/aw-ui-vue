@@ -83,7 +83,8 @@ export default {
         {
           prop: 'username',
           label: '用户姓名',
-          search: true
+          search: true,
+          initSearchParam:'黄博文'
         },
         {
           prop: 'gender', // 关键字段
