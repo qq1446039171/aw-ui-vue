@@ -1,0 +1,10 @@
+.sidebar {
+  width: 15rem !important;
+}
+.page {
+  padding-left: 15rem !important;
+}
+.theme-default-content:not(.custom) {
+  max-width: none !important;
+  padding: 2rem 5rem!important;
+}
