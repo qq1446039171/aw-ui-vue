@@ -54,7 +54,7 @@
       </template>
     </aw-table>
 
-    <aw-input v-model.number="value"  clearable placeholder="请输入数量"></aw-input>
+    <aw-input v-model="value" clearable placeholder="请输入数量"></aw-input>
   </div>
 </template>
 

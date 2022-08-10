@@ -8,6 +8,7 @@ module.exports = {
       '/componentDocs/card',
       '/componentDocs/button',
       '/componentDocs/link',
+      '/componentDocs/input',
       '/componentDocs/tree',
       '/componentDocs/table',
 
