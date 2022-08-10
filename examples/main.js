@@ -24,6 +24,7 @@ import Link from '../components/lib/link/index'
 import Tree from '../components/lib/tree/index'
 import Label from '../components/lib/label/index'
 import Table from '../components/lib/table/index'
+import Input from '../components/lib/input/index'
 
 Vue.use(Demo)  // Demo.install -> Vue.component
 Vue.use(Card)  // Demo.install -> Vue.component
@@ -32,6 +33,7 @@ Vue.use(Link)  // Demo.install -> Vue.component
 Vue.use(Tree)  // Demo.install -> Vue.component
 Vue.use(Label)  // Demo.install -> Vue.component
 Vue.use(Table)  // Demo.install -> Vue.component
+Vue.use(Input)  // Demo.install -> Vue.component
 
 Vue.config.productionTip = false
  

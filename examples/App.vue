@@ -53,6 +53,8 @@
         <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
       </template>
     </aw-table>
+
+    <aw-input v-model.number="value"  clearable placeholder="请输入数量"></aw-input>
   </div>
 </template>
 
@@ -84,7 +86,7 @@ export default {
           prop: 'username',
           label: '用户姓名',
           search: true,
-          initSearchParam:'黄博文'
+          initSearchParam: '黄博文'
         },
         {
           prop: 'gender', // 关键字段
@@ -141,7 +143,8 @@ export default {
           width: 150,
           fixed: 'right'
         }
-      ]
+      ],
+      value: 1
     }
   },
   methods: {
