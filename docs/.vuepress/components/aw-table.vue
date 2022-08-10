@@ -272,6 +272,8 @@ export default {
         //  假如后端未返回 page  size 。那我们只需要总条数就可以了
         this.updatePageable({ total })
       } catch (error) {
+        this.loading = false
+        this.tableData = []
         console.log(error)
       }
     },
