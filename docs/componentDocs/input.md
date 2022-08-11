@@ -23,7 +23,7 @@ export default {
 <br/>
 <br/>
 
-<h4>只能输入数值型，且只能到小数点后三位</h4>  
+<h4>只能输入数值型，且只能到小数点后三位(根据float-num来确定小数点后几位)</h4>  
 <br/>
 <aw-input v-model="value" type="float" :float-num="3" clearable :width="130" placeholder="请输入数量"></aw-input>
 
