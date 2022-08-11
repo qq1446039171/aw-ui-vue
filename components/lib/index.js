@@ -6,21 +6,23 @@
  * @LastEditors: 黄博文
  * @LastEditTime: 2022-04-26 14:02:05
  */
-import Demo from './demo'
+// import Demo from './demo'
 import Card from './card'
 import Button from './button'
 import Link from './link'
 import Tree from './tree'
 import Label from './label'
+import Input from './input'
 import Table from './table'
 
 const components = {
-  Demo,
+  // Demo,
   Card,
   Button,
   Link,
   Tree,
   Label,
+  Input,
   Table
 }
 // console.log(components)
