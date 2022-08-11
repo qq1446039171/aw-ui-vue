@@ -3,8 +3,8 @@
     v-bind="$attrs"
     v-on="$listeners"
     v-model="$attrs['value']"
-    @input="change(arguments[0])"
-    @change="change(arguments[0])"
+    @input="$attrs['type'] == 'float' ? floatChange() : change(arguments[0])"
+    @change="$attrs['type'] == 'float' ? '' : change(arguments[0])"
     :style="{ width: width + 'px' }"
   ></el-input>
 </template>
@@ -16,6 +16,10 @@ export default {
     width: {
       type: Number,
       default: 150
+    },
+    floatNum: {
+      type: Number,
+      default: 2
     }
   },
   methods: {
@@ -45,6 +49,31 @@ export default {
           }
         })
       }
+    },
+    floatChange() {
+      let value = this.$attrs['value'].toString()
+
+      if (isNaN(value)) value = value.slice(0, value.length - 1)
+
+      if (value.indexOf('.') > 0) value = value.slice(0, value.indexOf('.') + this.floatNum + 1)
+
+      // 字符串根据.切割成数组
+      this.$nextTick(() => {
+        // 原因: parseFloat会将 '12.'会变成 12
+        if (value.split('.')[1]) {
+          // 原因: parseFloat会将 '12.0'会变成 12
+          if (value.split('.')[1] == '0') {
+            this.$attrs['value'] = value
+            this.$parent.value = value
+          } else {
+            this.$attrs['value'] = parseFloat(value)
+            this.$parent.value = parseFloat(value)
+          }
+        } else {
+          this.$attrs['value'] = value
+          this.$parent.value = value
+        }
+      })
     }
   }
 }

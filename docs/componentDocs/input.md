@@ -19,3 +19,7 @@ export default {
 <br/>
 
 <aw-input v-model.number="value"  :max="99" :min="5" clearable placeholder="请输入数量"></aw-input>
+
+<h4>只能输入数值型，且只能到小数点后三位</h4>  
+<br/>
+<aw-input v-model="value" type="float" :float-num="3" clearable :width="130" placeholder="请输入数量"></aw-input>
