@@ -55,6 +55,8 @@
     </aw-table>
 
     <aw-input v-model="value" clearable placeholder="请输入数量"></aw-input>
+
+    <aw-input v-model="value" type="float" :float-num="3" clearable :width="130"></aw-input>
   </div>
 </template>
 
