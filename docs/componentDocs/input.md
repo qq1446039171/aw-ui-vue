@@ -8,6 +8,7 @@
 export default {
   data() {
     return {
+      value1: 1,
       value: 2
     }
   }
@@ -18,7 +19,7 @@ export default {
 <h4>最大值为99 最小值为5</h4>  
 <br/>
 
-<aw-input v-model.number="value"  :max="99" :min="5" clearable placeholder="请输入数量"></aw-input>
+<aw-input v-model.number="value1"  :max="99" :min="5" clearable placeholder="请输入数量"></aw-input>
 <br/>
 <br/>
 

@@ -54,9 +54,9 @@
       </template>
     </aw-table>
 
-    <aw-input v-model="value" clearable placeholder="请输入数量"></aw-input>
+    <aw-input v-model.number="number1" :max="99"  clearable placeholder="请输入数量"></aw-input>
 
-    <aw-input v-model="value" type="float" :float-num="3" clearable :width="130" placeholder="请输入数量"></aw-input>
+    <aw-input v-model="number" type="float" :float-num="3" clearable :width="130" placeholder="请输入数量"></aw-input>
   </div>
 </template>
 
@@ -146,7 +146,8 @@ export default {
           fixed: 'right'
         }
       ],
-      value: null
+      number: null,
+      number1:null
     }
   },
   methods: {
