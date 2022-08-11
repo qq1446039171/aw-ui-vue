@@ -1,6 +1,6 @@
 {
   "name": "aw-ui-vue",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "组件库",
   "main": "dist/index.umd.js",
   "keywords": [
