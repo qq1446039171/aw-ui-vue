@@ -5,13 +5,19 @@
     v-model="$attrs['value']"
     @input="change(arguments[0])"
     @change="change(arguments[0])"
+    :style="{ width: width + 'px' }"
   ></el-input>
 </template>
 
 <script>
 export default {
   name: 'aw-input',
-
+  props: {
+    width: {
+      type: Number,
+      default: 150
+    }
+  },
   methods: {
     change(val) {
       if (this.$attrs['max'] || this.$attrs['min']) {

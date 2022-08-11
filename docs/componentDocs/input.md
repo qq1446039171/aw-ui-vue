@@ -13,5 +13,9 @@ export default {
   }
 }
 </script>
+<br/>
 
-<aw-input v-model="value" clearable placeholder="请输入数量"></aw-input>
+<h4>最大值为99 最小值为5</h4>  
+<br/>
+
+<aw-input v-model.number="value"  :max="99" :min="5" clearable placeholder="请输入数量"></aw-input>
