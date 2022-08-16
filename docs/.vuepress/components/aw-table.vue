@@ -259,7 +259,7 @@ export default {
         // 更新查询参数
         this.updatedTotalParam()
         Object.assign(this.totalParam, this.initParam)
-        console.log('查询条件', this.totalParam)
+        console.log('查询条件:', this.totalParam)
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)
@@ -321,7 +321,8 @@ export default {
       await this.resetInitParam()
       // 重置搜索表单的时，如果有默认搜索参数，则重置默认的搜索参数
       Object.keys(this.initSearchParam).forEach((key) => {
-        this.searchParam[key] = this.initSearchParam[key]
+        // this.searchParam[key] = this.initSearchParam[key]  vue2对对象跟数组里面新增的属性劫持不到
+        this.$set(this.searchParam, key, this.initSearchParam[key])
       })
       this.getTableList()
     },
@@ -335,7 +336,8 @@ export default {
       await this.resetInitParam()
       // 重置搜索表单的时，如果有默认搜索参数，则重置默认的搜索参数
       Object.keys(this.initSearchParam).forEach((key) => {
-        this.searchParam[key] = this.initSearchParam[key]
+        // this.searchParam[key] = this.initSearchParam[key]  vue2对对象跟数组里面新增的属性劫持不到
+        this.$set(this.searchParam, key, this.initSearchParam[key])
       })
       this.getTableList()
     },
