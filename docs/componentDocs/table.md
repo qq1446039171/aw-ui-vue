@@ -322,7 +322,7 @@ export default {
             end-placeholder="结束日期"
             :size="size"
           >
-    </el-date-picker>
+          </el-date-picker>
       </el-form-item>
     </template>
     <template slot="tableHeader" slot-scope="scope">
@@ -367,16 +367,18 @@ export default {
   ref="ProTable"
 >
   <template slot="searchForm">
-    <el-date-picker
-      v-model="initParam.createTime"
-      value-format="yyyy-MM-dd"
-      type="daterange"
-      range-separator="至"
-      start-placeholder="开始日期"
-      end-placeholder="结束日期"
-      :size="size"
-    >
-    </el-date-picker>
+    <el-form-item label="结算时间:">
+         <el-date-picker
+            v-model="initParam.createTime"
+            value-format="yyyy-MM-dd"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            :size="size"
+          >
+          </el-date-picker>
+      </el-form-item>
   </template>
   <template slot="tableHeader" slot-scope="scope">
     <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
