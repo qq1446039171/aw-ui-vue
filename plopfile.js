@@ -27,6 +27,11 @@ module.exports = (plop) => {
       },
       {
         type: 'add',
+        path: 'components/css/{{kebabCase name}}.scss',
+        templateFile: 'template/components/css/index.hbs'
+      },
+      {
+        type: 'add',
         path: 'docs/componentDocs/{{kebabCase name}}.md',
         templateFile: 'template/docs/componentDocs/index.hbs'
       },
