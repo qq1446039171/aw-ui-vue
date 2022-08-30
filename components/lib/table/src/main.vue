@@ -217,8 +217,10 @@ export default {
     // 设置搜索表单的默认值
     this.searchColumns.forEach((column) => {
       if (column.initSearchParam !== undefined && column.initSearchParam !== null) {
-        this.initSearchParam[column.prop] = column.initSearchParam
-        this.searchParam[column.prop] = column.initSearchParam || ''
+        // this.initSearchParam[column.prop] = column.initSearchParam
+        // this.searchParam[column.prop] = column.initSearchParam || ''
+        this.$set(this.initSearchParam, column.prop, column.initSearchParam)
+        this.$set(this.searchParam, column.prop, column.initSearchParam || '')
       }
     })
   },
