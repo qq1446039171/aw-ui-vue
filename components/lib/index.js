@@ -14,6 +14,7 @@ import Tree from './tree'
 import Label from './label'
 import Input from './input'
 import Table from './table'
+import Dialog from './dialog'
 
 const components = {
   // Demo,
@@ -23,7 +24,8 @@ const components = {
   Tree,
   Label,
   Input,
-  Table
+  Table,
+  Dialog
 }
 // console.log(components)
 const install = function (Vue) {

@@ -54,9 +54,16 @@
       </template>
     </aw-table>
 
-    <aw-input v-model.number="number1" :max="99"  clearable placeholder="请输入数量"></aw-input>
-
-    <aw-input v-model="number" type="float" :float-num="3" clearable :width="130" placeholder="请输入数量"></aw-input>
+    <aw-dialog title="这是一个可拖拽的" :visible.sync="visible">
+      <template slot="header"> </template>
+      <template>
+        需要注意的是内容是默认不居中的
+      </template>
+      <template slot="footer">
+        <el-button @click="centerDialogVisible = false" size="small">取 消</el-button>
+        <el-button type="primary" @click="centerDialogVisible = false" size="small">确 定</el-button>
+      </template>
+    </aw-dialog>
   </div>
 </template>
 
@@ -147,7 +154,8 @@ export default {
         }
       ],
       number: null,
-      number1:null
+      number1: null,
+      visible: false
     }
   },
   methods: {
@@ -348,6 +356,7 @@ export default {
       this.initParam = {}
     },
     batchDelete(ids) {
+      this.visible = true
       console.log('需要删除的对象id：', ids)
     },
     deleteAccount(id) {

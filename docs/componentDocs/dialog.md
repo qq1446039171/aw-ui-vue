@@ -1,6 +1,6 @@
-# {{properCase name}}
+# Dialog
 
-{{properCase name}}组件
+弹窗组件
 
 ### 示例
 
