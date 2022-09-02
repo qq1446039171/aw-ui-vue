@@ -11,7 +11,9 @@ module.exports = {
       '/componentDocs/tree',
       '/componentDocs/label',
       '/componentDocs/input',
-      '/componentDocs/table'
+      '/componentDocs/table',
+      '/componentDocs/dialog',
+      
     ],
     nav: [
       { text: 'Home', link: '/' },
