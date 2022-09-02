@@ -60,3 +60,4 @@
 | width     | Dialog 的宽度                                   | String  | -          | -        | 30%    |
 | center    | 是否对头部和底部采用居中布局                    | Boolean | true/false | -        | -      |
 | draggable | 是否可拖拽的                                    | Boolean | true/false | -        | true   |
+| theme     | 弹窗主题颜色                                    | String  | -/dark     | -        | -      |
