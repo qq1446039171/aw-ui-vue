@@ -38,10 +38,6 @@ export default {
       type: Boolean,
       default: true
     },
-    member: {
-      type: String,
-      default: 'teacher'
-    },
     center: {
       type: Boolean,
       default: false

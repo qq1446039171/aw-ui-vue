@@ -38,10 +38,6 @@ export default {
       type: Boolean,
       default: true
     },
-    member: {
-      type: String,
-      default: 'teacher'
-    },
     center: {
       type: Boolean,
       default: false
@@ -99,9 +95,9 @@ export default {
     // background: #30323d;
     padding: 30px 20px;
 
-    /deep/ .el-tabs__nav-scroll::after {
-      background-color: #202129 !important;
-    }
+    // /deep/ .el-tabs__nav-scroll::after {
+    //   background-color: #202129 !important;
+    // }
   }
 
   .aw-dialog-footer {
