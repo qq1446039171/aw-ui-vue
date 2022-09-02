@@ -37,7 +37,7 @@ module.exports = (plop) => {
       },
       {
         type: 'add',
-        path: 'docs/.vuepress/components/{{kebabCase name}}.vue',
+        path: 'docs/.vuepress/components/aw-{{kebabCase name}}.vue',
         templateFile: 'template/docs/.vuepress/components/index.hbs'
       },
     ]

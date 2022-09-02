@@ -22,7 +22,7 @@
         </el-date-picker>
       </template>
       <template slot="tableHeader" slot-scope="scope">
-        <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
+        <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size" @click="add">新增用户</el-button>
         <el-button type="primary" icon="el-icon-upload2" plain :size="size">批量添加用户</el-button>
         <el-button type="primary" icon="el-icon-download" plain :size="size">导出用户数据</el-button>
         <el-button
@@ -56,9 +56,15 @@
 
     <aw-dialog title="这是一个可拖拽的" :visible.sync="visible">
       <template slot="header"> </template>
-      <template>
-        需要注意的是内容是默认不居中的
+      <template> 需要注意的是内容是默认不居中的 </template>
+      <template slot="footer">
+        <el-button @click="centerDialogVisible = false" size="small">取 消</el-button>
+        <el-button type="primary" @click="centerDialogVisible = true" size="small">确 定</el-button>
       </template>
+    </aw-dialog>
+    <aw-dialog title="这是一个可拖拽的2" :visible.sync="centerDialogVisible" theme="dark">
+      <template slot="header"> </template>
+      <template> 需要注意的是内容是默认不居中的 </template>
       <template slot="footer">
         <el-button @click="centerDialogVisible = false" size="small">取 消</el-button>
         <el-button type="primary" @click="centerDialogVisible = false" size="small">确 定</el-button>
@@ -72,6 +78,7 @@ export default {
   name: 'App',
   data() {
     return {
+      centerDialogVisible:false,
       size: 'small',
       // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
       initParam: {},
@@ -355,8 +362,10 @@ export default {
     resetInitParam() {
       this.initParam = {}
     },
-    batchDelete(ids) {
+    add() {
       this.visible = true
+    },
+    batchDelete(ids) {
       console.log('需要删除的对象id：', ids)
     },
     deleteAccount(id) {

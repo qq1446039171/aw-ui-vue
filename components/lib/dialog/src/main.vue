@@ -1,5 +1,10 @@
 <template>
-  <div class="aw-dialog" v-show="visible" v-move="draggable ? '.aw-dialog-header' : ''">
+  <div
+    class="aw-dialog"
+    :class="theme == 'dark' ? 'aw-dialog-dark' : ''"
+    v-show="visible"
+    v-move="draggable ? '.aw-dialog-header' : ''"
+  >
     <div class="aw-dialog-header">
       <div class="clearfix" :style="{ justifyContent: center ? 'center' : '' }">
         <div class="tab">{{ title }}</div>
@@ -21,9 +26,18 @@ export default {
   name: 'aw-dialog',
   props: {
     visible: Boolean,
-    draggable: Boolean,
-    title: String,
-    theme: String,
+    title: {
+      type: String,
+      default: '弹窗'
+    },
+    theme: {
+      type: String,
+      default: ''
+    },
+    draggable: {
+      type: Boolean,
+      default: true
+    },
     member: {
       type: String,
       default: 'teacher'
