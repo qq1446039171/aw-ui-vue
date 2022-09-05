@@ -12,6 +12,7 @@
   "files": [
     "dist"
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://gitee.com/hbowen/aw-ui-vue"
