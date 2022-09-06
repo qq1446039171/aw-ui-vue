@@ -46,6 +46,7 @@
       :border="border"
       :row-key="getRowKeys"
       v-loading="loading"
+      :highlight-current-row="true"
       @selection-change="selectionChange"
     >
       <div v-for="(item, index) in tableColumns" :key="index">

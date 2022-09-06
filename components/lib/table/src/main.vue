@@ -44,6 +44,7 @@
       ref="tableRef"
       :data="tableData"
       :border="border"
+      :highlight-current-row="true"
       :row-key="getRowKeys"
       v-loading="loading"
       @selection-change="selectionChange"
