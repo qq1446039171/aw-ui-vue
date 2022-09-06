@@ -43,6 +43,7 @@
       :max-height="height"
       ref="tableRef"
       :data="tableData"
+      :size="size"
       :border="border"
       :highlight-current-row="true"
       :row-key="getRowKeys"
