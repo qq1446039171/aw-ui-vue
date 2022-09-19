@@ -4,6 +4,7 @@
     <template v-if="item.searchType == undefined || item.searchType == 'text'">
       <el-input
         v-model="searchParam[item.prop]"
+        :style="`width: ${item.inputWidth ? item.inputWidth : ''}px`"
         :placeholder="item.placeholder ? item.placeholder : '请输入'"
         clearable
       ></el-input>
@@ -12,6 +13,7 @@
     <template v-if="item.searchType == 'select' || item.searchType == 'multipleSelect'">
       <el-select
         v-model="searchParam[item.prop]"
+        :style="`width: ${item.inputWidth ? item.inputWidth : ''}px`"
         :multiple="item.searchType == 'multipleSelect'"
         :placeholder="item.placeholder ? item.placeholder : '请选择'"
         :clearable="item.initSearchParam ? true : false"

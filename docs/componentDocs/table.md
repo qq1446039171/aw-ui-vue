@@ -46,8 +46,9 @@ export default {
           search: true, // 是否为查询条件
           sortable: true, // 是否可排序
           searchType: 'select', // 查询类型
-          placeholder: '请选择姓名', // 默认显示内容
+          placeholder: '请选择姓别', // 默认显示内容
           initSearchParam:1 , // 默认值
+          inputWidth: 120 // 输入框的宽度
         },
         // {
         //   prop: 'createTime',
@@ -455,8 +456,9 @@ export default {
             search: true, // 是否为查询条件
             sortable: true, // 是否可排序
             searchType: 'select', // 查询类型
-            placeholder: '请选择姓名', // 默认显示内容
-            initSearchParam: 1 // 默认值
+            placeholder: '请选择姓别', // 默认显示内容
+            initSearchParam: 1, // 默认值
+            inputWidth: 120 // 输入框的宽度
           },
           // {
           //   prop: 'createTime',
