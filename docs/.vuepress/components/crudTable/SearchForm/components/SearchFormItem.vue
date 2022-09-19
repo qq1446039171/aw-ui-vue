@@ -2,15 +2,19 @@
   <div>
     <!--  输入框 -->
     <template v-if="item.searchType == undefined || item.searchType == 'text'">
-      <el-input v-model="searchParam[item.prop]" placeholder="请输入" clearable></el-input>
+      <el-input
+        v-model="searchParam[item.prop]"
+        :placeholder="item.placeholder ? item.placeholder : '请输入'"
+        clearable
+      ></el-input>
     </template>
     <!--  选择器  multipleSelect 多选的意思-->
     <template v-if="item.searchType == 'select' || item.searchType == 'multipleSelect'">
       <el-select
         v-model="searchParam[item.prop]"
         :multiple="item.searchType == 'multipleSelect'"
-        placeholder="请选择"
-        :clearable="item.initSearchParam == null || item.initSearchParam == undefined"
+        :placeholder="item.placeholder ? item.placeholder : '请选择'"
+        :clearable="item.initSearchParam ? true : false"
       >
         <el-option
           v-for="itemValue in item.enum"

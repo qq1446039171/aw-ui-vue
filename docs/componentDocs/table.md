@@ -46,6 +46,7 @@ export default {
           search: true, // 是否为查询条件
           sortable: true, // 是否可排序
           searchType: 'select', // 查询类型
+          placeholder: '请选择姓名', // 默认显示内容
           initSearchParam:1 , // 默认值
         },
         // {
@@ -311,7 +312,7 @@ export default {
       tag="id"
       ref="ProTable"
   >
-    <template slot="searchForm">
+    <template slot="searchFormAfter">
       <el-form-item label="结算时间:">
          <el-date-picker
             v-model="initParam.createTime"
@@ -356,19 +357,21 @@ export default {
 ### 代码
 
 ```html
-<aw-table
-  :columns="columns"
-  :height="600"
-  :request="getUserList"
-  :initParam="initParam"
-  :resetInitParam="resetInitParam"
-  :size="size"
-  tag="id"
-  ref="ProTable"
->
-  <template slot="searchForm">
-    <el-form-item label="结算时间:">
-         <el-date-picker
+<template>
+  <el-card shadow="never">
+    <aw-table
+      :columns="columns"
+      :height="600"
+      :request="getUserList"
+      :initParam="initParam"
+      :resetInitParam="resetInitParam"
+      :size="size"
+      tag="id"
+      ref="ProTable"
+    >
+      <template slot="searchFormAfter">
+        <el-form-item label="结算时间:">
+          <el-date-picker
             v-model="initParam.createTime"
             value-format="yyyy-MM-dd"
             type="daterange"
@@ -378,36 +381,38 @@ export default {
             :size="size"
           >
           </el-date-picker>
-      </el-form-item>
-  </template>
-  <template slot="tableHeader" slot-scope="scope">
-    <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
-    <el-button type="primary" icon="el-icon-upload2" plain :size="size">批量添加用户</el-button>
-    <el-button type="primary" icon="el-icon-download" plain :size="size">导出用户数据</el-button>
-    <el-button
-      type="danger"
-      icon="el-icon-delete"
-      plain
-      :size="size"
-      :disabled="!scope.isSelected"
-      @click="batchDelete(scope.ids)"
-    >
-      批量删除用户
-    </el-button>
-  </template>
-  <template slot="gender" slot-scope="scope">
-    <div>{{ scope.row.gender == '1' ? '男' : '女' }}</div>
-  </template>
-  <template slot="status" slot-scope="scope">
-    <div>{{ scope.row.status ? '开启' : '关闭' }}</div>
-  </template>
+        </el-form-item>
+      </template>
+      <template slot="tableHeader" slot-scope="scope">
+        <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size">新增用户</el-button>
+        <el-button type="primary" icon="el-icon-upload2" plain :size="size">批量添加用户</el-button>
+        <el-button type="primary" icon="el-icon-download" plain :size="size">导出用户数据</el-button>
+        <el-button
+          type="danger"
+          icon="el-icon-delete"
+          plain
+          :size="size"
+          :disabled="!scope.isSelected"
+          @click="batchDelete(scope.ids)"
+        >
+          批量删除用户
+        </el-button>
+      </template>
+      <template slot="gender" slot-scope="scope">
+        <div>{{ scope.row.gender == '1' ? '男' : '女' }}</div>
+      </template>
+      <template slot="status" slot-scope="scope">
+        <div>{{ scope.row.status ? '开启' : '关闭' }}</div>
+      </template>
 
-  <!-- 表格操作 -->
-  <template #operation="scope">
-    <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
-    <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
-  </template>
-</aw-table>
+      <!-- 表格操作 -->
+      <template #operation="scope">
+        <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
+        <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
+      </template>
+    </aw-table>
+  </el-card>
+</template>
 <script>
   export default {
     name: 'App',
@@ -450,6 +455,7 @@ export default {
             search: true, // 是否为查询条件
             sortable: true, // 是否可排序
             searchType: 'select', // 查询类型
+            placeholder: '请选择姓名', // 默认显示内容
             initSearchParam: 1 // 默认值
           },
           // {
@@ -569,10 +575,10 @@ export default {
 
 ### Slots
 
-| 事件                                  | 说明                      |
-| :------------------------------------ | :------------------------ |
-| searchForm                            | 查询条件中 前置输入框插槽 |
-| searchButton                          | 查询条件中 后置按钮插槽   |
-| searchForm                            | 搜索栏尾部内容            |
-| tableHeader                           | 表格头部 操作按钮         |
-| columns 中的每一个 prop 对应一个 slot | 自定义配置每一列 slot     |
+| 事件                                  | 说明                                           |
+| :------------------------------------ | :--------------------------------------------- |
+| searchFormBefore                      | 查询条件中 前置输入框插槽                      |
+| searchFormAfter                       | 搜索栏尾部内容                                 |
+| searchButton                          | 查询条件中 后置按钮插槽                        |
+| tableHeader                           | 表格头部 操作按钮                              |
+| columns 中的每一个 prop 对应一个 slot | 自定义配置每一列 slot(值的意思 请看 HTML 代码) |

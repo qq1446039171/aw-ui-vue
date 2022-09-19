@@ -9,17 +9,19 @@
       :size="size"
       ref="ProTable"
     >
-      <template slot="searchForm">
-        <el-date-picker
-          v-model="initParam.createTime"
-          value-format="yyyy-MM-dd"
-          type="daterange"
-          range-separator="至"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-          :size="size"
-        >
-        </el-date-picker>
+      <template slot="searchFormAfter">
+        <el-form-item label="结算时间:">
+          <el-date-picker
+            v-model="initParam.createTime"
+            value-format="yyyy-MM-dd"
+            type="daterange"
+            range-separator="至"
+            start-placeholder="开始日期"
+            end-placeholder="结束日期"
+            :size="size"
+          >
+          </el-date-picker>
+        </el-form-item>
       </template>
       <template slot="tableHeader" slot-scope="scope">
         <el-button type="primary" icon="el-icon-circle-plus-outline" :size="size" @click="add">新增用户</el-button>
@@ -78,7 +80,7 @@ export default {
   name: 'App',
   data() {
     return {
-      centerDialogVisible:false,
+      centerDialogVisible: false,
       size: 'small',
       // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
       initParam: {},
@@ -102,7 +104,8 @@ export default {
           prop: 'username',
           label: '用户姓名',
           search: true,
-          initSearchParam: '黄博文'
+          initSearchParam: '黄博文',
+          placeholder: '请输入姓名'
         },
         {
           prop: 'gender', // 关键字段
@@ -115,7 +118,9 @@ export default {
           ],
           search: true, // 是否为查询条件
           sortable: true, // 是否可排序
-          searchType: 'select' // 查询类型
+          searchType: 'select', // 查询类型
+          placeholder: '请选择姓名', // 默认显示内容
+          initSearchParam: 1 // 默认选中的值
         },
         // {
         //   prop: 'createTime',

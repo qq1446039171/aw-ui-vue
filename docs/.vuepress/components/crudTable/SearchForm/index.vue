@@ -2,6 +2,7 @@
   <div class="aw-table-search">
     <!-- :style="`max-width: ${maxWidth}px`" -->
     <el-form ref="formRef" :model="searchParam" :size="size" :inline="true" :label-width="labelWidth + 'px'">
+      <slot name="searchFormBefore"></slot>
       <el-form-item
         :label="`${item.label} :`"
         v-for="item in columns"
@@ -10,7 +11,7 @@
       >
         <SearchFormItem :item="item" :searchParam="searchParam"></SearchFormItem>
       </el-form-item>
-      <slot name="searchForm"></slot>
+      <slot name="searchFormAfter"></slot>
     </el-form>
     <div class="aw-table-search-operation">
       <el-button type="primary" icon="el-icon-search" @click="search" :size="size">搜索</el-button>
@@ -21,47 +22,47 @@
 </template>
 
 <script>
-  import SearchFormItem from './components/SearchFormItem.vue'
-  export default {
-    name: 'aw-table-searchForm',
-    props: {
-      columns: {
-        type: Array,
-        default: () => []
-      },
-      searchParam: {
-        type: Object,
-        default: () => ({})
-      },
-      initSearchParam: {
-        type: Boolean,
-        default: false
-      },
-      size: {
-        type: String,
-        default: 'small'
-      },
-      search: {
-        type: Function,
-        default: () => ({})
-      },
-      reset: {
-        type: Function,
-        default: () => ({})
-      },
-      labelWidth: {
-        type: Number,
-        default: 100
-      }
+import SearchFormItem from './components/SearchFormItem.vue'
+export default {
+  name: 'aw-table-searchForm',
+  props: {
+    columns: {
+      type: Array,
+      default: () => []
     },
-    // props: ['columns', 'searchParam', 'size', 'search', 'reset'],
-    components: { SearchFormItem },
-    data() {
-      return {
-        maxWidth: 1260
-      }
+    searchParam: {
+      type: Object,
+      default: () => ({})
+    },
+    initSearchParam: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      default: 'small'
+    },
+    search: {
+      type: Function,
+      default: () => ({})
+    },
+    reset: {
+      type: Function,
+      default: () => ({})
+    },
+    labelWidth: {
+      type: Number,
+      default: 100
+    }
+  },
+  // props: ['columns', 'searchParam', 'size', 'search', 'reset'],
+  components: { SearchFormItem },
+  data() {
+    return {
+      maxWidth: 1260
     }
   }
+}
 </script>
 
 <style></style>

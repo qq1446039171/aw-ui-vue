@@ -12,10 +12,14 @@
       :size="size"
     >
       <!--  查询条件中 前置插槽 -->
-      <template slot="searchForm">
-        <slot name="searchForm"></slot>
+      <template slot="searchFormBefore">
+        <slot name="searchFormBefore"></slot>
       </template>
       <!--  查询条件中 后置插槽 -->
+      <template slot="searchFormAfter">
+        <slot name="searchFormAfter"></slot>
+      </template>
+      <!--  查询条件中 后置按钮插槽 -->
       <template slot="searchButton">
         <slot name="searchButton" :list="selectedData" :isSelected="isSelected"></slot>
       </template>
