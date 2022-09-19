@@ -16,7 +16,7 @@
         :style="`width: ${item.inputWidth ? item.inputWidth : ''}px`"
         :multiple="item.searchType == 'multipleSelect'"
         :placeholder="item.placeholder ? item.placeholder : '请选择'"
-        :clearable="item.initSearchParam ? true : false"
+        clearable
       >
         <el-option
           v-for="itemValue in item.enum"

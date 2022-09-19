@@ -16,7 +16,7 @@
         :style="`width: ${item.inputWidth ? item.inputWidth : ''}px`"
         :multiple="item.searchType == 'multipleSelect'"
         :placeholder="item.placeholder ? item.placeholder : '请选择'"
-        :clearable="item.initSearchParam ? true : false"
+        clearable
       >
         <!-- :clearable="item.initSearchParam == null || item.initSearchParam == undefined" -->
         <el-option
