@@ -1,0 +1,120 @@
+<template>
+  <div class="aw-form">
+    <el-form
+      ref="awForm"
+      label-suffix=":"
+      :size="data.config.size"
+      :model="models"
+      :label-position="data.config.labelPosition"
+      :label-width="data.config.labelWidth + 'px'"
+    >
+      <template v-for="item in data.list">
+        <template v-if="item.type == 'grid'">
+          <el-row
+            :key="item.key"
+            type="flex"
+            :gutter="item.options.gutter ? item.options.gutter : 0"
+            :justify="item.options.justify"
+            :align="item.options.align"
+          >
+            <el-col v-for="(col, colIndex) in item.columns" :key="colIndex" :span="col.span">
+              <template v-for="colItem in col.list">
+                <el-form-item
+                  v-if="colItem.type == 'blank'"
+                  :label="colItem.name"
+                  :prop="colItem.model"
+                  :key="colItem.key"
+                >
+                  <slot :name="colItem.model" :model="models"></slot>
+                </el-form-item>
+                <aw-form-item
+                  v-else
+                  :key="colItem.model"
+                  :models.sync="models"
+                  :remote="remote"
+                  :widget="colItem"
+                  @input-change="onInputChange"
+                >
+                </aw-form-item>
+              </template>
+            </el-col>
+          </el-row>
+        </template>
+        <template v-else>
+          <aw-form-item
+            :key="item.model"
+            :models.sync="models"
+            :remote="remote"
+            :widget="item"
+            @input-change="onInputChange"
+          >
+          </aw-form-item>
+        </template>
+      </template>
+    </el-form>
+  </div>
+</template>
+
+<script>
+import AwFormItem from './FormItem'
+
+export default {
+  name: 'aw-form',
+  components: {
+    AwFormItem
+  },
+  props: ['data', 'remote'],
+  data() {
+    return {
+      models: {}
+    }
+  },
+  created() {
+    this.generateModle(this.data.list)
+  },
+  mounted() {},
+  methods: {
+    generateModle(genList) {
+      for (let i = 0; i < genList.length; i++) {
+        this.models[genList[i].model] = genList[i].options.defaultValue
+      }
+    },
+    onInputChange(value, field) {
+      this.$emit('on-change', field, value, this.models)
+    },
+    getData() {
+      return new Promise((resolve, reject) => {
+        this.$refs.awForm.validate((valid) => {
+          if (valid) {
+            resolve(this.models)
+          } else {
+            reject(new Error(this.$t('fm.message.validError')).message)
+          }
+        })
+      })
+    },
+    reset() {
+      this.$refs.awForm.resetFields()
+    },
+    onInputChange(value, field) {
+      this.$emit('on-change', field, value, this.models)
+    },
+    refresh() {}
+  },
+  watch: {
+    data: {
+      deep: true,
+      handler(val) {
+        this.generateModle(val.list)
+      }
+    },
+    value: {
+      deep: true,
+      handler(val) {
+        console.log(JSON.stringify(val))
+        this.models = { ...this.models, ...val }
+      }
+    }
+  }
+}
+</script>

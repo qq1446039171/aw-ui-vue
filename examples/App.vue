@@ -72,6 +72,14 @@
         <el-button type="primary" @click="centerDialogVisible = false" size="small">确 定</el-button>
       </template>
     </aw-dialog>
+
+    <aw-form :data="formColumns"  :remote="remoteFuncs" ref="awForm">
+      <template v-slot:blank="scope">
+        Width <el-input v-model="scope.model.blank.width" style="width: 100px"></el-input> Height
+        <el-input v-model="scope.model.blank.height" style="width: 100px"></el-input>
+      </template>
+    </aw-form>
+    <el-button type="primary" @click="handleSubmit">提交</el-button>
   </div>
 </template>
 
@@ -166,9 +174,135 @@ export default {
           fixed: 'right'
         }
       ],
-      number: null,
-      number1: null,
-      visible: false
+
+      visible: false,
+      formColumns: {
+        list: [
+          {
+            type: 'input',
+            icon: 'icon-input',
+            options: {
+              width: '100%',
+              defaultValue: '',
+              required: false,
+              dataType: 'string',
+              pattern: '',
+              placeholder: '',
+              disabled: false,
+              maxlength: -1,
+              showWordLimit: false,
+              remoteFunc: 'func_1665644318000_84350'
+            },
+            name: 'age',
+            key: '1665644318000_84350',
+            model: '年龄',
+            rules: [{ type: 'string', message: 'age格式不正确' }]
+          },
+          {
+            type: 'grid',
+            icon: 'icon-grid-',
+            columns: [
+              {
+                span: 12,
+                list: [
+                  {
+                    type: 'select',
+                    icon: 'icon-select',
+                    options: {
+                      defaultValue: 'Option 1',
+                      multiple: false,
+                      disabled: false,
+                      clearable: false,
+                      placeholder: '',
+                      required: false,
+                      showLabel: false,
+                      width: '',
+                      options: [{ value: 'Option 1' }, { value: 'Option 2' }, { value: 'Option 3' }],
+                      remote: false,
+                      filterable: false,
+                      remoteOptions: [],
+                      props: { value: 'value', label: 'label' },
+                      remoteFunc: 'func_1665645741000_59813'
+                    },
+                    name: '患者姓名',
+                    key: '1665645741000_59813',
+                    model: 'name',
+                    rules: []
+                  }
+                ]
+              },
+              {
+                span: 12,
+                list: [
+                  {
+                    type: 'select',
+                    icon: 'icon-select',
+                    options: {
+                      defaultValue: '',
+                      multiple: false,
+                      disabled: false,
+                      clearable: false,
+                      placeholder: '',
+                      required: false,
+                      showLabel: false,
+                      width: '',
+                      options: [{ value: 'Option 1' }, { value: 'Option 2' }, { value: 'Option 3' }],
+                      remote: true,
+                      filterable: false,
+                      remoteOptions: [],
+                      props: { value: 'value', label: 'label' },
+                      remoteFunc: 'func_1665644279000_14637'
+                    },
+                    name: '药品名称',
+                    key: '1665644279000_14637',
+                    model: 'drug_name',
+                    rules: []
+                  }
+                ]
+              }
+            ],
+            options: { gutter: 0, justify: 'start', align: 'top', remoteFunc: 'func_1665644238000_31981' },
+            name: '栅格布局',
+            key: '1665644238000_31981',
+            model: 'grid_1665644238000_31981',
+            rules: []
+          }
+        ],
+        config: { labelWidth: 100, labelPosition: 'right', size: 'small', customClass: '' }
+      },
+      remoteFuncs: {
+        func_1665644279000_14637(resolve) {
+          // 药品名称 drug_name
+          // Call callback function once get the data from remote server
+          // resolve(data)
+          setTimeout(() => {
+            const options = [
+              { id: '1', name: '1111' },
+              { id: '2', name: '2222' },
+              { id: '3', name: '3333' }
+            ]
+            resolve(options)
+          }, 2000)
+        },
+        func_test(resolve) {
+          setTimeout(() => {
+            const options = [
+              { id: '1', name: '1111' },
+              { id: '2', name: '2222' },
+              { id: '3', name: '3333' }
+            ]
+            resolve(options)
+          }, 2000)
+        },
+        funcGetToken(resolve) {
+          request.get('http://tools-server.making.link/api/uptoken').then((res) => {
+            resolve(res.uptoken)
+          })
+        },
+        upload_callback(response, file, fileList) {
+          console.log('callback', response, file, fileList)
+        }
+      }
     }
   },
   methods: {
@@ -376,6 +510,18 @@ export default {
     },
     deleteAccount(id) {
       console.log('需要删除的对象id：', id)
+    },
+    handleSubmit() {
+      this.$refs.awForm
+        .getData()
+        .then((data) => {
+          debugger
+          // data check success
+          // data - form data
+        })
+        .catch((e) => {
+          // data check failed
+        })
     }
   }
 }

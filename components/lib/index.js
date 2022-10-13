@@ -15,6 +15,7 @@ import Label from './label'
 import Input from './input'
 import Table from './table'
 import Dialog from './dialog'
+import Form from './form'
 
 const components = {
   // Demo,
@@ -25,7 +26,8 @@ const components = {
   Label,
   Input,
   Table,
-  Dialog
+  Dialog,
+  Form
 }
 // console.log(components)
 const install = function (Vue) {
