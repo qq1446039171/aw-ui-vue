@@ -36,6 +36,15 @@
 export default {
   props: ['widget', 'models', 'remote'],
   watch: {
+    models: {
+      deep: true,
+      handler(val) {
+        console.log(val)
+        console.log(this.widget.model)
+        console.log('---------------------------------')
+        this.dataModel = val[this.widget.model]
+      }
+    },
     dataModel: {
       deep: true,
       handler(val) {
@@ -46,32 +55,23 @@ export default {
         })
         this.$emit('input-change', val, this.widget.model)
       }
-    },
-    models: {
-      deep: true,
-      handler(val) {
-        this.dataModel = val[this.widget.model]
-      }
     }
   },
+  computed: {},
   created() {
     // 假如是远端请求 走这里请求
     if (this.widget.options.remote && this.remote[this.widget.options.remoteFunc]) {
       console.log(this.remote[this.widget.options.remoteFunc])
       this.remote[this.widget.options.remoteFunc]((data) => {
-        this.widget.options.remoteOptions = data.map((item) => {
-          return {
-            value: item[this.widget.options.props.value],
-            label: item[this.widget.options.props.label],
-            children: item[this.widget.options.props.children]
-          }
-        })
-      })
-    }
-
-    if (this.widget.type === 'imgupload' && this.widget.options.isQiniu) {
-      this.remote[this.widget.options.tokenFunc]((data) => {
-        this.widget.options.token = data
+        this.widget.options.remoteOptions = data
+        //   this.widget.options.remoteOptions = data.map((item) => {
+        //     return {
+        //       value: item[this.widget.options.props.value],
+        //       label: item[this.widget.options.props.label],
+        //       children: item[this.widget.options.props.children]
+        //     }
+        //   })
+        // })
       })
     }
   },

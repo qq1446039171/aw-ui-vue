@@ -9,6 +9,7 @@
       :label-width="data.config.labelWidth + 'px'"
     >
       <template v-for="item in data.list">
+        <!--  网格布局的时候 -->
         <template v-if="item.type == 'grid'">
           <el-row
             :key="item.key"
@@ -29,7 +30,7 @@
                 </el-form-item>
                 <aw-form-item
                   v-else
-                  :key="colItem.model"
+                  :key="colItem.key"
                   :models.sync="models"
                   :remote="remote"
                   :widget="colItem"
@@ -39,6 +40,11 @@
               </template>
             </el-col>
           </el-row>
+        </template>
+        <template v-else-if="item.type == 'blank'">
+          <el-form-item :label="item.name" :prop="item.model" :key="item.key">
+            <slot :name="item.model" :model="models"></slot>
+          </el-form-item>
         </template>
         <template v-else>
           <aw-form-item

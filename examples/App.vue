@@ -73,7 +73,7 @@
       </template>
     </aw-dialog>
 
-    <aw-form :data="formColumns"  :remote="remoteFuncs" ref="awForm">
+    <aw-form :data="formColumns" :remote="remoteFuncs" ref="awForm">
       <template v-slot:blank="scope">
         Width <el-input v-model="scope.model.blank.width" style="width: 100px"></el-input> Height
         <el-input v-model="scope.model.blank.height" style="width: 100px"></el-input>
@@ -193,9 +193,9 @@ export default {
               showWordLimit: false,
               remoteFunc: 'func_1665644318000_84350'
             },
-            name: 'age',
+            name: '年龄',
             key: '1665644318000_84350',
-            model: '年龄',
+            model: 'age1',
             rules: [{ type: 'string', message: 'age格式不正确' }]
           },
           {
@@ -217,7 +217,11 @@ export default {
                       required: false,
                       showLabel: false,
                       width: '',
-                      options: [{ value: 'Option 1' }, { value: 'Option 2' }, { value: 'Option 3' }],
+                      options: [
+                        { value: '1', label: 'Option 1' },
+                        { value: '2', label: 'Option 2' },
+                        { value: '3', label: 'Option 3' }
+                      ],
                       remote: false,
                       filterable: false,
                       remoteOptions: [],
@@ -246,7 +250,6 @@ export default {
                       required: false,
                       showLabel: false,
                       width: '',
-                      options: [{ value: 'Option 1' }, { value: 'Option 2' }, { value: 'Option 3' }],
                       remote: true,
                       filterable: false,
                       remoteOptions: [],
@@ -277,9 +280,9 @@ export default {
           // resolve(data)
           setTimeout(() => {
             const options = [
-              { id: '1', name: '1111' },
-              { id: '2', name: '2222' },
-              { id: '3', name: '3333' }
+              { value: '1', label: '1111' },
+              { value: '2', label: '2222' },
+              { value: '3', label: '3333' }
             ]
             resolve(options)
           }, 2000)
