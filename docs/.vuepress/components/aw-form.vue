@@ -4,7 +4,7 @@
 
 <script>
   export default { 
-    name: aw-form
+    name: 'aw-form'
   }
 </script>
 

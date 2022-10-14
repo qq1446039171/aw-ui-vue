@@ -24,13 +24,13 @@
                   v-if="colItem.type == 'blank'"
                   :label="colItem.name"
                   :prop="colItem.model"
-                  :key="colItem.key"
+                  :key="colItem.model"
                 >
                   <slot :name="colItem.model" :model="models"></slot>
                 </el-form-item>
                 <aw-form-item
                   v-else
-                  :key="colItem.key"
+                  :key="colItem.model"
                   :models.sync="models"
                   :remote="remote"
                   :widget="colItem"

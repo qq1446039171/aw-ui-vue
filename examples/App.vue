@@ -180,13 +180,12 @@ export default {
         list: [
           {
             type: 'input',
-            icon: 'icon-input',
             options: {
               width: '100%',
-              defaultValue: '',
+              defaultValue: '123',
               required: false,
               dataType: 'string',
-              pattern: '',
+              pattern: '', // 正则模式
               placeholder: '',
               disabled: false,
               maxlength: -1,
@@ -194,42 +193,46 @@ export default {
               remoteFunc: 'func_1665644318000_84350'
             },
             name: '年龄',
-            key: '1665644318000_84350',
+
             model: 'age1',
             rules: [{ type: 'string', message: 'age格式不正确' }]
           },
           {
             type: 'grid',
-            icon: 'icon-grid-',
             columns: [
               {
                 span: 12,
                 list: [
                   {
                     type: 'select',
-                    icon: 'icon-select',
                     options: {
-                      defaultValue: 'Option 1',
-                      multiple: false,
-                      disabled: false,
-                      clearable: false,
-                      placeholder: '',
-                      required: false,
-                      showLabel: false,
-                      width: '',
+                      defaultValue: '1',
+                      multiple: false, // 是否启用多选
+                      disabled: false, // 是否禁用
+                      clearable: false, // 是否一键清除
+                      placeholder: '', // input占位符
+                      required: false, // 是否必填  为true与 rules 成对出现
+                      rules: [
+                        // 效验规则
+                        {
+                          required: true,
+                          message: '下拉选择框必须填写'
+                        }
+                      ],
+                      width: '', // 宽度
                       options: [
+                        // 未走远程请求的下拉数据
                         { value: '1', label: 'Option 1' },
                         { value: '2', label: 'Option 2' },
                         { value: '3', label: 'Option 3' }
                       ],
-                      remote: false,
-                      filterable: false,
-                      remoteOptions: [],
-                      props: { value: 'value', label: 'label' },
-                      remoteFunc: 'func_1665645741000_59813'
+                      remote: false, // 是否开启远程请求
+                      filterable: false, // 是否启用搜索功能
+                      remoteOptions: [], // 远程请求的数据
+                      props: { value: 'value', label: 'label' }, // 下拉数据对象格式
+                      
                     },
                     name: '患者姓名',
-                    key: '1665645741000_59813',
                     model: 'name',
                     rules: []
                   }
@@ -240,33 +243,37 @@ export default {
                 list: [
                   {
                     type: 'select',
-                    icon: 'icon-select',
                     options: {
-                      defaultValue: '',
-                      multiple: false,
-                      disabled: false,
-                      clearable: false,
-                      placeholder: '',
-                      required: false,
-                      showLabel: false,
-                      width: '',
+                      defaultValue: '1',
+                      multiple: false, // 是否启用多选
+                      disabled: false, // 是否禁用
+                      clearable: false, // 是否一键清除
+                      placeholder: '', // input占位符
+                      required: false, // 是否必填  为true与 rules 成对出现
+                      rules: [
+                        // 效验规则
+                        {
+                          required: true,
+                          message: '下拉选择框必须填写'
+                        }
+                      ],
+                      width: '', // 宽度
                       remote: true,
                       filterable: false,
                       remoteOptions: [],
-                      props: { value: 'value', label: 'label' },
-                      remoteFunc: 'func_1665644279000_14637'
+                      props: { value: 'age', label: 'name' },
+                      remoteFunc: 'getDrugName'
                     },
                     name: '药品名称',
-                    key: '1665644279000_14637',
                     model: 'drug_name',
                     rules: []
                   }
                 ]
               }
             ],
-            options: { gutter: 0, justify: 'start', align: 'top', remoteFunc: 'func_1665644238000_31981' },
+            options: { gutter: 0, justify: 'start', align: 'top' },
             name: '栅格布局',
-            key: '1665644238000_31981',
+
             model: 'grid_1665644238000_31981',
             rules: []
           }
@@ -274,18 +281,18 @@ export default {
         config: { labelWidth: 100, labelPosition: 'right', size: 'small', customClass: '' }
       },
       remoteFuncs: {
-        func_1665644279000_14637(resolve) {
+        getDrugName(resolve) {
           // 药品名称 drug_name
           // Call callback function once get the data from remote server
           // resolve(data)
           setTimeout(() => {
             const options = [
-              { value: '1', label: '1111' },
-              { value: '2', label: '2222' },
-              { value: '3', label: '3333' }
+              { age: '1', name: '药品1' },
+              { age: '2', name: '药品2' },
+              { age: '3', name: '药品3' }
             ]
             resolve(options)
-          }, 2000)
+          }, 1000)
         },
         func_test(resolve) {
           setTimeout(() => {

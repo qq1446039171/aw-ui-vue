@@ -23,9 +23,9 @@
       >
         <el-option
           v-for="item in widget.options.remote ? widget.options.remoteOptions : widget.options.options"
-          :key="item.value"
-          :value="item.value"
-          :label="widget.options.showLabel || widget.options.remote ? item.label : item.value"
+          :key="widget.options.props ? item[widget.options.props.value] : item.value"
+          :value="widget.options.props ? item[widget.options.props.value] : item.value"
+          :label="widget.options.props.label ? item[widget.options.props.label] : item.label"
         ></el-option>
       </el-select>
     </template>
@@ -48,6 +48,7 @@ export default {
     dataModel: {
       deep: true,
       handler(val) {
+        debugger
         this.models[this.widget.model] = val
         this.$emit('update:models', {
           ...this.models,
