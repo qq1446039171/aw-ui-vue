@@ -73,7 +73,7 @@
       </template>
     </aw-dialog>
 
-    <aw-form :data="formColumns" :remote="remoteFuncs" ref="awForm">
+    <aw-form :data="formColumns" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
       <template v-slot:blank="scope">
         Width <el-input v-model="scope.model.blank.width" style="width: 100px"></el-input> Height
         <el-input v-model="scope.model.blank.height" style="width: 100px"></el-input>
@@ -206,7 +206,7 @@ export default {
                   {
                     type: 'select',
                     options: {
-                      defaultValue: '1',
+                      defaultValue: 'Option1',
                       multiple: false, // 是否启用多选
                       disabled: false, // 是否禁用
                       clearable: false, // 是否一键清除
@@ -222,15 +222,14 @@ export default {
                       width: '', // 宽度
                       options: [
                         // 未走远程请求的下拉数据
-                        { value: '1', label: 'Option 1' },
-                        { value: '2', label: 'Option 2' },
-                        { value: '3', label: 'Option 3' }
+                        { value: 'Option1', label: 'Option 1' },
+                        { value: 'Option2', label: 'Option 2' },
+                        { value: 'Option3', label: 'Option 3' }
                       ],
                       remote: false, // 是否开启远程请求
                       filterable: false, // 是否启用搜索功能
                       remoteOptions: [], // 远程请求的数据
-                      props: { value: 'value', label: 'label' }, // 下拉数据对象格式
-                      
+                      props: { value: 'value', label: 'label' } // 下拉数据对象格式
                     },
                     name: '患者姓名',
                     model: 'name',
@@ -520,6 +519,9 @@ export default {
     },
     deleteAccount(id) {
       console.log('需要删除的对象id：', id)
+    },
+    handleDataChange(field, value, data) {
+      console.log(field, value, data)
     },
     handleSubmit() {
       this.$refs.awForm

@@ -23,9 +23,9 @@
       >
         <el-option
           v-for="item in widget.options.remote ? widget.options.remoteOptions : widget.options.options"
-          :key="widget.options.props ? item[widget.options.props.value] : item.value"
-          :value="widget.options.props ? item[widget.options.props.value] : item.value"
-          :label="widget.options.props.label ? item[widget.options.props.label] : item.label"
+          :key="item.value"
+          :value="item.value"
+          :label="item.label"
         ></el-option>
       </el-select>
     </template>
@@ -39,16 +39,12 @@ export default {
     models: {
       deep: true,
       handler(val) {
-        console.log(val)
-        console.log(this.widget.model)
-        console.log('---------------------------------')
         this.dataModel = val[this.widget.model]
       }
     },
     dataModel: {
       deep: true,
       handler(val) {
-        debugger
         this.models[this.widget.model] = val
         this.$emit('update:models', {
           ...this.models,
@@ -64,15 +60,14 @@ export default {
     if (this.widget.options.remote && this.remote[this.widget.options.remoteFunc]) {
       console.log(this.remote[this.widget.options.remoteFunc])
       this.remote[this.widget.options.remoteFunc]((data) => {
-        this.widget.options.remoteOptions = data
-        //   this.widget.options.remoteOptions = data.map((item) => {
-        //     return {
-        //       value: item[this.widget.options.props.value],
-        //       label: item[this.widget.options.props.label],
-        //       children: item[this.widget.options.props.children]
-        //     }
-        //   })
-        // })
+        // this.widget.options.remoteOptions = data
+        this.widget.options.remoteOptions = data.map((item) => {
+          return {
+            value: item[this.widget.options.props.value],
+            label: item[this.widget.options.props.label],
+            children: item[this.widget.options.props.children]
+          }
+        })
       })
     }
   },
@@ -81,6 +76,7 @@ export default {
       dataModel: this.models[this.widget.model]
     }
   },
+ 
 
   methods: {}
 }

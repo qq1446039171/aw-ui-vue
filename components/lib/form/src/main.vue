@@ -82,7 +82,13 @@ export default {
   methods: {
     generateModle(genList) {
       for (let i = 0; i < genList.length; i++) {
-        this.models[genList[i].model] = genList[i].options.defaultValue
+        if (genList[i].type === 'grid') {
+          genList[i].columns.forEach((item) => {
+            this.generateModle(item.list)
+          })
+        } else {
+          this.models[genList[i].model] = genList[i].options.defaultValue
+        }
       }
     },
     onInputChange(value, field) {
