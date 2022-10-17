@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  props: ['widget', 'models', 'remote'],
+  props: ['widget', 'models', 'remote', 'rules'],
   watch: {
     models: {
       deep: true,

@@ -5,6 +5,7 @@
       label-suffix=":"
       :size="data.config.size"
       :model="models"
+      :rules="rules"
       :label-position="data.config.labelPosition"
       :label-width="data.config.labelWidth + 'px'"
     >
@@ -34,6 +35,7 @@
                   :models.sync="models"
                   :remote="remote"
                   :widget="colItem"
+                  :rules="rules" 
                   @input-change="onInputChange"
                 >
                 </aw-form-item>
@@ -52,6 +54,7 @@
             :models.sync="models"
             :remote="remote"
             :widget="item"
+            :rules="rules" 
             @input-change="onInputChange"
           >
           </aw-form-item>
@@ -72,25 +75,49 @@ export default {
   props: ['data', 'value', 'remote'],
   data() {
     return {
-      models: {}
+      models: {},
+      rules: {}
     }
   },
   created() {
-    this.generateModle(this.data.list)
+    this.generateModel(this.data.list)
   },
   mounted() {},
   methods: {
-    generateModle(genList) {
+    generateModel(genList) {
       for (let i = 0; i < genList.length; i++) {
         if (genList[i].type === 'grid') {
           genList[i].columns.forEach((item) => {
-            this.generateModle(item.list)
+            this.generateModel(item.list)
           })
         } else {
           if (this.value && Object.keys(this.value).indexOf(genList[i].model) >= 0) {
             this.models[genList[i].model] = this.value[genList[i].model]
           } else {
             this.models[genList[i].model] = genList[i].options.defaultValue
+          }
+
+          if (this.rules[genList[i].model]) {
+            this.rules[genList[i].model] = [
+              ...this.rules[genList[i].model],
+              ...genList[i].rules.map((item) => {
+                if (item.pattern) {
+                  return { ...item, pattern: new RegExp(item.pattern) }
+                } else {
+                  return { ...item }
+                }
+              })
+            ]
+          } else {
+            this.rules[genList[i].model] = [
+              ...genList[i].rules.map((item) => {
+                if (item.pattern) {
+                  return { ...item, pattern: new RegExp(item.pattern) }
+                } else {
+                  return { ...item }
+                }
+              })
+            ]
           }
         }
       }
@@ -121,7 +148,7 @@ export default {
     data: {
       deep: true,
       handler(val) {
-        this.generateModle(val.list)
+        this.generateModel(val.list)
       }
     },
     value: {

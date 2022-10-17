@@ -176,9 +176,7 @@ export default {
       ],
 
       visible: false,
-      widgetModels: {
-        age1: '11'
-      },
+      widgetModels: {}, // 默认值
       formColumns: {
         list: [
           {
@@ -186,7 +184,7 @@ export default {
             options: {
               width: '100%',
               defaultValue: '',
-              required: false,
+              required: true,
               dataType: 'string',
               pattern: '', // 正则模式
               placeholder: '',
@@ -196,9 +194,18 @@ export default {
               remoteFunc: 'func_1665644318000_84350'
             },
             name: '年龄',
-
             model: 'age1',
-            rules: [{ type: 'string', message: 'age格式不正确' }]
+
+            rules: [
+              {
+                type: 'string',
+                message: '单行文本格式不正确'
+              },
+              {
+                required: true,
+                message: '单行文本必须填写'
+              }
+            ]
           },
           {
             type: 'grid',
@@ -536,6 +543,7 @@ export default {
         })
         .catch((e) => {
           // data check failed
+          console.log('asdasdsa')
         })
     }
   }
