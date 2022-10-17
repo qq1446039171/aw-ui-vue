@@ -69,7 +69,7 @@ export default {
   components: {
     AwFormItem
   },
-  props: ['data', 'remote'],
+  props: ['data', 'value', 'remote'],
   data() {
     return {
       models: {}
@@ -87,7 +87,11 @@ export default {
             this.generateModle(item.list)
           })
         } else {
-          this.models[genList[i].model] = genList[i].options.defaultValue
+          if (this.value && Object.keys(this.value).indexOf(genList[i].model) >= 0) {
+            this.models[genList[i].model] = this.value[genList[i].model]
+          } else {
+            this.models[genList[i].model] = genList[i].options.defaultValue
+          }
         }
       }
     },

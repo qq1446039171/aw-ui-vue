@@ -73,7 +73,7 @@
       </template>
     </aw-dialog>
 
-    <aw-form :data="formColumns" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
+    <aw-form :data="formColumns" :value="widgetModels" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
       <template v-slot:blank="scope">
         Width <el-input v-model="scope.model.blank.width" style="width: 100px"></el-input> Height
         <el-input v-model="scope.model.blank.height" style="width: 100px"></el-input>
@@ -176,13 +176,16 @@ export default {
       ],
 
       visible: false,
+      widgetModels: {
+        age1: '11'
+      },
       formColumns: {
         list: [
           {
             type: 'input',
             options: {
               width: '100%',
-              defaultValue: '123',
+              defaultValue: '',
               required: false,
               dataType: 'string',
               pattern: '', // 正则模式
@@ -206,7 +209,7 @@ export default {
                   {
                     type: 'select',
                     options: {
-                      defaultValue: 'Option1',
+                      defaultValue: '1',
                       multiple: false, // 是否启用多选
                       disabled: false, // 是否禁用
                       clearable: false, // 是否一键清除

@@ -60,7 +60,6 @@ export default {
     if (this.widget.options.remote && this.remote[this.widget.options.remoteFunc]) {
       console.log(this.remote[this.widget.options.remoteFunc])
       this.remote[this.widget.options.remoteFunc]((data) => {
-        // this.widget.options.remoteOptions = data
         this.widget.options.remoteOptions = data.map((item) => {
           return {
             value: item[this.widget.options.props.value],
@@ -76,7 +75,6 @@ export default {
       dataModel: this.models[this.widget.model]
     }
   },
- 
 
   methods: {}
 }
