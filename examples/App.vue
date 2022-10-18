@@ -74,10 +74,7 @@
     </aw-dialog>
 
     <aw-form :data="formColumns" :value="widgetModels" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
-      <template v-slot:blank="scope">
-        Width <el-input v-model="scope.model.blank.width" style="width: 100px"></el-input> Height
-        <el-input v-model="scope.model.blank.height" style="width: 100px"></el-input>
-      </template>
+      <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
     </aw-form>
     <el-button type="primary" @click="handleSubmit">提交</el-button>
   </div>

@@ -29,6 +29,17 @@ let AwForm = {
         ]
       },
       {
+        type: 'blank',
+
+        options: {
+          defaultType: 'String',
+
+          remoteFunc: 'func_1666077843000_28977'
+        },
+        name: '自定义区域',
+        model: 'blank'
+      },
+      {
         type: 'radio',
         options: {
           inline: true,
