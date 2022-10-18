@@ -101,6 +101,18 @@
     <template v-if="widget.type == 'text'">
       <span>{{ dataModel }}</span>
     </template>
+    <template v-if="widget.type == 'slider'">
+      <el-slider
+        v-model="dataModel"
+        :min="widget.options.min"
+        :max="widget.options.max"
+        :disabled="widget.options.disabled"
+        :step="widget.options.step"
+        :show-input="widget.options.showInput"
+        :range="widget.options.range"
+        :style="{ width: widget.options.width }"
+      ></el-slider>
+    </template>
     <template v-if="widget.type == 'time'">
       <el-time-picker
         v-model="dataModel"

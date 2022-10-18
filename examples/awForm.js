@@ -99,6 +99,26 @@ let AwForm = {
         model: 'text'
       },
       {
+        type: 'slider',
+
+        options: {
+          defaultValue: 12,
+          disabled: false,
+          required: false,
+          min: 0,
+          max: 100,
+          step: 1,
+          showInput: false,
+          range: false,
+          width: '',
+          remoteFunc: 'func_1666075988000_6295'
+        },
+        name: '滑块',
+
+        model: 'slider_1666075988000_6295',
+        rules: []
+      },
+      {
         type: 'select',
         options: {
           width: '60%',
