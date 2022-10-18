@@ -36,6 +36,35 @@
         :show-word-limit="widget.options.showWordLimit"
       ></el-input>
     </template>
+    <template v-if="widget.type == 'radio'">
+      <el-radio-group v-model="dataModel" :style="{ width: widget.options.width }" :disabled="widget.options.disabled">
+        <el-radio
+          :style="{ display: widget.options.inline ? 'inline-block' : 'block' }"
+          :label="item.value"
+          v-for="(item, index) in widget.options.remote ? widget.options.remoteOptions : widget.options.options"
+          :key="index"
+        >
+          {{ item.label }}
+        </el-radio>
+      </el-radio-group>
+    </template>
+    <template v-if="widget.type == 'checkbox'">
+      <el-checkbox-group
+        v-model="dataModel"
+        :style="{ width: widget.options.width }"
+        :disabled="widget.options.disabled"
+      >
+        <el-checkbox
+          :style="{ display: widget.options.inline ? 'inline-block' : 'block' }"
+          :label="item.value"
+          v-for="(item, index) in widget.options.remote ? widget.options.remoteOptions : widget.options.options"
+          :key="index"
+        >
+          <template v-if="widget.options.remote">{{ item.label }}</template>
+          <template v-else>{{ widget.options.showLabel ? item.label : item.value }}</template>
+        </el-checkbox>
+      </el-checkbox-group>
+    </template>
     <template v-if="widget.type == 'select'">
       <el-select
         v-model="dataModel"
@@ -54,7 +83,29 @@
         ></el-option>
       </el-select>
     </template>
-
+    <template v-if="widget.type == 'switch'">
+      <el-switch v-model="dataModel" :disabled="widget.options.disabled"> </el-switch>
+    </template>
+    <template v-if="widget.type == 'text'">
+      <span>{{ dataModel }}</span>
+    </template>
+    <template v-if="widget.type == 'time'">
+      <el-time-picker
+        v-model="dataModel"
+        :is-range="widget.options.isRange"
+        :placeholder="widget.options.placeholder"
+        :start-placeholder="widget.options.startPlaceholder"
+        :end-placeholder="widget.options.endPlaceholder"
+        :readonly="widget.options.readonly"
+        :disabled="widget.options.disabled"
+        :editable="widget.options.editable"
+        :clearable="widget.options.clearable"
+        :arrowControl="widget.options.arrowControl"
+        :value-format="widget.options.format"
+        :style="{ width: widget.options.width }"
+      >
+      </el-time-picker>
+    </template>
     <template v-if="widget.type == 'date'">
       <el-date-picker
         v-model="dataModel"

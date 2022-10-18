@@ -206,42 +206,40 @@ export default {
               }
             ]
           },
-          // {
-          //   type: 'radio',
-          //   options: {
-          //     inline: false,
-          //     defaultValue: '',
-          //     showLabel: false,
-          //     options: [
-          //       {
-          //         value: 'Option 1',
-          //         label: 'Option 1'
-          //       },
-          //       {
-          //         value: 'Option 2',
-          //         label: 'Option 2'
-          //       },
-          //       {
-          //         value: 'Option 3',
-          //         label: 'Option 3'
-          //       }
-          //     ],
-          //     required: false,
-          //     width: '',
-          //     remote: false,
-          //     remoteOptions: [],
-          //     props: {
-          //       value: 'value',
-          //       label: 'label'
-          //     },
-          //     remoteFunc: 'func_1666058604000_87864',
-          //     disabled: false
-          //   },
-          //   name: '性别',
-
-          //   model: 'sex',
-          //   rules: []
-          // },
+          {
+            type: 'radio',
+            options: {
+              inline: true,
+              defaultValue: '',
+              options: [
+                {
+                  value: 'Option 1',
+                  label: 'Option 1'
+                },
+                {
+                  value: 'Option 2',
+                  label: 'Option 2'
+                },
+                {
+                  value: 'Option 3',
+                  label: 'Option 3'
+                }
+              ],
+              required: false,
+              width: '',
+              remote: false,
+              remoteOptions: [],
+              props: {
+                value: 'value',
+                label: 'label'
+              },
+              remoteFunc: 'func_1666058604000_87864',
+              disabled: false
+            },
+            name: '性别',
+            model: 'sex',
+            rules: []
+          },
 
           {
             type: 'textarea',
@@ -256,8 +254,28 @@ export default {
               remoteFunc: 'func_1665644318000_84350'
             },
             name: '备注',
-            model: 'remark',
-           
+            model: 'remark'
+          },
+          {
+            type: 'switch',
+            options: {
+              defaultValue: false,
+              required: false,
+              disabled: false,
+              remoteFunc: 'func_1666073088000_38396'
+            },
+            name: '开关',
+            model: 'switch'
+          },
+          {
+            type: 'text',
+            options: {
+              defaultValue: 'This is a text',
+              customClass: '',
+              remoteFunc: 'func_1666073187000_11767'
+            },
+            name: '文字',
+            model: 'text'
           },
           {
             type: 'select',
@@ -281,6 +299,28 @@ export default {
             rules: []
           },
           {
+            type: 'time',
+            options: {
+              defaultValue: '',
+              readonly: false,
+              disabled: false,
+              editable: true,
+              clearable: true,
+              placeholder: '',
+              startPlaceholder: '',
+              endPlaceholder: '',
+              isRange: false,
+              arrowControl: false,
+              format: 'HH:mm:ss',
+              required: false,
+              width: '',
+              remoteFunc: 'func_1666065118000_2670'
+            },
+            name: '时间选择器',
+            model: 'time',
+            rules: []
+          },
+          {
             type: 'date',
             options: {
               defaultValue: '',
@@ -300,7 +340,7 @@ export default {
             },
             name: '日期选择器',
 
-            model: 'time',
+            model: 'date',
             rules: []
           },
           {

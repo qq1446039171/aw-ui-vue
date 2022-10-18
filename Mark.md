@@ -9,6 +9,8 @@
    <!-- 2. 安装 async-validator: "^1.11.5", -->
    <!-- "async-validator": "^4.1.1", -->
 
+<!-- Node.js v14.19.1. -->
+
 ### 库打包 npm run build
 
 ### 上传 npm publish
