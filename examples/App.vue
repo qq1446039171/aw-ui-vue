@@ -194,8 +194,7 @@ export default {
               remoteFunc: 'func_1665644318000_84350'
             },
             name: '年龄',
-            model: 'age1',
-
+            model: 'age',
             rules: [
               {
                 type: 'string',
@@ -206,6 +205,50 @@ export default {
                 message: '单行文本必须填写'
               }
             ]
+          },
+          {
+            type: 'select',
+            
+            options: {
+              options: [
+                {
+                  value: 'Option 1',
+                  label: '123123'
+                },
+                {
+                  value: 'Option 2'
+                },
+                {
+                  value: 'Option 3'
+                }
+              ]
+            },
+            name: '下拉选择框',
+            model: 'select_1666056676000_29583',
+         
+          },
+          {
+            type: 'date',
+            options: {
+              defaultValue: '',
+              readonly: false,
+              disabled: false,
+              editable: true,
+              clearable: true,
+              placeholder: '',
+              startPlaceholder: '',
+              endPlaceholder: '',
+              type: 'date',
+              format: 'yyyy-MM-dd',
+              timestamp: false,
+              required: false,
+              width: '',
+              remoteFunc: 'func_1666055115000_81785'
+            },
+            name: '日期选择器',
+
+            model: 'time',
+            rules: []
           },
           {
             type: 'grid',
@@ -289,6 +332,7 @@ export default {
         ],
         config: { labelWidth: 100, labelPosition: 'right', size: 'small', customClass: '' }
       },
+      // 远程请求
       remoteFuncs: {
         getDrugName(resolve) {
           // 药品名称 drug_name

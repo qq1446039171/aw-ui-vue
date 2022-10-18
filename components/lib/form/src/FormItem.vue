@@ -29,6 +29,23 @@
         ></el-option>
       </el-select>
     </template>
+    <template v-if="widget.type == 'date'">
+      <el-date-picker
+        v-model="dataModel"
+        :type="widget.options.type"
+        :placeholder="widget.options.placeholder"
+        :start-placeholder="widget.options.startPlaceholder"
+        :end-placeholder="widget.options.endPlaceholder"
+        :readonly="widget.options.readonly"
+        :disabled="widget.options.disabled"
+        :editable="widget.options.editable"
+        :clearable="widget.options.clearable"
+        :value-format="widget.options.timestamp ? 'timestamp' : widget.options.format"
+        :format="widget.options.format"
+        :style="{ width: widget.options.width }"
+      >
+      </el-date-picker>
+    </template>
   </el-form-item>
 </template>
 
@@ -58,7 +75,6 @@ export default {
   created() {
     // 假如是远端请求 走这里请求
     if (this.widget.options.remote && this.remote[this.widget.options.remoteFunc]) {
-      console.log(this.remote[this.widget.options.remoteFunc])
       this.remote[this.widget.options.remoteFunc]((data) => {
         this.widget.options.remoteOptions = data.map((item) => {
           return {

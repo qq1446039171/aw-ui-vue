@@ -35,7 +35,7 @@
                   :models.sync="models"
                   :remote="remote"
                   :widget="colItem"
-                  :rules="rules" 
+                  :rules="rules"
                   @input-change="onInputChange"
                 >
                 </aw-form-item>
@@ -54,7 +54,7 @@
             :models.sync="models"
             :remote="remote"
             :widget="item"
-            :rules="rules" 
+            :rules="rules"
             @input-change="onInputChange"
           >
           </aw-form-item>
@@ -73,6 +73,21 @@ export default {
     AwFormItem
   },
   props: ['data', 'value', 'remote'],
+  watch: {
+    data: {
+      deep: true,
+      handler(val) {
+        this.generateModel(val.list)
+      }
+    },
+    value: {
+      deep: true,
+      handler(val) {
+        console.log(JSON.stringify(val))
+        this.models = { ...this.models, ...val }
+      }
+    }
+  },
   data() {
     return {
       models: {},
@@ -96,7 +111,6 @@ export default {
           } else {
             this.models[genList[i].model] = genList[i].options.defaultValue
           }
-
           if (this.rules[genList[i].model]) {
             this.rules[genList[i].model] = [
               ...this.rules[genList[i].model],
@@ -143,21 +157,6 @@ export default {
       this.$emit('on-change', field, value, this.models)
     },
     refresh() {}
-  },
-  watch: {
-    data: {
-      deep: true,
-      handler(val) {
-        this.generateModel(val.list)
-      }
-    },
-    value: {
-      deep: true,
-      handler(val) {
-        console.log(JSON.stringify(val))
-        this.models = { ...this.models, ...val }
-      }
-    }
   }
 }
 </script>
