@@ -106,32 +106,37 @@ export default {
             this.generateModel(item.list)
           })
         } else {
+          let isRules = genList[i].rules && genList[i].rules.length
           if (this.value && Object.keys(this.value).indexOf(genList[i].model) >= 0) {
             this.models[genList[i].model] = this.value[genList[i].model]
           } else {
             this.models[genList[i].model] = genList[i].options.defaultValue
           }
           if (this.rules[genList[i].model]) {
-            this.rules[genList[i].model] = [
-              ...this.rules[genList[i].model],
-              ...genList[i].rules.map((item) => {
-                if (item.pattern) {
-                  return { ...item, pattern: new RegExp(item.pattern) }
-                } else {
-                  return { ...item }
-                }
-              })
-            ]
+            if (isRules) {
+              this.rules[genList[i].model] = [
+                ...this.rules[genList[i].model],
+                ...genList[i].rules.map((item) => {
+                  if (item.pattern) {
+                    return { ...item, pattern: new RegExp(item.pattern) }
+                  } else {
+                    return { ...item }
+                  }
+                })
+              ]
+            }
           } else {
-            this.rules[genList[i].model] = [
-              ...genList[i].rules.map((item) => {
-                if (item.pattern) {
-                  return { ...item, pattern: new RegExp(item.pattern) }
-                } else {
-                  return { ...item }
-                }
-              })
-            ]
+            if (isRules) {
+              this.rules[genList[i].model] = [
+                ...genList[i].rules.map((item) => {
+                  if (item.pattern) {
+                    return { ...item, pattern: new RegExp(item.pattern) }
+                  } else {
+                    return { ...item }
+                  }
+                })
+              ]
+            }
           }
         }
       }

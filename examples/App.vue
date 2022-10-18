@@ -206,9 +206,62 @@ export default {
               }
             ]
           },
+          // {
+          //   type: 'radio',
+          //   options: {
+          //     inline: false,
+          //     defaultValue: '',
+          //     showLabel: false,
+          //     options: [
+          //       {
+          //         value: 'Option 1',
+          //         label: 'Option 1'
+          //       },
+          //       {
+          //         value: 'Option 2',
+          //         label: 'Option 2'
+          //       },
+          //       {
+          //         value: 'Option 3',
+          //         label: 'Option 3'
+          //       }
+          //     ],
+          //     required: false,
+          //     width: '',
+          //     remote: false,
+          //     remoteOptions: [],
+          //     props: {
+          //       value: 'value',
+          //       label: 'label'
+          //     },
+          //     remoteFunc: 'func_1666058604000_87864',
+          //     disabled: false
+          //   },
+          //   name: '性别',
+
+          //   model: 'sex',
+          //   rules: []
+          // },
+
+          {
+            type: 'textarea',
+            options: {
+              width: '100%',
+              defaultValue: '',
+              required: false,
+              dataType: 'string',
+              placeholder: '',
+              disabled: false,
+
+              remoteFunc: 'func_1665644318000_84350'
+            },
+            name: '备注',
+            model: 'remark',
+           
+          },
           {
             type: 'select',
-            
+
             options: {
               options: [
                 {
@@ -225,7 +278,7 @@ export default {
             },
             name: '下拉选择框',
             model: 'select_1666056676000_29583',
-         
+            rules: []
           },
           {
             type: 'date',
@@ -262,16 +315,10 @@ export default {
                       defaultValue: '1',
                       multiple: false, // 是否启用多选
                       disabled: false, // 是否禁用
-                      clearable: false, // 是否一键清除
+                      clearable: true, // 是否一键清除
                       placeholder: '', // input占位符
                       required: false, // 是否必填  为true与 rules 成对出现
-                      rules: [
-                        // 效验规则
-                        {
-                          required: true,
-                          message: '下拉选择框必须填写'
-                        }
-                      ],
+
                       width: '', // 宽度
                       options: [
                         // 未走远程请求的下拉数据
@@ -286,7 +333,13 @@ export default {
                     },
                     name: '患者姓名',
                     model: 'name',
-                    rules: []
+                    rules: [
+                      // 效验规则
+                      {
+                        required: true,
+                        message: '下拉选择框必须填写'
+                      }
+                    ]
                   }
                 ]
               },
@@ -302,13 +355,7 @@ export default {
                       clearable: false, // 是否一键清除
                       placeholder: '', // input占位符
                       required: false, // 是否必填  为true与 rules 成对出现
-                      rules: [
-                        // 效验规则
-                        {
-                          required: true,
-                          message: '下拉选择框必须填写'
-                        }
-                      ],
+
                       width: '', // 宽度
                       remote: true,
                       filterable: false,
@@ -318,6 +365,7 @@ export default {
                     },
                     name: '药品名称',
                     model: 'drug_name',
+
                     rules: []
                   }
                 ]

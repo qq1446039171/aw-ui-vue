@@ -2,7 +2,32 @@
   <el-form-item :label="widget.name" :prop="widget.model">
     <template v-if="widget.type == 'input'">
       <el-input
+        v-if="
+          widget.options.dataType == 'number' ||
+          widget.options.dataType == 'integer' ||
+          widget.options.dataType == 'float'
+        "
+        type="number"
+        v-model.number="dataModel"
+        :placeholder="widget.options.placeholder"
+        :style="{ width: widget.options.width }"
+        :disabled="widget.options.disabled"
+      ></el-input>
+      <el-input
+        v-else
         type="text"
+        v-model="dataModel"
+        :disabled="widget.options.disabled"
+        :placeholder="widget.options.placeholder"
+        :style="{ width: widget.options.width }"
+        :maxlength="widget.options.maxlength"
+        :show-word-limit="widget.options.showWordLimit"
+      ></el-input>
+    </template>
+    <template v-if="widget.type == 'textarea'">
+      <el-input
+        type="textarea"
+        :rows="5"
         v-model="dataModel"
         :disabled="widget.options.disabled"
         :placeholder="widget.options.placeholder"
@@ -29,6 +54,7 @@
         ></el-option>
       </el-select>
     </template>
+
     <template v-if="widget.type == 'date'">
       <el-date-picker
         v-model="dataModel"
