@@ -83,6 +83,18 @@
         ></el-option>
       </el-select>
     </template>
+    <template v-if="widget.type == 'cascader'">
+      <el-cascader
+        v-model="dataModel"
+        :disabled="widget.options.disabled"
+        :clearable="widget.options.clearable"
+        :placeholder="widget.options.placeholder"
+        :style="{ width: widget.options.width }"
+        :props="widget.options.protoProps"
+        :options="widget.options.remoteOptions"
+      >
+      </el-cascader>
+    </template>
     <template v-if="widget.type == 'switch'">
       <el-switch v-model="dataModel" :disabled="widget.options.disabled"> </el-switch>
     </template>
