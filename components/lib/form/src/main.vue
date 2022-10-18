@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import AwFormItem from './FormItem'
+import AwFormItem from './FormItem.vue'
 
 export default {
   name: 'aw-form',

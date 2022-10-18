@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{451:function(t,n,e){},487:function(t,n,e){"use strict";e(451)},508:function(t,n,e){"use strict";e.r(n);var s={name:"aw-form"},a=(e(487),e(64)),c=Object(a.a)(s,(function(){var t=this.$createElement;return(this._self._c||t)("h1",{staticClass:"aw-form"},[this._v("hellow")])}),[],!1,null,null,null);n.default=c.exports}}]);
