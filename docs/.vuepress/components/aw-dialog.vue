@@ -41,6 +41,10 @@ export default {
     center: {
       type: Boolean,
       default: false
+    },
+    width: {
+      type: String,
+      default: '30%'
     }
   },
   methods: {
@@ -58,8 +62,7 @@ export default {
   position: fixed;
   left: 40vw;
   top: 36vh;
-  z-index: 9999;
-  width: 30%;
+  z-index: 999;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);

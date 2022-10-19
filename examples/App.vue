@@ -51,7 +51,7 @@
 
       <!-- 表格操作 -->
       <template #operation="scope">
-        <el-button type="text" @click="deleteAccount(scope.row)">查看</el-button>
+        <el-button type="text" @click="showDialog(scope.row)">查看</el-button>
         <el-button type="text" @click="deleteAccount(scope.row)">删除</el-button>
       </template>
     </aw-table>
@@ -73,17 +73,23 @@
       </template>
     </aw-dialog>
 
+    <Dialog ref="refDialog" />
+
     <aw-form :data="formColumns" :value="widgetModels" :remote="remoteList" @on-change="handleDataChange" ref="awForm">
-      <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
-    </aw-form>
+      <template  v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
+    </aw-form> 
     <el-button type="primary" @click="handleSubmit">提交</el-button>
   </div>
 </template>
 
 <script>
-import AwForm from './awForm'
+import AwForm from './AwForm'
+import Dialog from './components/Dialog.vue'
 export default {
   name: 'App',
+  components: {
+    Dialog
+  },
   data() {
     return {
       centerDialogVisible: false,
@@ -385,6 +391,9 @@ export default {
     deleteAccount(id) {
       console.log('需要删除的对象id：', id)
     },
+    showDialog(data) {
+      this.$refs.refDialog.show(data)
+    },
     handleDataChange(field, value, data) {
       console.log(field, value, data)
     },
@@ -392,12 +401,10 @@ export default {
       this.$refs.awForm
         .getData()
         .then((data) => {
-          debugger
-          // data check success
-          // data - form data
+          console.log('表单提交数据:')
+          console.log(data)
         })
         .catch((e) => {
-          // data check failed
           console.log('asdasdsa')
         })
     }

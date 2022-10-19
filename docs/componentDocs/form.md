@@ -163,7 +163,6 @@ export default {
           },
           {
             type: 'cascader',
-            icon: 'icon-jilianxuanze',
             options: {
               defaultValue: [],
               width: '',
@@ -188,7 +187,7 @@ export default {
           },
           {
             type: 'time',
-            icon: 'icon-time',
+     
             options: {
               defaultValue: '',
               readonly: false,
@@ -206,9 +205,7 @@ export default {
               remoteFunc: 'func_1666075913000_32598'
             },
             name: '时间选择器',
-            key: '1666075913000_32598',
             model: 'time_1666075913000_32598',
-            rules: []
           },
           {
             type: 'date',
@@ -226,12 +223,9 @@ export default {
               timestamp: false,
               required: false,
               width: '',
-              remoteFunc: 'func_1666055115000_81785'
             },
             name: '日期选择器',
-
             model: 'date',
-            rules: []
           },
           {
             type: 'grid',
@@ -242,13 +236,12 @@ export default {
                   {
                     type: 'select',
                     options: {
-                      defaultValue: '1',
+                      defaultValue: 'Option1',
                       multiple: false, // 是否启用多选
                       disabled: false, // 是否禁用
                       clearable: true, // 是否一键清除
                       placeholder: '', // input占位符
-                      required: false, // 是否必填  为true与 rules 成对出现
-
+                      required: true, // 是否必填  为true与 rules 成对出现
                       width: '', // 宽度
                       options: [
                         // 未走远程请求的下拉数据
@@ -264,7 +257,6 @@ export default {
                     name: '患者姓名',
                     model: 'name',
                     rules: [
-                      // 效验规则
                       {
                         required: true,
                         message: '下拉选择框必须填写'
@@ -279,13 +271,12 @@ export default {
                   {
                     type: 'select',
                     options: {
-                      defaultValue: '1',
+                      defaultValue: '',
                       multiple: false, // 是否启用多选
                       disabled: false, // 是否禁用
-                      clearable: false, // 是否一键清除
+                      clearable: true, // 是否一键清除
                       placeholder: '', // input占位符
-                      required: false, // 是否必填  为true与 rules 成对出现
-
+                      required: true, // 是否必填  为true与 rules 成对出现
                       width: '', // 宽度
                       remote: true,
                       filterable: false,
@@ -295,15 +286,16 @@ export default {
                     },
                     name: '药品名称',
                     model: 'drug_name',
-
-                    rules: []
+                    rules: [ {
+                    required: true,
+                    message: '下拉选择框必须填写'
+                  }]
                   }
                 ]
               }
             ],
             options: { gutter: 0, justify: 'start', align: 'top' },
             name: '栅格布局',
-
             model: 'grid_1665644238000_31981',
             rules: []
           }
@@ -390,7 +382,6 @@ export default {
     name: 'Form',
     data() {
       return {
-        widgetModels: {}, // 默认值
         widgetModels: {}, // 默认值
         formColumns: AwForm.Columns,
         // 远程请求
@@ -652,7 +643,7 @@ let AwForm = {
               {
                 type: 'select',
                 options: {
-                  defaultValue: '1',
+                  defaultValue: 'Option1',
                   multiple: false, // 是否启用多选
                   disabled: false, // 是否禁用
                   clearable: true, // 是否一键清除
@@ -692,9 +683,9 @@ let AwForm = {
                   defaultValue: '1',
                   multiple: false, // 是否启用多选
                   disabled: false, // 是否禁用
-                  clearable: false, // 是否一键清除
+                  clearable: true, // 是否一键清除
                   placeholder: '', // input占位符
-                  required: false, // 是否必填  为true与 rules 成对出现
+                  required: true, // 是否必填  为true与 rules 成对出现
 
                   width: '', // 宽度
                   remote: true,
@@ -706,7 +697,12 @@ let AwForm = {
                 name: '药品名称',
                 model: 'drug_name',
 
-                rules: []
+                rules: [
+                  {
+                    required: true,
+                    message: '下拉选择框必须填写'
+                  }
+                ]
               }
             ]
           }

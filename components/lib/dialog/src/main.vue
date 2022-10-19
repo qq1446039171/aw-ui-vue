@@ -2,6 +2,7 @@
   <div
     class="aw-dialog"
     :class="theme == 'dark' ? 'aw-dialog-dark' : ''"
+    :style="{ width: width }"
     v-show="visible"
     v-move="draggable ? '.aw-dialog-header' : ''"
   >
@@ -41,6 +42,10 @@ export default {
     center: {
       type: Boolean,
       default: false
+    },
+    width: {
+      type: String,
+      default: '30%'
     }
   },
   methods: {
