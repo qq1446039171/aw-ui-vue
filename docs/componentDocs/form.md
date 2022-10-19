@@ -370,16 +370,19 @@ export default {
 <br/>
    <aw-form :data="formColumns" :value="widgetModels" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
       <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
-    </aw-form>
-    <el-button type="primary" @click="handleSubmit">提交</el-button>
+   </aw-form>
+   <el-button type="primary" @click="handleSubmit">提交</el-button>
 
 ### 代码
 
 ```html
 <template>
-  <aw-form :data="formColumns" :value="widgetModels" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
-    <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
-  </aw-form>
+  <div>
+    <aw-form :data="formColumns" :value="widgetModels" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
+      <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
+    </aw-form>
+    <el-button type="primary" @click="handleSubmit">提交</el-button>
+  </div> 
 </template>
 <script>
   export default {
@@ -731,13 +734,14 @@ export default {
         this.$refs.awForm
           .getData()
           .then((data) => {
-            debugger
+            console.log('表单提交数据:')
+            console.log(data)
             // data check success
             // data - form data
           })
           .catch((e) => {
             // data check failed
-            console.log('asdasdsa')
+            console.log('表单数据未填写完整')
           })
       }
     }
