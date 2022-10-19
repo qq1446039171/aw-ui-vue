@@ -73,7 +73,7 @@
       </template>
     </aw-dialog>
 
-    <aw-form :data="formColumns" :value="widgetModels" :remote="remoteFuncs" @on-change="handleDataChange" ref="awForm">
+    <aw-form :data="formColumns" :value="widgetModels" :remote="remoteList" @on-change="handleDataChange" ref="awForm">
       <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
     </aw-form>
     <el-button type="primary" @click="handleSubmit">提交</el-button>
@@ -176,7 +176,7 @@ export default {
       widgetModels: {}, // 默认值
       formColumns: AwForm.Columns,
       // 远程请求
-      remoteFuncs: AwForm.Remote
+      remoteList: AwForm.Remote
     }
   },
   methods: {
