@@ -13,6 +13,7 @@ module.exports = {
       '/componentDocs/input',
       '/componentDocs/table',
       '/componentDocs/dialog',
+      '/componentDocs/form',
       
     ],
     nav: [
