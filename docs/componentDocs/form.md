@@ -10,7 +10,7 @@ export default {
   data() {
     return {
       widgetModels: {}, // 默认值
-      formColumns: {
+      formColumns:{
         list: [
           {
             type: 'input',
@@ -41,171 +41,12 @@ export default {
           },
           {
             type: 'blank',
-
             options: {
               defaultType: 'String',
-
               remoteFunc: 'func_1666077843000_28977'
             },
             name: '自定义区域',
             model: 'blank'
-          },
-          {
-            type: 'radio',
-            options: {
-              inline: true,
-              defaultValue: '',
-              options: [
-                {
-                  value: 'Option 1',
-                  label: 'Option 1'
-                },
-                {
-                  value: 'Option 2',
-                  label: 'Option 2'
-                },
-                {
-                  value: 'Option 3',
-                  label: 'Option 3'
-                }
-              ],
-              required: false,
-              width: '',
-              remote: false,
-              remoteOptions: [],
-              props: {
-                value: 'value',
-                label: 'label'
-              },
-              remoteFunc: 'func_1666058604000_87864',
-              disabled: false
-            },
-            name: '性别',
-            model: 'sex',
-            rules: []
-          },
-          {
-            type: 'textarea',
-            options: {
-              width: '100%',
-              defaultValue: '',
-              required: false,
-              dataType: 'string',
-              placeholder: '',
-              disabled: false,
-
-              remoteFunc: 'func_1665644318000_84350'
-            },
-            name: '备注',
-            model: 'remark'
-          },
-          {
-            type: 'switch',
-            options: {
-              defaultValue: false,
-              required: false,
-              disabled: false,
-              remoteFunc: 'func_1666073088000_38396'
-            },
-            name: '开关',
-            model: 'switch'
-          },
-          {
-            type: 'text',
-            options: {
-              defaultValue: 'This is a text',
-              customClass: '',
-              remoteFunc: 'func_1666073187000_11767'
-            },
-            name: '文字',
-            model: 'text'
-          },
-          {
-            type: 'slider',
-
-            options: {
-              defaultValue: 12,
-              disabled: false,
-              required: false,
-              min: 0,
-              max: 100,
-              step: 1,
-              showInput: false,
-              range: false,
-              width: '',
-              remoteFunc: 'func_1666075988000_6295'
-            },
-            name: '滑块',
-
-            model: 'slider_1666075988000_6295',
-            rules: []
-          },
-          {
-            type: 'select',
-            options: {
-              width: '60%',
-              options: [
-                {
-                  value: 'Option 1',
-                  label: '123123'
-                },
-                {
-                  value: 'Option 2'
-                },
-                {
-                  value: 'Option 3'
-                }
-              ]
-            },
-            name: '下拉选择框',
-            model: 'select_1666056676000_29583',
-            rules: []
-          },
-          {
-            type: 'cascader',
-            options: {
-              defaultValue: [],
-              width: '',
-              placeholder: '',
-              disabled: false,
-              clearable: false,
-              remote: true,
-              remoteOptions: [],
-              protoProps: {
-                multiple: true
-              },
-              props: {
-                value: 'id',
-                label: 'name',
-                children: 'children'
-              },
-              remoteFunc: 'func_test'
-            },
-            name: '级联选择器',
-            model: 'cascader',
-            rules: []
-          },
-          {
-            type: 'time',
-     
-            options: {
-              defaultValue: '',
-              readonly: false,
-              disabled: false,
-              editable: true,
-              clearable: true,
-              placeholder: '',
-              startPlaceholder: '',
-              endPlaceholder: '',
-              isRange: false,
-              arrowControl: true,
-              format: 'HH:mm:ss',
-              required: false,
-              width: '',
-              remoteFunc: 'func_1666075913000_32598'
-            },
-            name: '时间选择器',
-            model: 'time_1666075913000_32598',
           },
           {
             type: 'date',
@@ -226,6 +67,7 @@ export default {
             },
             name: '日期选择器',
             model: 'date',
+            rules: []
           },
           {
             type: 'grid',
@@ -236,18 +78,18 @@ export default {
                   {
                     type: 'select',
                     options: {
-                      defaultValue: 'Option1',
+                      defaultValue: 'hbw',
                       multiple: false, // 是否启用多选
                       disabled: false, // 是否禁用
                       clearable: true, // 是否一键清除
                       placeholder: '', // input占位符
-                      required: true, // 是否必填  为true与 rules 成对出现
+                      required: false, // 是否必填  为true与 rules 成对出现
                       width: '', // 宽度
                       options: [
                         // 未走远程请求的下拉数据
-                        { value: 'Option1', label: 'Option 1' },
-                        { value: 'Option2', label: 'Option 2' },
-                        { value: 'Option3', label: 'Option 3' }
+                        { value: 'hbw', label: '黄博文' },
+                        { value: 'zqh', label: '张琼慧' },
+                        { value: 'px', label: '小螃蟹' }
                       ],
                       remote: false, // 是否开启远程请求
                       filterable: false, // 是否启用搜索功能
@@ -257,6 +99,7 @@ export default {
                     name: '患者姓名',
                     model: 'name',
                     rules: [
+                      // 效验规则
                       {
                         required: true,
                         message: '下拉选择框必须填写'
@@ -286,16 +129,15 @@ export default {
                     },
                     name: '药品名称',
                     model: 'drug_name',
-                    rules: [ {
-                    required: true,
-                    message: '下拉选择框必须填写'
-                  }]
+
+                    rules: []
                   }
                 ]
               }
             ],
             options: { gutter: 0, justify: 'start', align: 'top' },
             name: '栅格布局',
+
             model: 'grid_1665644238000_31981',
             rules: []
           }
@@ -442,174 +284,12 @@ let AwForm = {
       },
       {
         type: 'blank',
-
         options: {
           defaultType: 'String',
-
           remoteFunc: 'func_1666077843000_28977'
         },
         name: '自定义区域',
         model: 'blank'
-      },
-      {
-        type: 'radio',
-        options: {
-          inline: true,
-          defaultValue: '',
-          options: [
-            {
-              value: 'Option 1',
-              label: 'Option 1'
-            },
-            {
-              value: 'Option 2',
-              label: 'Option 2'
-            },
-            {
-              value: 'Option 3',
-              label: 'Option 3'
-            }
-          ],
-          required: false,
-          width: '',
-          remote: false,
-          remoteOptions: [],
-          props: {
-            value: 'value',
-            label: 'label'
-          },
-          remoteFunc: 'func_1666058604000_87864',
-          disabled: false
-        },
-        name: '性别',
-        model: 'sex',
-        rules: []
-      },
-      {
-        type: 'textarea',
-        options: {
-          width: '100%',
-          defaultValue: '',
-          required: false,
-          dataType: 'string',
-          placeholder: '',
-          disabled: false,
-
-          remoteFunc: 'func_1665644318000_84350'
-        },
-        name: '备注',
-        model: 'remark'
-      },
-      {
-        type: 'switch',
-        options: {
-          defaultValue: false,
-          required: false,
-          disabled: false,
-          remoteFunc: 'func_1666073088000_38396'
-        },
-        name: '开关',
-        model: 'switch'
-      },
-      {
-        type: 'text',
-        options: {
-          defaultValue: 'This is a text',
-          customClass: '',
-          remoteFunc: 'func_1666073187000_11767'
-        },
-        name: '文字',
-        model: 'text'
-      },
-      {
-        type: 'slider',
-
-        options: {
-          defaultValue: 12,
-          disabled: false,
-          required: false,
-          min: 0,
-          max: 100,
-          step: 1,
-          showInput: false,
-          range: false,
-          width: '',
-          remoteFunc: 'func_1666075988000_6295'
-        },
-        name: '滑块',
-
-        model: 'slider_1666075988000_6295',
-        rules: []
-      },
-      {
-        type: 'select',
-        options: {
-          width: '60%',
-          options: [
-            {
-              value: 'Option 1',
-              label: '123123'
-            },
-            {
-              value: 'Option 2'
-            },
-            {
-              value: 'Option 3'
-            }
-          ]
-        },
-        name: '下拉选择框',
-        model: 'select_1666056676000_29583',
-        rules: []
-      },
-      {
-        type: 'cascader',
-        icon: 'icon-jilianxuanze',
-        options: {
-          defaultValue: [],
-          width: '',
-          placeholder: '',
-          disabled: false,
-          clearable: false,
-          remote: true,
-          remoteOptions: [],
-          protoProps: {
-            multiple: true
-          },
-          props: {
-            value: 'id',
-            label: 'name',
-            children: 'children'
-          },
-          remoteFunc: 'func_test'
-        },
-        name: '级联选择器',
-        model: 'cascader',
-        rules: []
-      },
-      {
-        type: 'time',
-        icon: 'icon-time',
-        options: {
-          defaultValue: '',
-          readonly: false,
-          disabled: false,
-          editable: true,
-          clearable: true,
-          placeholder: '',
-          startPlaceholder: '',
-          endPlaceholder: '',
-          isRange: false,
-          arrowControl: true,
-          format: 'HH:mm:ss',
-          required: false,
-          width: '',
-          remoteFunc: 'func_1666075913000_32598'
-        },
-        name: '时间选择器',
-        key: '1666075913000_32598',
-        model: 'time_1666075913000_32598',
-        rules: []
       },
       {
         type: 'date',
@@ -626,11 +306,9 @@ let AwForm = {
           format: 'yyyy-MM-dd',
           timestamp: false,
           required: false,
-          width: '',
-          remoteFunc: 'func_1666055115000_81785'
+          width: ''
         },
         name: '日期选择器',
-
         model: 'date',
         rules: []
       },
@@ -643,19 +321,18 @@ let AwForm = {
               {
                 type: 'select',
                 options: {
-                  defaultValue: 'Option1',
+                  defaultValue: 'hbw',
                   multiple: false, // 是否启用多选
                   disabled: false, // 是否禁用
                   clearable: true, // 是否一键清除
                   placeholder: '', // input占位符
                   required: false, // 是否必填  为true与 rules 成对出现
-
                   width: '', // 宽度
                   options: [
                     // 未走远程请求的下拉数据
-                    { value: 'Option1', label: 'Option 1' },
-                    { value: 'Option2', label: 'Option 2' },
-                    { value: 'Option3', label: 'Option 3' }
+                    { value: 'hbw', label: '黄博文' },
+                    { value: 'zqh', label: '张琼慧' },
+                    { value: 'px', label: '小螃蟹' }
                   ],
                   remote: false, // 是否开启远程请求
                   filterable: false, // 是否启用搜索功能
@@ -680,13 +357,12 @@ let AwForm = {
               {
                 type: 'select',
                 options: {
-                  defaultValue: '1',
+                  defaultValue: '',
                   multiple: false, // 是否启用多选
                   disabled: false, // 是否禁用
                   clearable: true, // 是否一键清除
                   placeholder: '', // input占位符
                   required: true, // 是否必填  为true与 rules 成对出现
-
                   width: '', // 宽度
                   remote: true,
                   filterable: false,
@@ -697,12 +373,7 @@ let AwForm = {
                 name: '药品名称',
                 model: 'drug_name',
 
-                rules: [
-                  {
-                    required: true,
-                    message: '下拉选择框必须填写'
-                  }
-                ]
+                rules: []
               }
             ]
           }
@@ -714,7 +385,7 @@ let AwForm = {
         rules: []
       }
     ],
-    config: { labelWidth: 120, labelPosition: 'right', size: 'small', customClass: '' }
+    config: { labelWidth: 90, labelPosition: 'right', size: 'small', customClass: '' }
   },
   Remote: {
     getDrugName(resolve) {
@@ -754,8 +425,10 @@ let AwForm = {
 export default AwForm
 ```
 
-### Attributes
+### Attributes  
 
-| 属性  | 说明                       | 类型   | 可选值 | 是否必要 | 默认值 |
+待更新中 
+
+<!-- | 属性  | 说明                       | 类型   | 可选值 | 是否必要 | 默认值 |
 | :---- | :------------------------- | :----- | :----- | :------- | :----- |
-| width | label 的宽度,超出会隐藏... | String | -      | false    | auto   |
+| width | label 的宽度,超出会隐藏... | String | -      | false    | auto   | -->
