@@ -32,7 +32,17 @@ export default {
     handleDataChange(field, value, data) {
       console.log(field, value, data)
     },
-    save() {}
+    save() {
+      this.$refs.awForm
+        .getData()
+        .then((data) => {
+          console.log('表单提交数据:')
+          console.log(data)
+        })
+        .catch((e) => {
+          console.log('asdasdsa')
+        })
+    }
   }
 }
 </script>

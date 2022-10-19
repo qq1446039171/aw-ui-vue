@@ -74,16 +74,10 @@
     </aw-dialog>
 
     <Dialog ref="refDialog" />
-
-    <aw-form :data="formColumns" :value="widgetModels" :remote="remoteList" @on-change="handleDataChange" ref="awForm">
-      <template  v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
-    </aw-form> 
-    <el-button type="primary" @click="handleSubmit">提交</el-button>
   </div>
 </template>
 
 <script>
-import AwForm from './AwForm'
 import Dialog from './components/Dialog.vue'
 export default {
   name: 'App',
@@ -178,11 +172,7 @@ export default {
           fixed: 'right'
         }
       ],
-      visible: false,
-      widgetModels: {}, // 默认值
-      formColumns: AwForm.Columns,
-      // 远程请求
-      remoteList: AwForm.Remote
+      visible: false
     }
   },
   methods: {
@@ -393,20 +383,6 @@ export default {
     },
     showDialog(data) {
       this.$refs.refDialog.show(data)
-    },
-    handleDataChange(field, value, data) {
-      console.log(field, value, data)
-    },
-    handleSubmit() {
-      this.$refs.awForm
-        .getData()
-        .then((data) => {
-          console.log('表单提交数据:')
-          console.log(data)
-        })
-        .catch((e) => {
-          console.log('asdasdsa')
-        })
     }
   }
 }

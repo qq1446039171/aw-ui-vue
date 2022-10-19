@@ -38,75 +38,6 @@ let AwForm = {
         model: 'blank'
       },
       {
-        type: 'radio',
-        options: {
-          inline: true,
-          defaultValue: '',
-          options: [
-            {
-              value: 'Option 1',
-              label: 'Option 1'
-            },
-            {
-              value: 'Option 2',
-              label: 'Option 2'
-            },
-            {
-              value: 'Option 3',
-              label: 'Option 3'
-            }
-          ],
-          required: false,
-          width: '',
-          remote: false,
-          remoteOptions: [],
-          props: {
-            value: 'value',
-            label: 'label'
-          },
-          remoteFunc: 'func_1666058604000_87864',
-          disabled: false
-        },
-        name: '性别',
-        model: 'sex',
-        rules: []
-      },
-      {
-        type: 'textarea',
-        options: {
-          width: '100%',
-          defaultValue: '',
-          required: false,
-          dataType: 'string',
-          placeholder: '',
-          disabled: false,
-          remoteFunc: 'func_1665644318000_84350'
-        },
-        name: '备注',
-        model: 'remark'
-      },
-      {
-        type: 'select',
-        options: {
-          width: '60%',
-          options: [
-            {
-              value: 'Option 1',
-              label: '123123'
-            },
-            {
-              value: 'Option 2'
-            },
-            {
-              value: 'Option 3'
-            }
-          ]
-        },
-        name: '下拉选择框',
-        model: 'select_1666056676000_29583',
-        rules: []
-      },
-      {
         type: 'date',
         options: {
           defaultValue: '',
@@ -136,19 +67,18 @@ let AwForm = {
               {
                 type: 'select',
                 options: {
-                  defaultValue: '1',
+                  defaultValue: 'hbw',
                   multiple: false, // 是否启用多选
                   disabled: false, // 是否禁用
                   clearable: true, // 是否一键清除
                   placeholder: '', // input占位符
                   required: false, // 是否必填  为true与 rules 成对出现
-
                   width: '', // 宽度
                   options: [
                     // 未走远程请求的下拉数据
-                    { value: 'Option1', label: 'Option 1' },
-                    { value: 'Option2', label: 'Option 2' },
-                    { value: 'Option3', label: 'Option 3' }
+                    { value: 'hbw', label: '黄博文' },
+                    { value: 'zqh', label: '张琼慧' },
+                    { value: 'px', label: '小螃蟹' }
                   ],
                   remote: false, // 是否开启远程请求
                   filterable: false, // 是否启用搜索功能
@@ -173,13 +103,12 @@ let AwForm = {
               {
                 type: 'select',
                 options: {
-                  defaultValue: '1',
+                  defaultValue: '',
                   multiple: false, // 是否启用多选
                   disabled: false, // 是否禁用
-                  clearable: false, // 是否一键清除
+                  clearable: true, // 是否一键清除
                   placeholder: '', // input占位符
-                  required: false, // 是否必填  为true与 rules 成对出现
-
+                  required: true, // 是否必填  为true与 rules 成对出现
                   width: '', // 宽度
                   remote: true,
                   filterable: false,
