@@ -10,6 +10,7 @@
       :search="search"
       :reset="reset"
       :size="size"
+      :remote="remote"
     >
       <!--  查询条件中 前置插槽 -->
       <template slot="searchFormBefore">
@@ -191,6 +192,10 @@ export default {
     tag: {
       type: String,
       default: 'id'
+    },
+    remote: {
+      type: Object,
+      default: () => ({})
     }
   },
   data() {

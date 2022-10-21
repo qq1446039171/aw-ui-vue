@@ -50,6 +50,15 @@ export default {
           initSearchParam:1 , // 默认值
           inputWidth: 120 // 输入框的宽度
         },
+        {
+          prop: 'idCard',
+          label: '身份证号',
+          search: true,
+          searchType: 'select', // 查询类型
+          remote: true,
+          remoteFunc: 'getName',
+          props: { value: 'value', label: 'label' }
+        },
         // {
         //   prop: 'createTime',
         //   label: '创建时间',
@@ -59,11 +68,6 @@ export default {
         //   searchType: 'daterange',
         //   initSearchParam: ['2022-04-05 00:00:00', '2022-05-10 23:59:59']
         // },
-        {
-          prop: 'idCard',
-          label: '身份证号',
-          search: true
-        },
         {
           prop: 'email',
           label: '邮箱',
@@ -92,7 +96,24 @@ export default {
           width: 150,
           fixed: 'right'
         }
-      ]
+      ],
+      remoteList: {
+        getName(resolve) {
+          setTimeout(() => {
+            const options = [
+              { value: '1', label: '身份证1' },
+              { value: '2', label: '身份证2' },
+              { value: '3', label: '身份证3' }
+            ]
+            resolve(options)
+          }, 1000)
+        },
+        funcGetToken(resolve) {
+          request.get('http://tools-server.making.link/api/uptoken').then((res) => {
+            resolve(res.uptoken)
+          })
+        }
+      },
     }
   },
   methods: {
@@ -311,6 +332,7 @@ export default {
       :resetInitParam="resetInitParam"
       :size="size"
       tag="id"
+      :remote="remoteList"
       ref="ProTable"
   >
     <template slot="searchFormAfter">
@@ -368,6 +390,7 @@ export default {
       :resetInitParam="resetInitParam"
       :size="size"
       tag="id"
+      :remote="remoteList"
       ref="ProTable"
     >
       <template slot="searchFormAfter">
@@ -460,6 +483,15 @@ export default {
             initSearchParam: 1, // 默认值
             inputWidth: 120 // 输入框的宽度
           },
+          {
+            prop: 'idCard',
+            label: '身份证号',
+            search: true,
+            searchType: 'select', // 查询类型
+            remote: true,
+            remoteFunc: 'getName',
+            props: { value: 'value', label: 'label' }
+          },
           // {
           //   prop: 'createTime',
           //   label: '创建时间',
@@ -469,11 +501,6 @@ export default {
           //   searchType: 'daterange',
           //   initSearchParam: ['2022-04-05 00:00:00', '2022-05-10 23:59:59']
           // },
-          {
-            prop: 'idCard',
-            label: '身份证号',
-            search: true
-          },
           {
             prop: 'email',
             label: '邮箱',
@@ -502,7 +529,24 @@ export default {
             width: 150,
             fixed: 'right'
           }
-        ]
+        ],
+        remoteList: {
+          getName(resolve) {
+            setTimeout(() => {
+              const options = [
+                { value: '1', label: '身份证1' },
+                { value: '2', label: '身份证2' },
+                { value: '3', label: '身份证3' }
+              ]
+              resolve(options)
+            }, 1000)
+          },
+          funcGetToken(resolve) {
+            request.get('http://tools-server.making.link/api/uptoken').then((res) => {
+              resolve(res.uptoken)
+            })
+          }
+        },
       }
     },
     methods: {

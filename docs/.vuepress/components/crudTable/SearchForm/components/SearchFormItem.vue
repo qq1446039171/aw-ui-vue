@@ -19,7 +19,7 @@
         clearable
       >
         <el-option
-          v-for="itemValue in item.enum"
+          v-for="itemValue in Enum"
           :key="itemValue.value"
           :label="itemValue.label"
           :value="itemValue.value"
@@ -58,11 +58,30 @@
 <script>
 export default {
   name: 'aw-table-searchFormItem',
-  props: ['item', 'searchParam'],
+  props: ['item', 'searchParam', 'remote'],
   data() {
-    return {}
+    return {
+      Enum: []
+    }
   },
   mounted() {},
+  created() {
+    if (this.item.searchType == 'multipleSelect' || this.item.searchType == 'select') {
+      if (this.item.remote && this.remote[this.item.remoteFunc]) {
+        this.remote[this.item.remoteFunc]((data) => {
+          this.Enum = data.map((item) => {
+            return {
+              value: item[this.item.props.value],
+              label: item[this.item.props.label],
+              children: item[this.item.props.children]
+            }
+          })
+        })
+      } else {
+        this.Enum = this.item.enum
+      }
+    }
+  },
   methods: {
     daterangeChange(val) {
       console.log(val)

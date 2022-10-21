@@ -9,7 +9,7 @@
         :key="item.prop"
         :label-width="item.labelWidth ? item.labelWidth + 'px' : labelWidth + 'px'"
       >
-        <SearchFormItem :item="item" :searchParam="searchParam"></SearchFormItem>
+        <SearchFormItem :item="item" :searchParam="searchParam" :remote="remote"></SearchFormItem>
       </el-form-item>
       <slot name="searchFormAfter"></slot>
     </el-form>
@@ -53,6 +53,10 @@ export default {
     labelWidth: {
       type: Number,
       default: 100
+    },
+    remote: {
+      type: Object,
+      default: () => ({})
     }
   },
   // props: ['columns', 'searchParam', 'size', 'search', 'reset'],

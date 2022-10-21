@@ -82,19 +82,6 @@ export default {
         this.Enum = this.item.enum
       }
     }
-
-    // 假如是远端请求 走这里请求
-    //  if (this.widget.options.remote && this.remote[this.widget.options.remoteFunc]) {
-    //   this.remote[this.widget.options.remoteFunc]((data) => {
-    //     this.widget.options.remoteOptions = data.map((item) => {
-    //       return {
-    //         value: item[this.widget.options.props.value],
-    //         label: item[this.widget.options.props.label],
-    //         children: item[this.widget.options.props.children]
-    //       }
-    //     })
-    //   })
-    // }
   },
   methods: {
     daterangeChange(val) {
