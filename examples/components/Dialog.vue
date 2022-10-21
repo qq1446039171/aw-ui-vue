@@ -5,7 +5,7 @@
       <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
     </aw-form>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="visible = false">取 消</el-button>
+      <el-button @click="reset">重 置</el-button>
       <el-button type="primary" @click="save">保 存</el-button>
     </span>
   </aw-dialog>
@@ -42,6 +42,9 @@ export default {
         .catch((e) => {
           console.log('asdasdsa')
         })
+    },
+    reset() {
+      this.$refs.awForm.reset()
     }
   }
 }
