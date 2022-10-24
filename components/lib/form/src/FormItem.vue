@@ -60,8 +60,7 @@
           v-for="(item, index) in widget.options.remote ? widget.options.remoteOptions : widget.options.options"
           :key="index"
         >
-          <template v-if="widget.options.remote">{{ item.label }}</template>
-          <template v-else>{{ widget.options.showLabel ? item.label : item.value }}</template>
+          {{ item.label }}
         </el-checkbox>
       </el-checkbox-group>
     </template>
@@ -176,12 +175,13 @@ export default {
   created() {
     // 假如是远端请求 走这里请求
     if (this.widget.options.remote && this.remote[this.widget.options.remoteFunc]) {
+      let props = this.widget.options.props
       this.remote[this.widget.options.remoteFunc]((data) => {
         this.widget.options.remoteOptions = data.map((item) => {
           return {
-            value: item[this.widget.options.props.value],
-            label: item[this.widget.options.props.label],
-            children: item[this.widget.options.props.children]
+            value: props && props.value ? item[props.value] : item.value,
+            label: props && props.label ? item[props.label] : item.label,
+            children: props && props.children ? item[props.children] : item.children
           }
         })
       })

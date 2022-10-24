@@ -72,6 +72,40 @@ let AwForm = {
         rules: []
       },
       {
+        type: 'checkbox',
+        options: {
+          inline: true,
+          defaultValue: [],
+          options: [
+            {
+              value: 'Option 1',
+              label: 'Option 1'
+            },
+            {
+              value: 'Option 2',
+              label: 'Option 2'
+            },
+            {
+              value: 'Option 3',
+              label: 'Option 3'
+            }
+          ],
+          required: false,
+          width: '',
+          remote: false,
+          remoteOptions: [],
+          props: {
+            value: 'value',
+            label: 'label'
+          },
+          remoteFunc: 'func_1666058604000_87864',
+          disabled: false
+        },
+        name: '性别',
+        model: 'sex',
+        rules: []
+      },
+      {
         type: 'textarea',
         options: {
           width: '100%',

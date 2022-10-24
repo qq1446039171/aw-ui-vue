@@ -37,7 +37,6 @@
                   :widget="colItem"
                   :rules="rules"
                   @input-change="onInputChange"
-                  
                 >
                 </aw-form-item>
               </template>
@@ -61,6 +60,8 @@
           </aw-form-item>
         </template>
       </template>
+
+      <template slot="footer"> </template>
     </el-form>
   </div>
 </template>
