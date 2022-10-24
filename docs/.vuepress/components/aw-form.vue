@@ -154,7 +154,7 @@ export default {
           if (valid) {
             resolve(this.models)
           } else {
-            reject(new Error(this.$t('fm.message.validError')).message)
+            reject(new Error('获取数据出错'))
           }
         })
       })
