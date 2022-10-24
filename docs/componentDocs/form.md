@@ -147,9 +147,6 @@ export default {
       // 远程请求
       remoteList: {
         getDrugName(resolve) {
-          // 药品名称 drug_name
-          // Call callback function once get the data from remote server
-          // resolve(data)
           setTimeout(() => {
             const options = [
               { age: '1', name: '药品1' },
@@ -395,9 +392,6 @@ let AwForm = {
   },
   Remote: {
     getDrugName(resolve) {
-      // 药品名称 drug_name
-      // Call callback function once get the data from remote server
-      // resolve(data)
       setTimeout(() => {
         const options = [
           { age: '1', name: '药品1' },
