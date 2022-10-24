@@ -61,7 +61,9 @@
         </template>
       </template>
 
-      <template slot="footer"> </template>
+      <div class="aw-form-footer" :style="{ 'justify-content': data.config.footer }">
+        <slot name="footer"></slot>
+      </div>
     </el-form>
   </div>
 </template>

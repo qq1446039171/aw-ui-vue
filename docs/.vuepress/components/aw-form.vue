@@ -37,7 +37,6 @@
                   :widget="colItem"
                   :rules="rules"
                   @input-change="onInputChange"
-                  
                 >
                 </aw-form-item>
               </template>
@@ -61,6 +60,10 @@
           </aw-form-item>
         </template>
       </template>
+
+      <div class="aw-form-footer" :style="{ 'justify-content': data.config.footer }">
+        <slot name="footer"></slot>
+      </div>
     </el-form>
   </div>
 </template>
@@ -166,3 +169,16 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.aw-form {
+  .aw-form-footer {
+    width: 100%;
+    display: flex;
+    align-self: center;
+    justify-content: right;
+    margin-top: 20px;
+    gap: 20px;
+  }
+}
+</style>

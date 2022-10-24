@@ -204,8 +204,11 @@ export default {
 <br/>
    <aw-form :data="formColumns" :value="widgetModels" :remote="remoteList" @on-change="handleDataChange" ref="awForm">
       <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
+      <template slot="footer">
+        <el-button icon="el-icon-circle-close" :size="formColumns.config.size"  >取 消</el-button>
+        <el-button icon="el-icon-circle-check" type="primary" :size="formColumns.config.size">确 认</el-button>
+      </template>
    </aw-form>
-   <el-button type="primary" @click="handleSubmit">提交</el-button>
 
 ### 代码
 
@@ -214,8 +217,11 @@ export default {
   <div>
     <aw-form :data="formColumns" :value="widgetModels" :remote="remoteList" @on-change="handleDataChange" ref="awForm">
       <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
+      <template slot="footer">
+        <el-button icon="el-icon-circle-close" :size="formColumns.config.size">取 消</el-button>
+        <el-button icon="el-icon-circle-check" type="primary" :size="formColumns.config.size">确 认</el-button>
+      </template>
     </aw-form>
-    <el-button type="primary" @click="handleSubmit">提交</el-button>
   </div>
 </template>
 <script>
@@ -425,9 +431,9 @@ let AwForm = {
 export default AwForm
 ```
 
-### Attributes  
+### Attributes
 
-待更新中 
+待更新中
 
 <!-- | 属性  | 说明                       | 类型   | 可选值 | 是否必要 | 默认值 |
 | :---- | :------------------------- | :----- | :----- | :------- | :----- |
