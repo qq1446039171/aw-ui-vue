@@ -1,0 +1,45 @@
+import {{properCase name}} from './{{properCase name}}.vue';
+
+export default {
+  title: '{{properCase name}}/{{properCase name}}',
+  component: {{properCase name}},
+  argTypes: {
+    backgroundColor: { control: 'color' },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
+    },
+  },
+};
+
+const Template = (args, { argTypes }) => ({
+  props: Object.keys(argTypes),
+  components: { MyButton },
+  template: '<aw-{{kebabCase name}} @onClick="onClick" v-bind="$props" />',
+  methods:{
+  
+  }
+});
+
+export const Primary = Template.bind({});
+Primary.args = {
+  primary: true,
+  label: 'Button',
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  label: 'Button',
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  size: 'large',
+  label: 'Button',
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  size: 'small',
+  label: 'Button',
+};
