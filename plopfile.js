@@ -40,6 +40,16 @@ module.exports = (plop) => {
         path: 'docs/.vuepress/components/aw-{{kebabCase name}}.vue',
         templateFile: 'template/docs/.vuepress/components/index.hbs'
       },
+      {
+        type: 'add',
+        path: 'stories/{{properCase name}}/index.vue',
+        templateFile: 'template/stories/componentDocs/index.hbs'
+      },
+      {
+        type: 'add',
+        path: 'stories/{{kebabCase name}}/index.stories.js',
+        templateFile: 'template/stories/.vuepress/components/index.hbs'
+      },
     ]
   })
 }
