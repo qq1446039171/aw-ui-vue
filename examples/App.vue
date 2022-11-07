@@ -128,7 +128,8 @@ export default {
           searchType: 'select', // 查询类型
           placeholder: '请选择姓别', // 默认显示内容
           initSearchParam: 1, // 默认选中的值
-          inputWidth: 120 // 输入框的宽度
+          inputWidth: 120, // 输入框的宽度
+          turnProp: 'gender', // 需要转化的字段
         },
         {
           prop: 'idCard',

@@ -99,6 +99,9 @@
                 preview-teleported
               />
 
+              <div v-else-if="item.turnProp">
+                {{ scope.row[item.turnProp] }}
+              </div>
               <div v-else>
                 {{ scope.row[item.prop] }}
               </div>
