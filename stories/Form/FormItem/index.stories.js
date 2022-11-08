@@ -2,7 +2,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import Vue from 'vue'
 Vue.use(ElementUI)
-import FormItem from './FormItem.vue'
+import FormItem from './index.vue'
 
 export default {
   title: 'Form/FormItem',
@@ -28,8 +28,8 @@ const Template = (args, { argTypes }) => ({
   }
 })
 
-export const Primary = Template.bind()
-Primary.args = {
+export const Input = Template.bind()
+Input.args = {
   models: {},
   item: {
     type: 'input',
@@ -38,12 +38,10 @@ Primary.args = {
       defaultValue: '',
       required: true,
       dataType: 'string',
-      pattern: '', // 正则模式
       placeholder: '',
       disabled: false,
       maxlength: -1,
-      showWordLimit: false,
-      remoteFunc: 'func_1665644318000_84350'
+      showWordLimit: false
     },
     name: '年龄',
     model: 'age',
@@ -57,6 +55,30 @@ Primary.args = {
         message: '单行文本必须填写'
       }
     ]
+  }
+}
+export const Select = Template.bind()
+Select.args = {
+  models: {},
+  item: {
+    type: 'select',
+    options: {
+      defaultValue: '1',
+      multiple: false, // 是否启用多选
+      disabled: false, // 是否禁用
+      clearable: false, // 是否一键清除
+      placeholder: '', // input占位符
+      required: false, // 是否必填  为true与 rules 成对出现
+      width: '', // 宽度
+      remote: true,
+      filterable: false,
+      remoteOptions: [],
+      props: { value: 'age', label: 'name' },
+      remoteFunc: 'getDrugName'
+    },
+    name: '药品名称',
+    model: 'drug_name',
+    rules: []
   },
   remote: {
     getDrugName(resolve) {
@@ -71,30 +93,3 @@ Primary.args = {
     }
   }
 }
-// {
-//   type: 'input',
-//   options: {
-//     width: '100%',
-//     defaultValue: '',
-//     required: true,
-//     dataType: 'string',
-//     pattern: '', // 正则模式
-//     placeholder: '',
-//     disabled: false,
-//     maxlength: -1,
-//     showWordLimit: false,
-//     remoteFunc: 'func_1665644318000_84350'
-//   },
-//   name: '年龄',
-//   model: 'age',
-//   rules: [
-//     {
-//       type: 'string',
-//       message: '单行文本格式不正确'
-//     },
-//     {
-//       required: true,
-//       message: '单行文本必须填写'
-//     }
-//   ]
-// },

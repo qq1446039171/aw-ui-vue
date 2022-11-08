@@ -1,5 +1,5 @@
 <template>
-  <el-form>
+  <el-form label-width="90px" label-position="right">
     <el-form-item :label="widget.name" :prop="widget.model">
       <template v-if="widget.type == 'input'">
         <el-input
