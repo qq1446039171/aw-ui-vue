@@ -1,17 +1,13 @@
 <template>
-  <el-form label-width="90px" label-position="right">
+  <el-form :rules="rules" label-width="90px" label-position="right">
     <el-form-item :label="name" :prop="model">
       <template v-if="type == 'input'">
         <el-input
-          v-if="
-            options.dataType == 'number' ||
-            options.dataType == 'integer' ||
-            options.dataType == 'float'
-          "
+          v-if="dataType == 'number' || dataType == 'integer' || dataType == 'float'"
           type="number"
           v-model.number="dataModel"
           :placeholder="options.placeholder"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
           :disabled="options.disabled"
         ></el-input>
         <el-input
@@ -20,7 +16,7 @@
           v-model="dataModel"
           :disabled="options.disabled"
           :placeholder="options.placeholder"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
           :maxlength="maxlength"
           :show-word-limit="options.showWordLimit"
         ></el-input>
@@ -33,17 +29,13 @@
           :autosize="options.autosize"
           :disabled="options.disabled"
           :placeholder="options.placeholder"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
           :maxlength="maxlength"
           :show-word-limit="options.showWordLimit"
         ></el-input>
       </template>
       <template v-if="type == 'radio'">
-        <el-radio-group
-          v-model="dataModel"
-          :style="{ width: options.width }"
-          :disabled="options.disabled"
-        >
+        <el-radio-group v-model="dataModel" :style="{ width: width }" :disabled="options.disabled">
           <el-radio
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
@@ -55,11 +47,7 @@
         </el-radio-group>
       </template>
       <template v-if="type == 'checkbox'">
-        <el-checkbox-group
-          v-model="dataModel"
-          :style="{ width: options.width }"
-          :disabled="options.disabled"
-        >
+        <el-checkbox-group v-model="dataModel" :style="{ width: width }" :disabled="options.disabled">
           <el-checkbox
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
@@ -77,7 +65,7 @@
           :multiple="options.multiple"
           :clearable="options.clearable"
           :placeholder="options.placeholder"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
           :filterable="options.filterable"
         >
           <el-option
@@ -94,7 +82,7 @@
           :disabled="options.disabled"
           :clearable="options.clearable"
           :placeholder="options.placeholder"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
           :props="options.protoProps"
           :options="options.remoteOptions"
         >
@@ -115,7 +103,7 @@
           :step="options.step"
           :show-input="options.showInput"
           :range="options.range"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
         ></el-slider>
       </template>
       <template v-if="type == 'time'">
@@ -131,7 +119,7 @@
           :clearable="options.clearable"
           :arrowControl="options.arrowControl"
           :value-format="options.format"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
         >
         </el-time-picker>
       </template>
@@ -148,7 +136,7 @@
           :clearable="options.clearable"
           :value-format="options.timestamp ? 'timestamp' : options.format"
           :format="options.format"
-          :style="{ width: options.width }"
+          :style="{ width: width }"
         >
         </el-date-picker>
       </template>
@@ -160,7 +148,7 @@
 export default {
   name: 'aw-form-item',
   // props: ['widget', 'models', 'remote', 'rules'],
-  props: ['type', 'options', 'name', 'model', 'rules','maxlength','models','remote'],
+  props: ['type', 'options', 'name', 'model', 'rules', 'maxlength', 'models', 'remote', 'width','dataType'],
   watch: {
     models: {
       deep: true,

@@ -8,9 +8,13 @@ export default {
   title: 'Form/FormItem',
   component: FormItem,
   argTypes: {
-    type: {
+    // type: {
+    //   control: { type: 'select' },
+    //   options: ['input', 'select', 'textarea']
+    // }
+    dataType: {
       control: { type: 'select' },
-      options: ['input', 'select', 'textarea']
+      options: ['string', 'number', 'integer', 'float']
     }
   }
 }
@@ -39,21 +43,35 @@ Input.args = {
     maxlength: -1,
     showWordLimit: false
   },
-
   type: 'input',
-  maxlength: -1,
-  name: '年龄',
   model: 'age',
-  rules: [
-    {
-      type: 'string',
-      message: '单行文本格式不正确'
-    },
-    {
-      required: true,
-      message: '单行文本必须填写'
-    }
-  ]
+  name: '年龄',
+  width: '100%',
+  dataType: 'string',
+
+  maxlength: -1,
+  rules: {
+    age: [
+      {
+        type: 'string',
+        message: '单行文本格式不正确'
+      },
+      {
+        required: true,
+        message: '单行文本必须填写'
+      }
+    ]
+  }
+  // rules: [
+  //   {
+  //     type: 'string',
+  //     message: '单行文本格式不正确'
+  //   },
+  //   {
+  //     required: true,
+  //     message: '单行文本必须填写'
+  //   }
+  // ]
 
   // type: 'input',
   // name: 'name',
