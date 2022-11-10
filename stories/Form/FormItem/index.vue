@@ -1,24 +1,26 @@
 <template>
-  <el-form :rules="rules" label-width="90px" label-position="right">
+  <el-form label-width="90px" :model="models" label-position="right">
     <el-form-item :label="name" :prop="model">
       <template v-if="type == 'input'">
         <el-input
           v-if="dataType == 'number' || dataType == 'integer' || dataType == 'float'"
           type="number"
           v-model.number="dataModel"
-          :placeholder="options.placeholder"
+          :placeholder="placeholder"
+          :clearable="clearable"
           :style="{ width: width }"
-          :disabled="options.disabled"
+          :disabled="disabled"
         ></el-input>
         <el-input
           v-else
           type="text"
           v-model="dataModel"
-          :disabled="options.disabled"
-          :placeholder="options.placeholder"
+          :disabled="disabled"
+          :placeholder="placeholder"
+          :clearable="clearable"
           :style="{ width: width }"
           :maxlength="maxlength"
-          :show-word-limit="options.showWordLimit"
+          :show-word-limit="showWordLimit"
         ></el-input>
       </template>
       <template v-if="type == 'textarea'">
@@ -27,19 +29,19 @@
           :rows="5"
           v-model="dataModel"
           :autosize="options.autosize"
-          :disabled="options.disabled"
-          :placeholder="options.placeholder"
+          :disabled="disabled"
+          :placeholder="placeholder"
           :style="{ width: width }"
           :maxlength="maxlength"
-          :show-word-limit="options.showWordLimit"
+          :show-word-limit="showWordLimit"
         ></el-input>
       </template>
       <template v-if="type == 'radio'">
-        <el-radio-group v-model="dataModel" :style="{ width: width }" :disabled="options.disabled">
+        <el-radio-group v-model="dataModel" :style="{ width: width }" :disabled="disabled">
           <el-radio
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
-            v-for="(item, index) in options.remote ? options.remoteOptions : options.options"
+            v-for="(item, index) in remote ? remoteOptions : options.options"
             :key="index"
           >
             {{ item.label }}
@@ -47,11 +49,11 @@
         </el-radio-group>
       </template>
       <template v-if="type == 'checkbox'">
-        <el-checkbox-group v-model="dataModel" :style="{ width: width }" :disabled="options.disabled">
+        <el-checkbox-group v-model="dataModel" :style="{ width: width }" :disabled="disabled">
           <el-checkbox
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
-            v-for="(item, index) in options.remote ? options.remoteOptions : options.options"
+            v-for="(item, index) in remote ? remoteOptions : options.options"
             :key="index"
           >
             {{ item.label }}
@@ -61,15 +63,15 @@
       <template v-if="type == 'select'">
         <el-select
           v-model="dataModel"
-          :disabled="options.disabled"
+          :disabled="disabled"
           :multiple="options.multiple"
           :clearable="options.clearable"
-          :placeholder="options.placeholder"
+          :placeholder="placeholder"
           :style="{ width: width }"
           :filterable="options.filterable"
         >
           <el-option
-            v-for="item in options.remote ? options.remoteOptions : options.options"
+            v-for="item in remote ? remoteOptions : options.options"
             :key="item.value"
             :value="item.value"
             :label="item.label"
@@ -79,17 +81,17 @@
       <template v-if="type == 'cascader'">
         <el-cascader
           v-model="dataModel"
-          :disabled="options.disabled"
+          :disabled="disabled"
           :clearable="options.clearable"
-          :placeholder="options.placeholder"
+          :placeholder="placeholder"
           :style="{ width: width }"
           :props="options.protoProps"
-          :options="options.remoteOptions"
+          :options="remoteOptions"
         >
         </el-cascader>
       </template>
       <template v-if="type == 'switch'">
-        <el-switch v-model="dataModel" :disabled="options.disabled"> </el-switch>
+        <el-switch v-model="dataModel" :disabled="disabled"> </el-switch>
       </template>
       <template v-if="type == 'text'">
         <span>{{ dataModel }}</span>
@@ -99,7 +101,7 @@
           v-model="dataModel"
           :min="options.min"
           :max="options.max"
-          :disabled="options.disabled"
+          :disabled="disabled"
           :step="options.step"
           :show-input="options.showInput"
           :range="options.range"
@@ -110,11 +112,11 @@
         <el-time-picker
           v-model="dataModel"
           :is-range="options.isRange"
-          :placeholder="options.placeholder"
+          :placeholder="placeholder"
           :start-placeholder="options.startPlaceholder"
           :end-placeholder="options.endPlaceholder"
           :readonly="options.readonly"
-          :disabled="options.disabled"
+          :disabled="disabled"
           :editable="options.editable"
           :clearable="options.clearable"
           :arrowControl="options.arrowControl"
@@ -127,11 +129,11 @@
         <el-date-picker
           v-model="dataModel"
           :type="options.type"
-          :placeholder="options.placeholder"
+          :placeholder="placeholder"
           :start-placeholder="options.startPlaceholder"
           :end-placeholder="options.endPlaceholder"
           :readonly="options.readonly"
-          :disabled="options.disabled"
+          :disabled="disabled"
           :editable="options.editable"
           :clearable="options.clearable"
           :value-format="options.timestamp ? 'timestamp' : options.format"
@@ -147,31 +149,89 @@
 <script>
 export default {
   name: 'aw-form-item',
-  // props: ['widget', 'models', 'remote', 'rules'],
-  props: ['type', 'options', 'name', 'model', 'rules', 'maxlength', 'models', 'remote', 'width','dataType'],
-  watch: {
-    models: {
-      deep: true,
-      handler(val) {
-        this.dataModel = val[this.model]
-      }
+  props: {
+    type: {
+      type: String,
+      default: ''
     },
+    name: {
+      type: String,
+      default: '默认label'
+    },
+    model: {
+      type: String,
+      default: ''
+    },
+    width: {
+      type: String,
+      default: '100%'
+    },
+    defaultValue: {
+      type: String,
+      default: ''
+    },
+    placeholder: {
+      type: String,
+      default: '100%'
+    },
+    clearable: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    dataType: {
+      type: String,
+      default: ''
+    },
+    maxlength: {
+      type: Number,
+      default: -1
+    },
+    remotes: {
+      type: Object,
+      default: () => {}
+    },
+    showWordLimit: {
+      type: Boolean,
+      default: false
+    },
+    options: {
+      type: Object,
+      default: () => {}
+    },
+    remote: {
+      type: Boolean,
+      default: false
+    },
+    remoteFunc: {
+      type: String,
+      default: ''
+    },
+    remoteOptions: {
+      type: Array,
+      default: () => []
+    }
+  },
+  watch: {
     dataModel: {
       deep: true,
       handler(val) {
         this.models[this.model] = val
-
-        this.$emit('input-change', val, this.model)
+        console.log(this.models)
       }
     }
   },
   computed: {},
+
   created() {
     // 假如是远端请求 走这里请求
-    if (this.options.remote && this.remote[this.options.remoteFunc]) {
+    if (this.remote && this.remotes[this.remoteFunc]) {
       let props = this.options.props
-      this.remote[this.options.remoteFunc]((data) => {
-        this.options.remoteOptions = data.map((item) => {
+      this.remotes[this.remoteFunc]((data) => {
+        this.remoteOptions = data.map((item) => {
           return {
             value: props && props.value ? item[props.value] : item.value,
             label: props && props.label ? item[props.label] : item.label,
@@ -181,12 +241,20 @@ export default {
       })
     }
   },
+  mounted() {
+    console.log(this.model)
+    console.log(this.models)
+    this.models[this.model] = this.defaultValue ? this.defaultValue : ''
+
+    // this.dataModel = this.models[this.model]
+  },
   data() {
     return {
-      dataModel: this.models[this.model]
+      // dataModel: this.model,
+      dataModel: '',
+      models: {}
     }
   },
-
   methods: {}
 }
 </script>

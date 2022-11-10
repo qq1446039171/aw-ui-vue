@@ -52,7 +52,7 @@ let AwForm = {
           format: 'yyyy-MM-dd',
           timestamp: false,
           required: false,
-          width: '',
+          width: ''
         },
         name: '日期选择器',
         model: 'date',
