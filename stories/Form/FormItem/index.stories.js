@@ -10,6 +10,8 @@ export default {
   argTypes: {
     data: { control: { type: 'Object' }, description: '表单展示的内容配置项' },
     type: {  description: '组件的类型' },
+    name: {  description: 'label名称' },
+    model: {  description: '绑定的值' },
 
   }
 }
