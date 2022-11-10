@@ -56,6 +56,8 @@ export const Input = Template.bind()
 Input.args = {
   JSON: {
     type: 'input',
+    name: '年龄',
+    model: 'age',
     options: {
       width: '100%',
       defaultValue: '',
@@ -64,10 +66,9 @@ Input.args = {
       placeholder: '',
       disabled: false,
       maxlength: -1,
-      showWordLimit: false
+      showWordLimit: false,
+      clearable: true
     },
-    name: '年龄',
-    model: 'age',
     rules: [
       {
         type: 'string',
@@ -79,20 +80,9 @@ Input.args = {
       }
     ]
   },
-  // options: {
-  //   width: '100%',
-  //   defaultValue: '',
-  //   required: true,
-  //   dataType: 'string',
-  //   placeholder: '',
-  //   disabled: false,
-  //   showWordLimit: false,
-  //   clearable: true,
-  //   maxlength: -1
-  // },
   type: 'input',
-  model: 'age',
   name: '年龄',
+  model: 'age',
   width: '100%',
   defaultValue: '',
   dataType: 'string',

@@ -12,6 +12,7 @@
         :placeholder="widget.options.placeholder"
         :style="{ width: widget.options.width }"
         :disabled="widget.options.disabled"
+        :clearable="widget.options.clearable"
       ></el-input>
       <el-input
         v-else
@@ -22,6 +23,7 @@
         :style="{ width: widget.options.width }"
         :maxlength="widget.options.maxlength"
         :show-word-limit="widget.options.showWordLimit"
+        :clearable="widget.options.clearable"
       ></el-input>
     </template>
     <template v-if="widget.type == 'textarea'">
