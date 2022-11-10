@@ -8,7 +8,9 @@ export default {
   title: 'Form/FormItem',
   component: FormItem,
   argTypes: {
-    data: { control: { type: 'Object' }, description: '表单展示的内容配置项' }
+    data: { control: { type: 'Object' }, description: '表单展示的内容配置项' },
+    type: {  description: '组件的类型' },
+
   }
 }
 
