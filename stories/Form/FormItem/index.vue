@@ -41,7 +41,7 @@
           <el-radio
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
-            v-for="(item, index) in remote ? remoteOptions : options.options"
+            v-for="(item, index) in remote ? remoteOptions : selectOptions"
             :key="index"
           >
             {{ item.label }}
@@ -53,7 +53,7 @@
           <el-checkbox
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
-            v-for="(item, index) in remote ? remoteOptions : options.options"
+            v-for="(item, index) in remote ? remoteOptions : selectOptions"
             :key="index"
           >
             {{ item.label }}
@@ -64,14 +64,14 @@
         <el-select
           v-model="dataModel"
           :disabled="disabled"
-          :multiple="options.multiple"
-          :clearable="options.clearable"
+          :multiple="multiple"
+          :clearable="clearable"
           :placeholder="placeholder"
           :style="{ width: width }"
-          :filterable="options.filterable"
+          :filterable="filterable"
         >
           <el-option
-            v-for="item in remote ? remoteOptions : options.options"
+            v-for="item in remote ? remoteOptions : selectOptions"
             :key="item.value"
             :value="item.value"
             :label="item.label"
@@ -82,7 +82,7 @@
         <el-cascader
           v-model="dataModel"
           :disabled="disabled"
-          :clearable="options.clearable"
+          :clearable="clearable"
           :placeholder="placeholder"
           :style="{ width: width }"
           :props="options.protoProps"
@@ -118,7 +118,7 @@
           :readonly="options.readonly"
           :disabled="disabled"
           :editable="options.editable"
-          :clearable="options.clearable"
+          :clearable="clearable"
           :arrowControl="options.arrowControl"
           :value-format="options.format"
           :style="{ width: width }"
@@ -135,7 +135,7 @@
           :readonly="options.readonly"
           :disabled="disabled"
           :editable="options.editable"
-          :clearable="options.clearable"
+          :clearable="clearable"
           :value-format="options.timestamp ? 'timestamp' : options.format"
           :format="options.format"
           :style="{ width: width }"
@@ -198,9 +198,26 @@ export default {
       type: Boolean,
       default: false
     },
+    // select
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    filterable: {
+      type: Boolean,
+      default: false
+    },
+    props: {
+      type: Object,
+      default: () => {}
+    },
     options: {
       type: Object,
       default: () => {}
+    },
+    selectOptions: {
+      type: Array,
+      default: () => []
     },
     remote: {
       type: Boolean,
@@ -220,7 +237,6 @@ export default {
       deep: true,
       handler(val) {
         this.models[this.model] = val
-        console.log(this.models)
       }
     }
   },
@@ -229,7 +245,7 @@ export default {
   created() {
     // 假如是远端请求 走这里请求
     if (this.remote && this.remotes[this.remoteFunc]) {
-      let props = this.options.props
+      let props = this.props
       this.remotes[this.remoteFunc]((data) => {
         this.remoteOptions = data.map((item) => {
           return {
