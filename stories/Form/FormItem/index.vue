@@ -240,6 +240,7 @@ export default {
       }
     }
   },
+
   created() {
     // 假如是远端请求 走这里请求
     if (this.remote && this.remotes[this.remoteFunc]) {
