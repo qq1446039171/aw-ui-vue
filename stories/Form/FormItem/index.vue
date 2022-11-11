@@ -41,7 +41,7 @@
           <el-radio
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
-            v-for="(item, index) in remote ? remoteOptions : selectOptions"
+            v-for="(item, index) in remote ? remoteOptions : defaultOptions"
             :key="index"
           >
             {{ item.label }}
@@ -53,7 +53,7 @@
           <el-checkbox
             :style="{ display: options.inline ? 'inline-block' : 'block' }"
             :label="item.value"
-            v-for="(item, index) in remote ? remoteOptions : selectOptions"
+            v-for="(item, index) in remote ? remoteOptions : defaultOptions"
             :key="index"
           >
             {{ item.label }}
@@ -71,7 +71,7 @@
           :filterable="filterable"
         >
           <el-option
-            v-for="item in remote ? remoteOptions : selectOptions"
+            v-for="item in remote ? remoteOptions : defaultOptions"
             :key="item.value"
             :value="item.value"
             :label="item.label"
@@ -215,7 +215,7 @@ export default {
       type: Object,
       default: () => {}
     },
-    selectOptions: {
+    defaultOptions: {
       type: Array,
       default: () => []
     },
@@ -240,8 +240,6 @@ export default {
       }
     }
   },
-  computed: {},
-
   created() {
     // 假如是远端请求 走这里请求
     if (this.remote && this.remotes[this.remoteFunc]) {
