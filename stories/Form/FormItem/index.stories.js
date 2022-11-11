@@ -14,7 +14,7 @@ export default {
     model: { description: '绑定的值' }
   }
 }
-
+// Input组件
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { FormItem },
@@ -23,7 +23,10 @@ const Template = (args, { argTypes }) => ({
     </form-item>`,
   methods: {
     onInputChange(e) {}
-  },
+  }
+})
+export const Input = Template.bind()
+Input.args = {
   Columns: {
     type: 'input',
     options: {
@@ -48,18 +51,29 @@ const Template = (args, { argTypes }) => ({
         message: '单行文本必须填写'
       }
     ]
-  }
-})
-
-export const Input = Template.bind()
-Input.args = {
-  JSON: {
-    type: 'input',
+  },
+  type: 'input',
+  name: '年龄',
+  model: 'age',
+  width: '100%',
+  defaultValue: '',
+  dataType: 'string',
+  placeholder: '占位符',
+  disabled: false,
+  showWordLimit: false,
+  maxlength: -1,
+  clearable: true
+}
+export const Textarea = Template.bind()
+Textarea.args = {
+  Columns: {
+    type: 'textarea',
     name: '年龄',
     model: 'age',
     options: {
       width: '100%',
       defaultValue: '',
+      autosize: { minRows: 2, maxRows: 4 },
       required: true,
       dataType: 'string',
       placeholder: '',
@@ -79,10 +93,11 @@ Input.args = {
       }
     ]
   },
-  type: 'input',
+  type: 'textarea',
   name: '年龄',
   model: 'age',
   width: '100%',
+  autosize: { minRows: 2, maxRows: 4 },
   defaultValue: '',
   dataType: 'string',
   placeholder: '占位符',
@@ -92,6 +107,7 @@ Input.args = {
   clearable: true
 }
 
+// Select组件
 const SelectTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { FormItem },
@@ -102,24 +118,35 @@ const SelectTemplate = (args, { argTypes }) => ({
     onInputChange(e) {}
   },
   Columns: {
-    defaultValue: '',
-    multiple: false, // 是否启用多选
-    disabled: false, // 是否禁用
-    clearable: false, // 是否一键清除
-    placeholder: '', // input占位符
-    required: false, // 是否必填  为true与 rules 成对出现
-    width: '', // 宽度
-    defaultOptions: [
-      // 未走远程请求的下拉数据
-      { value: 'hbw', label: '黄博文' },
-      { value: 'zqh', label: '张琼慧' },
-      { value: 'px', label: '小螃蟹' }
-    ],
-    remote: true,
-    filterable: false,
-    remoteOptions: [],
-    props: { value: 'age', label: 'name' },
-    remoteFunc: 'getDrugName'
+    type: 'select',
+    options: {
+      defaultValue: '',
+      multiple: false, // 是否启用多选
+      disabled: false, // 是否禁用
+      clearable: false, // 是否一键清除
+      placeholder: '', // input占位符
+      required: false, // 是否必填  为true与 rules 成对出现
+      width: '', // 宽度
+      options: [
+        // 未走远程请求的下拉数据
+        { value: 'hbw', label: '黄博文' },
+        { value: 'zqh', label: '张琼慧' },
+        { value: 'px', label: '小螃蟹' }
+      ],
+      remote: true,
+      filterable: false,
+      remoteOptions: [],
+      props: { value: 'age', label: 'name' },
+      remoteFunc: 'getDrugName'
+    },
+    name: '年龄',
+    model: 'age',
+    rules: [
+      {
+        required: true,
+        message: '下拉选择框必须填写'
+      }
+    ]
   },
   Remotes: {
     getDrugName(resolve) {
@@ -136,25 +163,31 @@ const SelectTemplate = (args, { argTypes }) => ({
 })
 export const Select = SelectTemplate.bind()
 Select.args = {
-  JSON: {
-    defaultValue: '',
-    multiple: false, // 是否启用多选
-    disabled: false, // 是否禁用
-    clearable: false, // 是否一键清除
-    placeholder: '', // input占位符
-    required: false, // 是否必填  为true与 rules 成对出现
-    width: '', // 宽度
-    defaultOptions: [
-      // 未走远程请求的下拉数据
-      { value: 'hbw', label: '黄博文' },
-      { value: 'zqh', label: '张琼慧' },
-      { value: 'px', label: '小螃蟹' }
-    ],
-    remote: true,
-    filterable: false,
-    remoteOptions: [],
-    props: { value: 'age', label: 'name' },
-    remoteFunc: 'getDrugName'
+  // 便于查看文档的参数
+  Columns: {
+    type: 'select',
+    options: {
+      defaultValue: '',
+      multiple: false, // 是否启用多选
+      disabled: false, // 是否禁用
+      clearable: false, // 是否一键清除
+      placeholder: '', // input占位符
+      required: false, // 是否必填  为true与 rules 成对出现
+      width: '', // 宽度
+      options: [
+        // 未走远程请求的下拉数据
+        { value: 'hbw', label: '黄博文' },
+        { value: 'zqh', label: '张琼慧' },
+        { value: 'px', label: '小螃蟹' }
+      ],
+      remote: true,
+      filterable: false,
+      remoteOptions: [],
+      props: { value: 'age', label: 'name' },
+      remoteFunc: 'getDrugName'
+    },
+    name: '年龄',
+    model: 'age'
   },
   Remotes: {
     getDrugName(resolve) {
@@ -168,6 +201,8 @@ Select.args = {
       }, 1000)
     }
   },
+
+  // 真正传给组件的参数
   type: 'select',
   name: '药品名称',
   model: 'drugName',

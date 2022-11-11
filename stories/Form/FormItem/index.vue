@@ -28,11 +28,12 @@
           type="textarea"
           :rows="5"
           v-model="dataModel"
-          :autosize="options.autosize"
+          :autosize="autosize"
           :disabled="disabled"
           :placeholder="placeholder"
           :style="{ width: width }"
           :maxlength="maxlength"
+          :clearable="clearable"
           :show-word-limit="showWordLimit"
         ></el-input>
       </template>
@@ -230,6 +231,10 @@ export default {
     remoteOptions: {
       type: Array,
       default: () => []
+    },
+    autosize: {
+      type: Object,
+      default: () => {}
     }
   },
   watch: {
