@@ -107,16 +107,20 @@ Textarea.args = {
   clearable: true
 }
 
-// Select组件
-const SelectTemplate = (args, { argTypes }) => ({
-  props: Object.keys(argTypes),
-  components: { FormItem },
-  template: `
-    <form-item v-bind="$props" >
-    </form-item>`,
-  methods: {
-    onInputChange(e) {}
-  },
+// // Select组件
+// const SelectTemplate = (args, { argTypes }) => ({
+//   props: Object.keys(argTypes),
+//   components: { FormItem },
+//   template: `
+//     <form-item v-bind="$props" >
+//     </form-item>`,
+//   methods: {
+//     onInputChange(e) {}
+//   },
+// })
+export const Select = Template.bind()
+Select.args = {
+  // 便于查看文档的参数
   Columns: {
     type: 'select',
     options: {
@@ -147,47 +151,6 @@ const SelectTemplate = (args, { argTypes }) => ({
         message: '下拉选择框必须填写'
       }
     ]
-  },
-  Remotes: {
-    getDrugName(resolve) {
-      setTimeout(() => {
-        const options = [
-          { age: '1', name: '药品1' },
-          { age: '2', name: '药品2' },
-          { age: '3', name: '药品3' }
-        ]
-        resolve(options)
-      }, 1000)
-    }
-  }
-})
-export const Select = SelectTemplate.bind()
-Select.args = {
-  // 便于查看文档的参数
-  Columns: {
-    type: 'select',
-    options: {
-      defaultValue: '',
-      multiple: false, // 是否启用多选
-      disabled: false, // 是否禁用
-      clearable: false, // 是否一键清除
-      placeholder: '', // input占位符
-      required: false, // 是否必填  为true与 rules 成对出现
-      width: '', // 宽度
-      options: [
-        // 未走远程请求的下拉数据
-        { value: 'hbw', label: '黄博文' },
-        { value: 'zqh', label: '张琼慧' },
-        { value: 'px', label: '小螃蟹' }
-      ],
-      remote: true,
-      filterable: false,
-      remoteOptions: [],
-      props: { value: 'age', label: 'name' },
-      remoteFunc: 'getDrugName'
-    },
-    name: '年龄',
-    model: 'age'
   },
   Remotes: {
     getDrugName(resolve) {
