@@ -1,5 +1,5 @@
 <template>
-  <el-form-item :label="widget.name" :prop="widget.model">
+  <el-form-item :label="widget.name" :prop="widget.model" :label-width="labelWidth">
     <template v-if="widget.type == 'input'">
       <el-input
         v-if="
@@ -154,7 +154,7 @@
 
 <script>
 export default {
-  props: ['widget', 'models', 'remote', 'rules'],
+  props: ['widget', 'models', 'remote', 'rules', 'labelWidth'],
   watch: {
     models: {
       deep: true,
