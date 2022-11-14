@@ -26,6 +26,7 @@
                   :label="colItem.name"
                   :prop="colItem.model"
                   :key="colItem.model"
+                  :label-width="colItem.labelWidth ? colItem.labelWidth + 'px' : data.config.labelWidth + 'px'"
                 >
                   <slot :name="colItem.model" :model="models"></slot>
                 </el-form-item>
@@ -37,6 +38,7 @@
                   :widget="colItem"
                   :rules="rules"
                   @input-change="onInputChange"
+                  :label-width="colItem.labelWidth ? colItem.labelWidth + 'px' : data.config.labelWidth + 'px'"
                 >
                 </aw-form-item>
               </template>
@@ -44,7 +46,12 @@
           </el-row>
         </template>
         <template v-else-if="item.type == 'blank'">
-          <el-form-item :label="item.name" :prop="item.model" :key="item.key">
+          <el-form-item
+            :label="item.name"
+            :prop="item.model"
+            :key="item.key"
+            :label-width="item.labelWidth ? item.labelWidth + 'px' : data.config.labelWidth + 'px'"
+          >
             <slot :name="item.model" :model="models"></slot>
           </el-form-item>
         </template>
@@ -56,6 +63,7 @@
             :widget="item"
             :rules="rules"
             @input-change="onInputChange"
+            :label-width="item.labelWidth ? item.labelWidth + 'px' : data.config.labelWidth + 'px'"
           >
           </aw-form-item>
         </template>
