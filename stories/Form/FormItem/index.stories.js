@@ -10,8 +10,27 @@ export default {
   argTypes: {
     data: { control: { type: 'Object' }, description: '表单展示的内容配置项' },
     type: { description: '组件的类型' },
-    name: { description: 'label名称' },
-    model: { description: '绑定的值' }
+    name: { description: 'label展示名称' },
+    model: { description: '绑定的值' },
+    width: { description: '组件的宽度' },
+    defaultValue: { description: '默认值' },
+    placeholder: { description: '组件占位内容' },
+    clearable: { description: '是否可清空' },
+    disabled: { description: '是否禁用' },
+    dataType: { description: 'type为input时的数据类型' },
+    maxlength: { description: 'type为input时的最大输入长度' },
+    remotes: { description: '是否禁用' },
+    showWordLimit: { description: '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效' },
+    multiple: { description: '是否多选' },
+    filterable: { description: '是否可搜索' },
+    props: { description: '指定选项的值与标签为选项对象的某个属性值' },
+    options: { description: '下拉框的选项列表' },
+    remote: { description: '是否从远程获取下拉框内的数据' },
+    remoteFunc: { description: '远程请求的函数名称' },
+    remoteOptions: { description: '远程请求的下拉框的选项列表' },
+    autosize: {
+      description: '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }'
+    }
   }
 }
 // Input组件
