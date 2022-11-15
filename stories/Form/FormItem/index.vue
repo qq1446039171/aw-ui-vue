@@ -40,7 +40,7 @@
       <template v-if="type == 'radio'">
         <el-radio-group v-model="dataModel" :style="{ width: width }" :disabled="disabled">
           <el-radio
-            :style="{ display: options.inline ? 'inline-block' : 'block' }"
+            :style="{ display: inline ? 'inline-block' : 'block' }"
             :label="item.value"
             v-for="(item, index) in remote ? remoteOptions : defaultOptions"
             :key="index"
@@ -52,7 +52,7 @@
       <template v-if="type == 'checkbox'">
         <el-checkbox-group v-model="dataModel" :style="{ width: width }" :disabled="disabled">
           <el-checkbox
-            :style="{ display: options.inline ? 'inline-block' : 'block' }"
+            :style="{ display: inline ? 'inline-block' : 'block' }"
             :label="item.value"
             v-for="(item, index) in remote ? remoteOptions : defaultOptions"
             :key="index"
@@ -235,6 +235,10 @@ export default {
     autosize: {
       type: Object,
       default: () => {}
+    },
+    inline: {
+      type: Boolean,
+      default: true
     }
   },
   watch: {
@@ -243,7 +247,13 @@ export default {
       handler(val) {
         this.models[this.model] = val
       }
-    }
+    },
+    models: {
+      deep: true,
+      handler(val) {
+        this.dataModel = val[this.model]
+      }
+    },
   },
 
   created() {
@@ -266,7 +276,7 @@ export default {
     console.log(this.models)
     this.models[this.model] = this.defaultValue ? this.defaultValue : ''
 
-    // this.dataModel = this.models[this.model]
+    this.dataModel = this.models[this.model]
   },
   data() {
     return {

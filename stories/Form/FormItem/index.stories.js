@@ -30,7 +30,8 @@ export default {
     remoteOptions: { description: '远程请求的下拉框的选项列表' },
     autosize: {
       description: '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }'
-    }
+    },
+    inline: { description: 'type为radio时,选项是否占一行' }
   }
 }
 // Input组件
@@ -94,12 +95,10 @@ Textarea.args = {
       defaultValue: '',
       autosize: { minRows: 2, maxRows: 4 },
       required: true,
-      dataType: 'string',
       placeholder: '',
       disabled: false,
       maxlength: -1,
-      showWordLimit: false,
-      clearable: true
+      showWordLimit: false
     },
     rules: [
       {
@@ -126,17 +125,6 @@ Textarea.args = {
   clearable: true
 }
 
-// // Select组件
-// const SelectTemplate = (args, { argTypes }) => ({
-//   props: Object.keys(argTypes),
-//   components: { FormItem },
-//   template: `
-//     <form-item v-bind="$props" >
-//     </form-item>`,
-//   methods: {
-//     onInputChange(e) {}
-//   },
-// })
 export const Select = Template.bind()
 Select.args = {
   // 便于查看文档的参数
@@ -203,6 +191,112 @@ Select.args = {
   remote: true,
   filterable: false,
   remoteOptions: [], // 远程请求的options会放在这里面
+  props: { value: 'age', label: 'name' },
+  remoteFunc: 'getDrugName',
+  remotes: {
+    getDrugName(resolve) {
+      setTimeout(() => {
+        const options = [
+          { age: '1', name: '药品1' },
+          { age: '2', name: '药品2' },
+          { age: '3', name: '药品3' }
+        ]
+        resolve(options)
+      }, 1000)
+    }
+  }
+}
+
+export const Radio = Template.bind()
+Radio.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'select',
+    options: {
+      defaultValue: '',
+      disabled: false, // 是否禁用
+      width: '100%', // 宽度
+      inline: true, //选项是否占一行
+      options: [
+        // 未走远程请求的下拉数据
+        { value: 'hbw', label: '黄博文' },
+        { value: 'zqh', label: '张琼慧' },
+        { value: 'px', label: '小螃蟹' }
+      ]
+    },
+    name: '性别',
+    model: 'sex',
+    rules: [
+      {
+        required: true,
+        message: '下拉选择框必须填写'
+      }
+    ]
+  },
+  // 真正传给组件的参数
+  type: 'radio',
+  name: '性别',
+  model: 'drugName',
+  defaultValue: '',
+  disabled: false, // 是否禁用
+  width: '100%', // 宽度
+  inline: true, //选项是否占一行
+  defaultOptions: [
+    // 未走远程请求的下拉数据
+    { value: 'hbw', label: '黄博文' },
+    { value: 'zqh', label: '张琼慧' },
+    { value: 'px', label: '小螃蟹' }
+  ]
+}
+
+export const Checkbox = Template.bind()
+Checkbox.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'checkbox',
+    options: {
+      defaultValue: [],
+      disabled: false, // 是否禁用
+      width: '100%', // 宽度
+      inline: true, //选项是否占一行
+      // 远程请求
+      remote: true,
+      filterable: false,
+      remoteOptions: [],
+      props: { value: 'age', label: 'name' },
+      remoteFunc: 'getDrugName'
+    },
+    name: '性别',
+    model: 'sex',
+    rules: [
+      {
+        required: true,
+        message: '下拉选择框必须填写'
+      }
+    ]
+  },
+  Remotes: {
+    getDrugName(resolve) {
+      setTimeout(() => {
+        const options = [
+          { age: 1, name: '药品1' },
+          { age: 2, name: '药品2' },
+          { age: 3, name: '药品3' }
+        ]
+        resolve(options)
+      }, 1000)
+    }
+  },
+  // 真正传给组件的参数
+  type: 'checkbox',
+  name: '性别',
+  model: 'drugName',
+  defaultValue: [],
+  disabled: false, // 是否禁用
+  width: '100%', // 宽度
+  inline: true, //选项是否占一行
+  remote: true,
+  remoteOptions: [],
   props: { value: 'age', label: 'name' },
   remoteFunc: 'getDrugName',
   remotes: {
