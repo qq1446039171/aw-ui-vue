@@ -86,8 +86,8 @@
           :clearable="clearable"
           :placeholder="placeholder"
           :style="{ width: width }"
-          :props="options.protoProps"
-          :options="remoteOptions"
+          :props="protoProps"
+          :options="remote ? remoteOptions : defaultOptions"
         >
         </el-cascader>
       </template>
@@ -239,7 +239,11 @@ export default {
     inline: {
       type: Boolean,
       default: true
-    }
+    },
+    protoProps: {
+      type: Object,
+      default: () => {}
+    },
   },
   watch: {
     dataModel: {

@@ -312,3 +312,48 @@ Checkbox.args = {
     }
   }
 }
+
+export const Cascader = Template.bind()
+Cascader.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'cascader',
+    options: {
+      defaultValue: '',
+      disabled: false, // 是否禁用
+      clearable: false, // 是否一键清除
+      placeholder: '', // input占位符
+      required: false, // 是否必填  为true与 rules 成对出现
+      width: '100%', // 宽度
+      options: [
+        // 未走远程请求的下拉数据
+        { value: 'hbw', label: '黄博文', children: [{ value: 'zqh1', label: '张琼慧1' }] },
+        { value: 'zqh', label: '张琼慧', children: [{ value: 'zqh2', label: '张琼慧2' }] },
+        { value: 'px', label: '小螃蟹', children: [{ value: 'zqh3', label: '张琼慧3' }] }
+      ]
+    },
+    name: '年龄',
+    model: 'age',
+    rules: [
+      {
+        required: true,
+        message: '下拉选择框必须填写'
+      }
+    ]
+  },
+  // 真正传给组件的参数
+  type: 'cascader',
+  name: '药品名称',
+  model: 'drugName',
+  defaultValue: '',
+  disabled: false, // 是否禁用
+  clearable: false, // 是否一键清除
+  placeholder: '占位符', // input占位符
+  width: '100%', // 宽度
+  defaultOptions: [
+    // 未走远程请求的下拉数据
+    { value: 'hbw', label: '黄博文', children: [{ value: 'zqh1', label: '张琼慧1' }] },
+    { value: 'zqh', label: '张琼慧', children: [{ value: 'zqh2', label: '张琼慧2' }] },
+    { value: 'px', label: '小螃蟹', children: [{ value: 'zqh3', label: '张琼慧3' }] }
+  ]
+}
