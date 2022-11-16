@@ -30,7 +30,7 @@
     "docs:dev": "start-storybook",
     "docs:build": "build-storybook",
     "create": "plop",
-    "deploy": "npm run build && npm run docs:build && git add -A && git commit -m 'deploy' && git push",
+    "deploy": "npm run build && npm run docs:build && git add -A && git commit -m 'deploy' && git push"
   },
   "dependencies": {
     "aw-move": "0.0.10",
