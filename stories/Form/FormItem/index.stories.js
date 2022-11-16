@@ -357,3 +357,26 @@ Cascader.args = {
     { value: 'px', label: '小螃蟹', children: [{ value: 'zqh3', label: '张琼慧3' }] }
   ]
 }
+
+export const Switch = Template.bind()
+Switch.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'switch',
+    options: {
+      disabled: false // 是否禁用
+    },
+    name: '是否开启',
+    model: 'sex',
+    rules: [
+      {
+        required: true,
+        message: '此项必须填写'
+      }
+    ]
+  },
+  // 真正传给组件的参数
+  type: 'switch',
+  name: '是否开启',
+  model: 'sex'
+}
