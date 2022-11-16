@@ -112,16 +112,16 @@
       <template v-if="type == 'time'">
         <el-time-picker
           v-model="dataModel"
-          :is-range="options.isRange"
+          :is-range="isRange"
           :placeholder="placeholder"
-          :start-placeholder="options.startPlaceholder"
-          :end-placeholder="options.endPlaceholder"
-          :readonly="options.readonly"
+          :start-placeholder="startPlaceholder"
+          :end-placeholder="endPlaceholder"
+          :readonly="readonly"
           :disabled="disabled"
-          :editable="options.editable"
+          :editable="editable"
           :clearable="clearable"
-          :arrowControl="options.arrowControl"
-          :value-format="options.format"
+          :arrowControl="arrowControl"
+          :value-format="format"
           :style="{ width: width }"
         >
         </el-time-picker>
@@ -129,16 +129,16 @@
       <template v-if="type == 'date'">
         <el-date-picker
           v-model="dataModel"
-          :type="options.type"
+          :type="dateType"
           :placeholder="placeholder"
-          :start-placeholder="options.startPlaceholder"
-          :end-placeholder="options.endPlaceholder"
-          :readonly="options.readonly"
+          :start-placeholder="startPlaceholder"
+          :end-placeholder="endPlaceholder"
+          :readonly="readonly"
           :disabled="disabled"
-          :editable="options.editable"
+          :editable="editable"
           :clearable="clearable"
-          :value-format="options.timestamp ? 'timestamp' : options.format"
-          :format="options.format"
+          :value-format="timestamp ? 'timestamp' : format"
+          :format="format"
           :style="{ width: width }"
         >
         </el-date-picker>
@@ -240,6 +240,43 @@ export default {
       type: Number,
       default: 0
     },
+    isRange: {
+      type: Boolean,
+      default: false
+    },
+    startPlaceholder: {
+      type: String,
+      default: '开始时间'
+    },
+    endPlaceholder: {
+      type: String,
+      default: '结束时间'
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    editable: {
+      type: Boolean,
+      default: true
+    },
+    arrowControl: {
+      type: Boolean,
+      default: false
+    },
+    format: {
+      type: String,
+      default: 'yyyy-MM-dd'
+    },
+    timestamp: {
+      type: Boolean,
+      default: false
+    },
+    dateType: {
+      type: String,
+      default: 'date'
+    },
+    // 远程请求
     remote: {
       type: Boolean,
       default: false

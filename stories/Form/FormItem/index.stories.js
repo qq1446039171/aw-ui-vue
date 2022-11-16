@@ -31,7 +31,22 @@ export default {
     autosize: {
       description: '自适应内容高度，只对 type="textarea" 有效，可传入对象，如，{ minRows: 2, maxRows: 6 }'
     },
-    inline: { description: 'type为radio时,选项是否占一行' }
+    inline: { description: 'type为radio时,选项是否占一行' },
+    dateType: {
+      control: { type: 'select' },
+      options: [
+        'year',
+        'month',
+        'date',
+        'dates',
+        'months',
+        'yearsweek',
+        'datetime',
+        'datetimerange',
+        'daterange',
+        'monthrange',
+      ]
+    }
   }
 }
 // Input组件
@@ -425,4 +440,82 @@ Slider.args = {
   step: 1,
   showInput: false,
   range: false
+}
+
+export const Time = Template.bind()
+Time.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'time',
+    name: '时间选择器',
+    model: 'sex',
+    options: {
+      defaultValue: '',
+      width: '200px',
+      isRange: true,
+      placeholder: '占位符',
+      startPlaceholder: '',
+      endPlaceholder: '',
+      disabled: false,
+      clearable: false,
+      arrowControl: false,
+      format: 'HH:mm:ss',
+      editable: true
+    }
+  },
+  // 真正传给组件的参数
+  type: 'time',
+  name: '时间选择器',
+  model: 'sex',
+  width: '200px',
+  defaultValue: '',
+  isRange: false,
+  placeholder: '占位符',
+  startPlaceholder: '',
+  endPlaceholder: '',
+  disabled: false,
+  clearable: false,
+  arrowControl: false,
+  format: 'HH:mm:ss',
+  editable: true
+}
+
+export const Date = Template.bind()
+Date.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'date',
+    name: '日期选择器',
+    model: 'sex',
+    options: {
+      defaultValue: '',
+      width: '300px',
+      type: 'date',
+      isRange: true,
+      placeholder: '占位符',
+      startPlaceholder: '',
+      endPlaceholder: '',
+      disabled: false,
+      clearable: false,
+      format: 'yyyy-MM-dd HH:mm:ss',
+      editable: true,
+      timestamp: false //JS时间戳	仅 value-format 可用；组件绑定值为number类型
+    }
+  },
+  // 真正传给组件的参数
+  type: 'date',
+  dateType: 'date',
+  name: '日期选择器',
+  model: 'sex',
+  width: '300px',
+  defaultValue: '',
+  isRange: false,
+  placeholder: '占位符',
+  startPlaceholder: '',
+  endPlaceholder: '',
+  disabled: false,
+  clearable: false,
+  format: 'yyyy-MM-dd HH:mm:ss',
+  editable: true,
+  timestamp: false
 }
