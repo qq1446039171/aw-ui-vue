@@ -100,12 +100,12 @@
       <template v-if="type == 'slider'">
         <el-slider
           v-model="dataModel"
-          :min="options.min"
-          :max="options.max"
+          :min="min"
+          :max="max"
           :disabled="disabled"
-          :step="options.step"
-          :show-input="options.showInput"
-          :range="options.range"
+          :step="step"
+          :show-input="showInput"
+          :range="range"
           :style="{ width: width }"
         ></el-slider>
       </template>
@@ -220,6 +220,26 @@ export default {
       type: Array,
       default: () => []
     },
+    showInput: {
+      type: Boolean,
+      default: false
+    },
+    range: {
+      type: Boolean,
+      default: false
+    },
+    step: {
+      type: Number,
+      default: 1
+    },
+    max: {
+      type: Number,
+      default: 100
+    },
+    min: {
+      type: Number,
+      default: 0
+    },
     remote: {
       type: Boolean,
       default: false
@@ -243,7 +263,7 @@ export default {
     protoProps: {
       type: Object,
       default: () => {}
-    },
+    }
   },
   watch: {
     dataModel: {
@@ -257,7 +277,7 @@ export default {
       handler(val) {
         this.dataModel = val[this.model]
       }
-    },
+    }
   },
 
   created() {

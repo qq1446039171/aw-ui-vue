@@ -49,6 +49,8 @@ export const Input = Template.bind()
 Input.args = {
   Columns: {
     type: 'input',
+    name: '年龄',
+    model: 'age',
     options: {
       width: '100%',
       defaultValue: '',
@@ -59,8 +61,6 @@ Input.args = {
       maxlength: -1,
       showWordLimit: false
     },
-    name: '年龄',
-    model: 'age',
     rules: [
       {
         type: 'string',
@@ -130,6 +130,8 @@ Select.args = {
   // 便于查看文档的参数
   Columns: {
     type: 'select',
+    name: '年龄',
+    model: 'age',
     options: {
       defaultValue: '',
       multiple: false, // 是否启用多选
@@ -150,8 +152,6 @@ Select.args = {
       props: { value: 'age', label: 'name' },
       remoteFunc: 'getDrugName'
     },
-    name: '年龄',
-    model: 'age',
     rules: [
       {
         required: true,
@@ -212,6 +212,8 @@ Radio.args = {
   // 便于查看文档的参数
   Columns: {
     type: 'select',
+    name: '性别',
+    model: 'sex',
     options: {
       defaultValue: '',
       disabled: false, // 是否禁用
@@ -224,8 +226,7 @@ Radio.args = {
         { value: 'px', label: '小螃蟹' }
       ]
     },
-    name: '性别',
-    model: 'sex',
+
     rules: [
       {
         required: true,
@@ -254,6 +255,8 @@ Checkbox.args = {
   // 便于查看文档的参数
   Columns: {
     type: 'checkbox',
+    name: '性别',
+    model: 'sex',
     options: {
       defaultValue: [],
       disabled: false, // 是否禁用
@@ -266,8 +269,6 @@ Checkbox.args = {
       props: { value: 'age', label: 'name' },
       remoteFunc: 'getDrugName'
     },
-    name: '性别',
-    model: 'sex',
     rules: [
       {
         required: true,
@@ -318,6 +319,8 @@ Cascader.args = {
   // 便于查看文档的参数
   Columns: {
     type: 'cascader',
+    name: '年龄',
+    model: 'age',
     options: {
       defaultValue: '',
       disabled: false, // 是否禁用
@@ -332,8 +335,6 @@ Cascader.args = {
         { value: 'px', label: '小螃蟹', children: [{ value: 'zqh3', label: '张琼慧3' }] }
       ]
     },
-    name: '年龄',
-    model: 'age',
     rules: [
       {
         required: true,
@@ -363,11 +364,11 @@ Switch.args = {
   // 便于查看文档的参数
   Columns: {
     type: 'switch',
+    name: '是否开启',
+    model: 'sex',
     options: {
       disabled: false // 是否禁用
     },
-    name: '是否开启',
-    model: 'sex',
     rules: [
       {
         required: true,
@@ -377,6 +378,51 @@ Switch.args = {
   },
   // 真正传给组件的参数
   type: 'switch',
+  disabled: false,
   name: '是否开启',
   model: 'sex'
+}
+
+export const Text = Template.bind()
+Text.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'text',
+    name: '备注',
+    model: 'sex'
+  },
+  // 真正传给组件的参数
+  type: 'text',
+  name: '备注',
+  model: 'sex'
+}
+
+export const Slider = Template.bind()
+Slider.args = {
+  // 便于查看文档的参数
+  Columns: {
+    type: 'slider',
+    name: '滑块',
+    model: 'sex',
+    options: {
+      width: '100%',
+      min: 5,
+      max: 10,
+      disabled: false,
+      step: 2,
+      showInput: false,
+      range: false
+    }
+  },
+  // 真正传给组件的参数
+  type: 'slider',
+  name: '备注',
+  model: 'sex',
+  width: '100%',
+  min: 5,
+  max: 100,
+  disabled: false,
+  step: 1,
+  showInput: false,
+  range: false
 }
