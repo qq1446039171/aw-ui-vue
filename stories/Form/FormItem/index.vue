@@ -157,7 +157,7 @@ export default {
     },
     name: {
       type: String,
-      default: '默认label'
+      default: ''
     },
     model: {
       type: String,
@@ -185,7 +185,7 @@ export default {
     },
     dataType: {
       type: String,
-      default: ''
+      default: 'text'
     },
     maxlength: {
       type: Number,

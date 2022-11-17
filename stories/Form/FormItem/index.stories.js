@@ -19,7 +19,6 @@ export default {
     disabled: { description: '是否禁用' },
     dataType: { description: 'type为input时的数据类型' },
     maxlength: { description: 'type为input时的最大输入长度' },
-    remotes: { description: '是否禁用' },
     showWordLimit: { description: '是否显示输入字数统计，只在 type = "text" 或 type = "textarea" 时有效' },
     multiple: { description: '是否多选' },
     filterable: { description: '是否可搜索' },
