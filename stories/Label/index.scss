@@ -1,0 +1,15 @@
+.aw-label-text {
+  font-size: 12px;
+  margin: 0 10px 0 20px;
+  text-align: end;
+  display: inline-block;
+}
+.aw-label-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.aw-label-required::before {
+  content: '* ';
+  color: red;
+}
