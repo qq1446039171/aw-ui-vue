@@ -26,8 +26,8 @@ const Template = (args, { argTypes }) => ({
 `
 })
 
-export const Primary = Template.bind()
-Primary.args = {
+export const Dialog = Template.bind()
+Dialog.args = {
   visible: true,
   title: '这是一个可拖拽的',
   theme: 'dark'

@@ -14,8 +14,8 @@ const Template = (args, { argTypes }) => ({
   template: '<aw-label v-bind="$props" >急急急</aw-label>'
 })
 
-export const Primary = Template.bind()
-Primary.args = {
+export const Label = Template.bind()
+Label.args = {
   width: '100px',
   required: true
 }
