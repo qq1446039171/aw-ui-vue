@@ -19,13 +19,14 @@ const Template = (args, { argTypes }) => ({
   <el-card shadow="never">
     <aw-table
         :columns="columns"
-        :height="600"
+        :height="height"
         :request="getUserList"
         :initParam="initParam"
         :resetInitParam="resetInitParam"
         :size="size"
         :remote="remote"
         ref="ProTable"
+        v-bind="$props" 
       >
         <template slot="searchFormAfter">
           <el-form-item label="结算时间:">
@@ -75,8 +76,8 @@ const Template = (args, { argTypes }) => ({
       </aw-table>
     </el-card>
 `,
-  data(){
-    return{
+  Data() {
+    return {
       size: 'small',
       // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
       initParam: {},
@@ -118,7 +119,7 @@ const Template = (args, { argTypes }) => ({
           placeholder: '请选择姓别', // 默认显示内容
           initSearchParam: 1, // 默认选中的值
           inputWidth: 120, // 输入框的宽度
-          turnProp: 'gender', // 需要转化的字段
+          turnProp: 'gender' // 需要转化的字段
         },
         {
           prop: 'idCard',
@@ -174,10 +175,10 @@ const Template = (args, { argTypes }) => ({
             resolve(res.uptoken)
           })
         }
-      },
+      }
     }
   },
-  methods: {
+  Methods: {
     getUserList() {
       return new Promise((resolve) => {
         setTimeout(() => {
@@ -235,7 +236,7 @@ const Template = (args, { argTypes }) => ({
     },
     batchDelete(ids) {
       console.log('需要删除的对象id：', ids)
-    },
+    }
   }
 })
 
@@ -348,8 +349,58 @@ Table.args = {
   },
   // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
   initParam: {},
+  toolButton: false,
 
   resetInitParam() {
     this.initParam = {}
+  },
+  getUserList() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          rows: [
+            {
+              id: '1',
+              username: '侯秀英',
+              gender: 1,
+              age: 30,
+              idCard: '05763240829223234475',
+              email: 'v.wydgaw@xvfa.ch',
+              address: '吉林省 松原市',
+              createTime: '1983-10-30 20:07:53',
+              status: 1,
+              avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
+            },
+            {
+              id: '2',
+              username: '黄博文',
+              gender: 2,
+              age: 22,
+              idCard: '05763240829223234475',
+              email: 'v.wydgaw@xvfa.ch',
+              address: '湖南 长沙市',
+              createTime: '1983-10-30 20:07:53',
+              status: 2,
+              avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
+            },
+            {
+              id: '3',
+              username: '黄博文',
+              gender: 2,
+              age: 22,
+              idCard: '05763240829223234475',
+              email: 'v.wydgaw@xvfa.ch',
+              address: '湖南 长沙市',
+              createTime: '1983-10-30 20:07:53',
+              status: 2,
+              avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
+            }
+          ],
+          pageNum: 1,
+          pageSize: 10,
+          total: 3
+        })
+      }, 300)
+    })
   }
 }

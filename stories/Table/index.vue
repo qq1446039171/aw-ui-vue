@@ -276,7 +276,6 @@ export default {
         this.updatedTotalParam()
         Object.assign(this.totalParam, this.initParam)
         console.log('查询条件:', this.totalParam)
-        console.log(this.request)
         const data = await this.request(this.totalParam)
         this.loading = false
         // 解构后台返回的分页数据(如果有分页更新分页信息)

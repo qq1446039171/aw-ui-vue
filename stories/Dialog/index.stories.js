@@ -1,4 +1,7 @@
 import AwDialog from './index.vue'
+import Vue from 'vue'
+import move from 'aw-move'
+Vue.use(move)
 
 export default {
   title: 'Dialog/Dialog',
@@ -9,16 +12,23 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: { AwDialog },
-  template: '<aw-dialog v-bind="$props" />'
+  template: `
+  <div style="height:60vh">
+    <aw-dialog v-bind="$props">
+      <template slot="header"> </template>
+      <template> 需要注意的是内容是默认不居中的 </template>
+      <template slot="footer">
+        <el-button @click="visible = false" size="small">取 消</el-button>
+        <el-button type="primary" @click="visible = false" size="small">确 定</el-button>
+      </template>
+    </aw-dialog>
+  </div> 
+`
 })
 
 export const Primary = Template.bind()
 Primary.args = {
-  imgSrc: 'https://pic2.zhimg.com/v2-cd034028a5f36322c71216f30425d2d1_l.jpg?source=172ae18b',
-  summary: '这是一个测试案例'
-}
-export const Secondary = Template.bind({})
-Secondary.args = {
-  imgSrc: 'https://pic2.zhimg.com/v2-cd034028a5f36322c71216f30425d2d1_l.jpg?source=172ae18b',
-  summary: '这是一个测试案例2'
+  visible: true,
+  title: '这是一个可拖拽的',
+  theme: 'dark'
 }

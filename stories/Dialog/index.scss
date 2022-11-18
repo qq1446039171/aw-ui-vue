@@ -1,7 +1,7 @@
 // 卡片 可拖拽的
 .aw-dialog {
   // 固定了弹窗的位置
-  position: fixed;
+  position: absolute;
   left: 40vw;
   top: 36vh;
   z-index: 999;
