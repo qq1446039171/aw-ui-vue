@@ -87,7 +87,7 @@
           :placeholder="placeholder"
           :style="{ width: width }"
           :props="protoProps"
-          :options="remote ? remoteOptions : defaultOptions"
+          :options="remoteOptions"
         >
         </el-cascader>
       </template>

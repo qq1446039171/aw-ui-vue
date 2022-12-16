@@ -342,7 +342,7 @@ Cascader.args = {
       placeholder: '', // input占位符
       required: false, // 是否必填  为true与 rules 成对出现
       width: '100%', // 宽度
-      options: [
+      remoteOptions: [
         // 未走远程请求的下拉数据
         { value: 'hbw', label: '黄博文', children: [{ value: 'zqh1', label: '张琼慧1' }] },
         { value: 'zqh', label: '张琼慧', children: [{ value: 'zqh2', label: '张琼慧2' }] },
