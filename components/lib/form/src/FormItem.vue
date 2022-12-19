@@ -92,7 +92,7 @@
         :clearable="widget.options.clearable"
         :placeholder="widget.options.placeholder"
         :style="{ width: widget.options.width }"
-        :props="widget.options.protoProps"
+        :props="widget.options.props"
         :options="widget.options.remoteOptions"
       >
       </el-cascader>
