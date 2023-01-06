@@ -8,7 +8,27 @@ export default {
   title: 'Table/Table',
   component: AwTable,
   argTypes: {
-    // imgSrc: { control: { type: 'string' }, description: '图片路径' }
+    size: { control: { type: 'string' }, description: '组件的大小' },
+    columns: { control: { type: Array }, description: '表单配置项' },
+    remote: { control: { type: Object }, description: '初始化请求参数' },
+    initParam: { control: { type: Object }, description: '初始化请求参数' },
+    toolButton: { control: { type: Boolean }, description: '是否显示表格功能按钮' },
+    resetInitParam: { control: { type: Function }, description: '重置initParam方法' },
+    request: { control: { type: Function }, description: '请求表单数据方法' },
+    border: { control: { type: Boolean }, description: '是否显示表格边框' },
+    pagination: { control: { type: Boolean }, description: '是否需要分页组件' },
+    height: { control: { type: Number }, description: '表格最大高度' },
+    isShowSearch: { control: { type: Boolean }, description: '是否显示查询条件' },
+    pageSizes: { control: { type: Array }, description: '分页大小' },
+    labelWidth: { control: { type: Boolean }, description: '表单域标签的宽度' },
+    tag: { control: { type: String }, description: '表格数据特殊标识符' },
+    searchFormBefore: { control: { type: 'string' }, description: '查询条件中 前置插槽' },
+    searchFormAfter: { control: { type: 'string' }, description: '查询条件中 后置插槽' },
+    searchButton: { control: { type: 'string' }, description: '查询条件中 后置按钮插槽' },
+    tableHeader: { control: { type: 'string' }, description: '表格上方自定义插槽' },
+    'item.prop': { control: { type: 'string' }, description: '自定义插槽（columns中每项的prop就是插槽名称）' },
+
+    // columns: { control: { type: 'string' }, description: '图片路径' }
   }
 }
 
