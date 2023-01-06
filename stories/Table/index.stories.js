@@ -26,9 +26,7 @@ export default {
     searchFormAfter: { control: { type: 'string' }, description: '查询条件中 后置插槽' },
     searchButton: { control: { type: 'string' }, description: '查询条件中 后置按钮插槽' },
     tableHeader: { control: { type: 'string' }, description: '表格上方自定义插槽' },
-    'item.prop': { control: { type: 'string' }, description: '自定义插槽（columns中每项的prop就是插槽名称）' },
-
-    // columns: { control: { type: 'string' }, description: '图片路径' }
+    'item.prop': { control: { type: 'string' }, description: '自定义插槽（columns中每项的prop就是插槽名称）' }
   }
 }
 
