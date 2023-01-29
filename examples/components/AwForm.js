@@ -131,7 +131,7 @@ let AwForm = {
         rules: []
       }
     ],
-    config: { labelWidth: 90, labelPosition: 'right', size: 'small', customClass: '' }
+    config: { labelWidth: 90, labelPosition: 'right', size: 'small', customClass: '', footer: 'right' }
   },
   Remote: {
     getDrugName(resolve) {

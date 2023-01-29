@@ -69,7 +69,13 @@
         </template>
       </template>
 
-      <div class="aw-form-footer" :style="{ 'justify-content': data.config.footer }">
+      <div
+        class="aw-form-footer"
+        :style="{
+          'justify-content': data.config.footer,
+          'margin-left': data.config.footer === 'left' ? data.config.labelWidth + 'px' : ''
+        }"
+      >
         <slot name="footer"></slot>
       </div>
     </el-form>
