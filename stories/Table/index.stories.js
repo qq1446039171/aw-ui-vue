@@ -43,7 +43,8 @@ const Template = (args, { argTypes }) => ({
         :resetInitParam="resetInitParam"
         :size="size"
         :remote="remote"
-        ref="ProTable"
+        ref="AwTable"
+        tag="id"
         v-bind="$props" 
       >
         <template slot="searchFormAfter">
@@ -97,7 +98,7 @@ const Template = (args, { argTypes }) => ({
   Data() {
     return {
       size: 'small',
-      // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
+      // 如果表格需要初始化请求参数,直接定义传给 AwTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
       initParam: {},
       columns: [
         {
@@ -365,7 +366,7 @@ Table.args = {
       })
     }
   },
-  // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
+  // 如果表格需要初始化请求参数,直接定义传给 AwTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
   initParam: {},
   toolButton: false,
 
