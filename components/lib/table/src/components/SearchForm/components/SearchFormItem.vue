@@ -76,6 +76,19 @@ export default {
               label: item[this.item.props.label],
               children: item[this.item.props.children]
             }
+            // props: self 的情况
+            // if (this.item.props == 'self') {
+            //   return {
+            //     value: item,
+            //     label: item
+            //   }
+            // } else {
+            //   return {
+            //     value: item[this.item.props.value],
+            //     label: item[this.item.props.label],
+            //     children: item[this.item.props.children]
+            //   }
+            // }
           })
         })
       } else {
