@@ -24,11 +24,11 @@
   "scripts": {
     "serve": "vue-cli-service serve ",
     "build": "npm run build:js && npm run build:css",
+    "docs:dev": "cd docs && npm run dev",
+    "docs:build": "cd docs && npm run build",
     "lint": "vue-cli-service lint",
     "build:js": "webpack --config ./webpack.components.js",
     "build:css": "npx gulp sass",
-    "docs:dev": "cd docs && npm run dev",
-    "docs:build": "cd docs && npm run build",
     "create": "plop",
     "deploy": "npm run build && npm run docs:build && git add -A && git commit -m 'deploy' && git push"
   },
