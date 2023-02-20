@@ -26,6 +26,7 @@
     "build": "npm run build:js && npm run build:css",
     "docs:dev": "cd docs && npm run dev",
     "docs:build": "cd docs && npm run build",
+    "ins": "npm i && cd docs && npm i",
     "lint": "vue-cli-service lint",
     "build:js": "webpack --config ./webpack.components.js",
     "build:css": "npx gulp sass",
