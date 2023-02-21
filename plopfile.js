@@ -34,7 +34,7 @@ module.exports = (plop) => {
         type: 'add',
         path: 'docs/componentDocs/{{kebabCase name}}.md',
         templateFile: 'template/docs/componentDocs/index.hbs'
-      },
+      }
     ]
   })
 }

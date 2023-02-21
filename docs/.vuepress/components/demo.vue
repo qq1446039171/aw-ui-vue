@@ -10,9 +10,10 @@
       <div class="component-wrapper-demo">
         <slot name="container"></slot>
       </div>
-      <div class="code-content" ref="content"  :style="{ height: codeHeight }">
+      <div class="code-content" ref="content" :style="{ height: codeHeight }">
         <div class="code-content-height">
-          <pre v-highlight
+          <pre
+            v-highlight
             class="pre"
           ><code class="code vue" style="white-space: pre-line;">{{ code.replace(/^s*/gm, '').trim() }}</code></pre>
         </div>
@@ -44,11 +45,8 @@ export default {
       default: () => ''
     }
   },
-  created() {
-    this.codeStr = this.code
-  },
   mounted() {
-    this.codeHeight = this.$refs.content.scrollHeight + 'px'
+    // this.codeHeight = this.$refs.content.scrollHeight + 'px'
   },
   methods: {
     showCode() {
@@ -64,8 +62,7 @@ export default {
   data() {
     return {
       codeHeight: 0,
-      showFlag: true,
-      codeStr: '<b-button>默认按钮</b-button> \n <b-button>默认按钮</b-button>'
+      showFlag: false
     }
   }
 }
@@ -92,7 +89,7 @@ export default {
       background-color: #333;
       border-top: 1px solid #eaeefb;
       overflow: hidden;
-      transition: .2s;
+      transition: 0.2s;
       .code-content-height {
         .pre {
           background: #292d3e;

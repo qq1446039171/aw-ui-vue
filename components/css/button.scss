@@ -63,6 +63,12 @@
     color: #fff;
   }
 }
+.aw-button-success.is-disabled {
+  cursor: not-allowed;
+  color: #fff;
+  background-color: #b3e19d;
+  border-color: #b3e19d;
+}
 .aw-button-info {
   color: #fff;
   background-color: #909399;
@@ -72,6 +78,12 @@
     border-color: #a6a9ad;
     color: #fff;
   }
+}
+.aw-button-info.is-disabled {
+  cursor: not-allowed;
+  color: #fff;
+  background-color: #c8c9cc;
+  border-color: #c8c9cc;
 }
 .aw-button-warning {
   background-color: #e6a23c;
@@ -83,6 +95,12 @@
     color: #fff;
   }
 }
+.aw-button-warning.is-disabled {
+  cursor: not-allowed;
+  color: #fff;
+  background-color: #f3d19e;
+  border-color: #f3d19e;
+}
 .aw-button-danger {
   color: #fff;
   background-color: #f56c6c;
@@ -92,6 +110,12 @@
     border-color: #f78989;
     color: #fff;
   }
+}
+.aw-button-danger.is-disabled {
+  cursor: not-allowed;
+  color: #fff;
+  background-color: #fab6b6;
+  border-color: #fab6b6;
 }
 
 .aw-button-medium {
