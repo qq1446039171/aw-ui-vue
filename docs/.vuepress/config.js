@@ -23,7 +23,7 @@ module.exports = {
     nav: [
       // 导航栏配置
       {
-        text: 'Home',
+        text: 'Home⚡️',
         link: '/'
       },
       {
