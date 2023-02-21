@@ -2,6 +2,10 @@
 1. 将 docs文档 与 组件库 分离
 2. npm run ins 将 组件库 与 docs文档 分别装好包
 
+### Gitee部署
+storeBook -- storybook-static
+vuepress -- docs/.vuepress/dist
+
 
 ### 运行程序
 
