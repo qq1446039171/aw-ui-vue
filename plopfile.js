@@ -32,18 +32,8 @@ module.exports = (plop) => {
       },
       {
         type: 'add',
-        path: 'stories/{{properCase name}}/index.vue',
-        templateFile: 'template/stories/index.hbs'
-      },
-      {
-        type: 'add',
-        path: 'stories/{{properCase name}}/index.stories.js',
-        templateFile: 'template/stories/index.stories.hbs'
-      },
-      {
-        type: 'add',
-        path: 'stories/{{properCase name}}/index.scss',
-        templateFile: 'template/stories/scss.hbs'
+        path: 'docs/componentDocs/{{kebabCase name}}.md',
+        templateFile: 'template/docs/componentDocs/index.hbs'
       },
     ]
   })
