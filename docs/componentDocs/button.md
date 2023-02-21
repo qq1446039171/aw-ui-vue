@@ -1,8 +1,6 @@
-# Button
+# Button 按钮
 
-Button 按钮
-
-<demo name="代码示例" info="按钮类型有：默认按钮、普通按钮、成功按钮、失败按钮、警告按钮。 通过设置type为primary、success、warning、error创建不同样式的按钮，不设置为默认样式。"
+<demo name="基础用法" info="基础的按钮用法。"
 code='<aw-button>默认按钮</aw-button>
 <aw-button type="primary">主要按钮</aw-button>
 <aw-button type="success">成功按钮</aw-button>

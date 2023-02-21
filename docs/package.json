@@ -11,6 +11,7 @@
   "description": "",
   "devDependencies": {
     "vuepress": "^1.9.8",
-    "sass-loader": "^7.3.1"
+    "sass-loader": "^7.3.1",
+    "highlight.js": "^10.7.2"
   }
 }

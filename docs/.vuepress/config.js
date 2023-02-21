@@ -47,8 +47,6 @@ module.exports = {
     }
   },
   sass: { indentedSyntax: true },
-  scss: {
-    includePaths: ['./public/index.scss']
-  },
+
   plugins: ['@vuepress/nprogress']
 }
