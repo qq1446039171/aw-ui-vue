@@ -1,6 +1,6 @@
 ---   
 home: true
-heroImage: '/logo.png'
+heroImage: '/logo.jpg'
 actionText: 快速上手 →
 actionLink: componentDocs/install
 features:

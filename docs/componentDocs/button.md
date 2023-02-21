@@ -20,7 +20,7 @@ code='<aw-button>默认按钮</aw-button>
 
 ### Attributes
 
-| 属性     | 说明         | 类型    | 可选值                              | 是否必要 | 默认值 |
+| 属性     | 说明         | 类型    | 可选值                              |  是否必要  |  默认值  |
 | :------- | :----------- | :------ | :---------------------------------- | :------- | :----- |
 | size     | 按钮大小     | String  | medium / small / mini               | false    | -      |
 | disabled | 是否禁用状态 | boolean | -                                   | false    | false  |

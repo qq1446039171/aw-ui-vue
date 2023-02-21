@@ -9,7 +9,7 @@ module.exports = {
       'link',
       {
         rel: 'icon',
-        href: '/logo.png'
+        href: '/logo.jpg'
       }
     ] // 增加一个自定义的 favicon(网页标签的图标)
   ],
@@ -18,7 +18,7 @@ module.exports = {
     lineNumbers: false // 代码块显示行号
   },
   themeConfig: {
-    logo: '/logo.png',
+    logo: '/logo.jpg',
     sidebarDepth: 1, // 侧边栏显示2级
     nav: [
       // 导航栏配置

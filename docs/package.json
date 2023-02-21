@@ -10,9 +10,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "vuepress": "^1.9.8"
-  },
-  "dependencies": {
-    "aw-ui-vue": "^1.4.0"
+    "vuepress": "^1.9.8",
+    "sass-loader": "^7.3.1"
   }
 }
