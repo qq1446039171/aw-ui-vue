@@ -1,4 +1,6 @@
+const path = require('path')
 module.exports = {
+  port: '3306',
   title: 'aw-ui-vue',
   description: '基于Vue、Element封装的轻量、简约的ui框架',
   head: [
@@ -11,7 +13,7 @@ module.exports = {
       }
     ] // 增加一个自定义的 favicon(网页标签的图标)
   ],
-  // base: './', // 这是部署到github相关的配置
+  base: '/aw-ui-vue/', // 这是部署到github相关的配置
   markdown: {
     lineNumbers: false // 代码块显示行号
   },
