@@ -7,7 +7,8 @@
 </demo>
 
 <demo name="插槽用法" info="footer插槽用法" code='
-<aw-card imgSrc="/aw-ui-vue/example.jpg" 
+<aw-card 
+imgSrc="/aw-ui-vue/example.jpg" 
 summary="Node.js+Express+Koa2+开发Web Server博客" 
 :width="370" 
 :imgHeight="90">
