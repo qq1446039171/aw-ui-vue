@@ -1,4 +1,4 @@
-# Link 文字链接
+# Link 链接
 
 <demo name="基础用法" info="基础的链接用法。" code='<aw-link type="primary" >文字</aw-link>
 <aw-link type="success">文字</aw-link>
