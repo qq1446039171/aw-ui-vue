@@ -26,11 +26,11 @@
 </template>
 
 <script>
-import mixin from '../mixin'
+// import mixin from '../mixin'
 
 export default {
   name: 'demo',
-  mixins: [mixin],
+  // mixins: [mixin],
   props: {
     name: {
       type: String,
@@ -86,7 +86,7 @@ export default {
     }
 
     .code-content {
-      background-color: #333;
+      background-color: #292d3e;
       border-top: 1px solid #eaeefb;
       overflow: hidden;
       transition: 0.2s;
