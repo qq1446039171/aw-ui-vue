@@ -1,6 +1,6 @@
-# 卡片组件
+# Card 卡片
 
-<demo name="基础用法" info="基础卡片组件的用法。" code='<aw-card imgSrc="/aw-ui-vue/example.jpg" summary="这是一个测试案例" />'>
+<demo name="基础用法" info="基础的卡片用法。" code='<aw-card imgSrc="/aw-ui-vue/example.jpg" summary="这是一个测试案例" />'>
   <template v-slot:container>
     <aw-card imgSrc="/aw-ui-vue/example.jpg" summary="这是一个测试案例" />
   </template>
@@ -14,17 +14,30 @@ summary="Node.js+Express+Koa2+开发Web Server博客"
   Node.js+Express+Koa2+开发Web Server博客
   <template slot="footer">
     <div class="footer">
-      <div class="level">中级 . 523人报名</div>
+      <div class="level">中级523人报名</div>
       <div class="price">￥899.00</div>
     </div>
   </template>
-</aw-card>'>
+</aw-card>
+<style>
+  .footer {
+      padding: 0 8px;
+      font-size: 12px;
+      text-align: left;
+      .level {
+        color: #9199a1;
+      }
+      .price{
+        color: #f01414;
+      }
+  }
+</style>'>
 <template v-slot:container>
 <aw-card imgSrc="/aw-ui-vue/example.jpg" summary="Node.js+Express+Koa2+开发Web Server博客" :width="370" :imgHeight="90">
 Node.js+Express+Koa2+开发 Web Server 博客
 <template slot="footer">
 <div class="footer">
-<div class="level">中级 . 523 人报名</div>
+<div class="level">中级523人报名</div>
 <div class="price" style=" color: #f01414;">￥ 899.00</div>
 </div>
 </template>
