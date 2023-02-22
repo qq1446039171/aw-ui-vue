@@ -15,7 +15,7 @@
           <pre
             v-highlight
             class="pre"
-          ><code class="code vue" style="white-space: pre-line;">{{ code.replace(/^s*/gm, '').trim() }}</code></pre>
+          ><code class="code" style="white-space: pre-wrap;">{{ code.replace(/^s*/gm, '').trim() }}</code></pre>
         </div>
       </div>
       <div class="code-tool" @click="showCode" ref="xxx">
