@@ -5,6 +5,10 @@
   border-radius: 50%;
 }
 
+.theme-default-content:not(.custom) {
+  max-width: 900px !important;
+  padding: 2rem 5rem !important;
+}
 
 thead{
   background-color:#f7f7f7
@@ -12,9 +16,9 @@ thead{
 tbody{
   font-size: 14px;
 }
-td{
-  text-align:left!important;
-}
+// td{
+//   text-align:left!important;
+// }
 
 
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/

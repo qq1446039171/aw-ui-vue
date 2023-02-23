@@ -91,7 +91,6 @@ export default {
           {
             prop: 'gender', // 关键字段
             label: '性别', // 查询条件提示词
-            width: '140', //表格宽度
             enum: [
               // 查询条件的枚举值
               { label: '男', value: 1 },
@@ -107,16 +106,12 @@ export default {
           {
             prop: 'idCard',
             label: '身份证号',
+            width: '140', //表格宽度
             search: true,
             searchType: 'select', // 查询类型
             remote: true,
             remoteFunc: 'getName',
             props: { value: 'value', label: 'label' }
-          },
-          {
-            prop: 'email',
-            label: '邮箱',
-            search: true
           },
           {
             prop: 'status',
@@ -168,7 +163,6 @@ export default {
                   gender: 1,
                   age: 30,
                   idCard: '05763240829223234475',
-                  email: 'v.wydgaw@xvfa.ch',
                   createTime: '1983-10-30 20:07:53',
                   status: 1,
                   avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
@@ -179,7 +173,6 @@ export default {
                   gender: 2,
                   age: 22,
                   idCard: '05763240829223234475',
-                  email: 'v.wydgaw@xvfa.ch',
                   createTime: '1983-10-30 20:07:53',
                   status: 2,
                   avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
@@ -251,11 +244,6 @@ export default {
       remote: true,
       remoteFunc: 'getName',
       props: { value: 'value', label: 'label' }
-    },
-    {
-      prop: 'email',
-      label: '邮箱',
-      search: true
     },
     {
       prop: 'status',

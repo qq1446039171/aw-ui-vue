@@ -26,7 +26,7 @@ export default {
                 gender: 1,
                 age: 30,
                 idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
+                
                 createTime: '1983-10-30 20:07:53',
                 status: 1,
                 avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
@@ -37,7 +37,7 @@ export default {
                 gender: 2,
                 age: 22,
                 idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
+                
                 createTime: '1983-10-30 20:07:53',
                 status: 2,
                 avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
@@ -48,7 +48,7 @@ export default {
                 gender: 2,
                 age: 22,
                 idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
+                
                 createTime: '1983-10-30 20:07:53',
                 status: 2,
                 avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
@@ -59,7 +59,7 @@ export default {
                 gender: 2,
                 age: 22,
                 idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
+                
                 createTime: '1983-10-30 20:07:53',
                 status: 2,
                 avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
@@ -70,7 +70,7 @@ export default {
                 gender: 2,
                 age: 22,
                 idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
+                
                 createTime: '1983-10-30 20:07:53',
                 status: 2,
                 avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
@@ -81,114 +81,15 @@ export default {
                 gender: 2,
                 age: 22,
                 idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
+                
                 createTime: '1983-10-30 20:07:53',
                 status: 2,
                 avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
               },
-              {
-                id: '7',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '8',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '9',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '10',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '11',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '12',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '13',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '14',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              },
-              {
-                id: '15',
-                username: '黄博文',
-                gender: 2,
-                age: 22,
-                idCard: '05763240829223234475',
-                email: 'v.wydgaw@xvfa.ch',
-                createTime: '1983-10-30 20:07:53',
-                status: 2,
-                avatar: 'http://dummyimage.com/100x100/79f2b8&text=梁刚'
-              }
             ],
             pageNum: 1,
-            pageSize: 10,
-            total: 15
+            pageSize: 5,
+            total: 6
           })
         }, 300)
       })
@@ -215,7 +116,9 @@ export default {
       :request="getUserList"
       :initParam="initParam"
       :resetInitParam="resetInitParam"
+      :pageSizes="[5,10, 50, 100, 200]"
       :size="size"
+      :border="false"
       tag="id"
       :remote="remoteList"
       ref="ProTable"
