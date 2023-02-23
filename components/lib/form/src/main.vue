@@ -127,7 +127,7 @@ export default {
           if (this.value && Object.keys(this.value).indexOf(genList[i].model) >= 0) {
             this.models[genList[i].model] = this.value[genList[i].model]
           } else {
-            this.models[genList[i].model] = genList[i].options.defaultValue
+            this.models[genList[i].model] = genList[i].options ? genList[i].options.defaultValue : '' // 修复columns中数据不传options会报错的问题
           }
           if (this.rules[genList[i].model]) {
             if (isRules) {

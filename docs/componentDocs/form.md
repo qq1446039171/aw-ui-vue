@@ -38,7 +38,7 @@ export default {
 <demo name="基础用法" info="基础的用法。" :code='template+script'>
 <template v-slot:container>
 <aw-form :data="formColumns" :value="defaultValue" :remote="remoteList" @on-change="handleDataChange" ref="awForm">
-    <template v-slot:blank="scope"> 这里是自定义的 {{ scope.model.blank }} </template>
+    <template v-slot:blank> 这里是自定义的 </template>
     <template slot="footer">
       <el-button icon="el-icon-circle-close" :size="formColumns.config.size"  >取 消</el-button>
       <el-button icon="el-icon-circle-check" type="primary" :size="formColumns.config.size">确 认</el-button>
