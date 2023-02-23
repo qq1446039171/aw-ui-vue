@@ -27,6 +27,10 @@ module.exports = {
         link: '/'
       },
       {
+        text: '更新日志🎨',
+        link: '/componentDocs/update/doc'
+      },
+      {
         text: 'Gitee',
         link: 'https://gitee.com/hbowen/aw-ui-vue'
       }
