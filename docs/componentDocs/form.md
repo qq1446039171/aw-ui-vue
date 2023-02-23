@@ -1,33 +1,28 @@
-# form 表单
+# Form 表单
 
 ::: tip
 <a href="https://hbowen.gitee.io/aw-form-making/" style="padding: 15px 0;display: block;">
-点击这里进入 低代码表单设计器
+点击这里进入 低代码表单设计器 🔨
 </a>
 
 :::
 
 <script>
-import form from './form-template.js';
+import formTemplate from './form-template.js';
 export default {
   name: 'Form',
   data() {
     return {
-      template:form.template,
-      script:form.script,
-
+      form:formTemplate.form,
       defaultValue: {}, // 默认值
-      formColumns:form.columns, // 配置项
-      remoteList: form.remote // 远程请求
-
     }
   },
   methods: {
     handleDataChange(field, value, data) {
       console.log(field, value, data)
     },
-    handleSubmit() {
-      this.$refs.awForm
+    handleSubmit0() {
+      this.$refs.awForm0
         .getData()
         .then((data) => {
            console.log('表单提交数据:')
@@ -44,22 +39,59 @@ export default {
             type: 'warning'
           });
         })
+    },
+    handleSubmit1() {
+      this.$refs.awForm1
+        .getData()
+        .then((data) => {
+           console.log('表单提交数据:')
+           console.log(data)
+           this.$message({
+            message: `表单提交数据 输入框值:${data.input} >>  多选框值:${data.checkbox} `,
+            type: 'success'
+          });
+        })
+        .catch((e) => {
+          console.log('表单数据未填写完整')
+          this.$message({
+            message: '表单数据未填写完整',
+            type: 'warning'
+          });
+        })
+    },
+    reset(){
+      this.$refs.awForm1.reset()
     }
   }
 }
 </script>
 <br/>
 
-<demo name="基础用法" info="基础的用法。" :code='template+script'>
+<demo name="基础用法" info="基础的用法。" :code='form[0].template+form[0].script'>
 <template v-slot:container>
-<aw-form :data="formColumns" :value="defaultValue" :remote="remoteList" @on-change="handleDataChange" ref="awForm">
+<aw-form :data="form[0].columns" :value="defaultValue" :remote="form[0].remote" @on-change="handleDataChange" ref="awForm0">
     <template v-slot:blank> 这里是自定义的 </template>
     <template slot="footer">
-      <el-button icon="el-icon-circle-close" :size="formColumns.config.size"  >取 消</el-button>
+      <el-button icon="el-icon-circle-close" :size="form[0].columns.config.size"  >取 消</el-button>
       <el-button 
       icon="el-icon-circle-check" type="primary" 
-      :size="formColumns.config.size" 
-      @click="handleSubmit">确 认</el-button>
+      :size="form[0].columns.config.size" 
+      @click="handleSubmit0">确 认</el-button>
+    </template>
+</aw-form>
+</template>
+</demo>
+
+<demo name="栅格布局" info="栅格布局以及表单默认值的用法。" :code='form[1].template+form[1].script'>
+<template v-slot:container>
+<aw-form :data="form[1].columns" :value="form[1].defaultValue" :remote="form[1].remote" @on-change="handleDataChange" ref="awForm1">
+    <template v-slot:blank> 这里是自定义的 </template>
+    <template slot="footer">
+      <el-button icon="el-icon-circle-close" :size="form[1].columns.config.size"  @click="reset">重 置</el-button>
+      <el-button 
+      icon="el-icon-circle-check" type="primary" 
+      :size="form[1].columns.config.size" 
+      @click="handleSubmit1">确 认</el-button>
     </template>
 </aw-form>
 </template>
