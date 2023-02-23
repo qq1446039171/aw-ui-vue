@@ -25,9 +25,17 @@ export default {
         .then((data) => {
            console.log('表单提交数据:')
            console.log(data)
+           this.$message({
+            message: `表单提交数据 年龄:${data.age} >>  姓名:${data.name} >> 药品值:${data.drug_name}`,
+            type: 'success'
+          });
         })
         .catch((e) => {
           console.log('表单数据未填写完整')
+          this.$message({
+            message: '表单数据未填写完整',
+            type: 'warning'
+          });
         })
     }
   }
@@ -41,7 +49,10 @@ export default {
     <template v-slot:blank> 这里是自定义的 </template>
     <template slot="footer">
       <el-button icon="el-icon-circle-close" :size="formColumns.config.size"  >取 消</el-button>
-      <el-button icon="el-icon-circle-check" type="primary" :size="formColumns.config.size">确 认</el-button>
+      <el-button 
+      icon="el-icon-circle-check" type="primary" 
+      :size="formColumns.config.size" 
+      @click="handleSubmit">确 认</el-button>
     </template>
 </aw-form>
 </template>

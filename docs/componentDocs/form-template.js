@@ -15,7 +15,8 @@ export default {
         <el-button 
         icon="el-icon-circle-check" 
         type="primary" 
-        :size="formColumns.config.size">确 认</el-button>
+        :size="formColumns.config.size"
+        @click="handleSubmit">确 认</el-button>
       </template>
     </aw-form>
   </template>`,
@@ -132,6 +133,22 @@ export default {
           }
         }
       },
+      methods: {
+        handleDataChange(field, value, data) {
+          console.log(field, value, data)
+        },
+        handleSubmit() {
+          this.$refs.awForm
+            .getData()
+            .then((data) => {
+               console.log('表单提交数据:')
+               console.log(data)
+            })
+            .catch((e) => {
+              console.log('表单数据未填写完整')
+            })
+        }
+      }
     }
   </script>
 `,
