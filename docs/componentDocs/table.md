@@ -106,6 +106,14 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scope>
+.aw-table {
+  table {
+    margin: 0;
+  }
+}
+</style>
 <br/>
 
 <demo name="基础用法" info="基础的标签用法。" :code='template'>
