@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Table 表格 | aw-ui-vue</title>
+    <meta name="generator" content="VuePress 1.9.8">
+    <link rel="icon" href="/aw-ui-vue/logo.jpg">
+    <meta name="description" content="基于Vue、Element封装的轻量、简约的ui框架">
+    
+    <link rel="preload" href="/aw-ui-vue/assets/css/0.styles.fccfd7de.css" as="style"><link rel="preload" href="/aw-ui-vue/assets/js/app.e2ba645a.js" as="script"><link rel="preload" href="/aw-ui-vue/assets/js/2.e223ee06.js" as="script"><link rel="preload" href="/aw-ui-vue/assets/js/8.ed047311.js" as="script"><link rel="preload" href="/aw-ui-vue/assets/js/3.8935453e.js" as="script"><link rel="prefetch" href="/aw-ui-vue/assets/js/10.24078fc0.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/11.29340193.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/12.194dc8e2.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/13.a1116169.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/14.3a91919c.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/15.829b54af.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/16.82ba0cb2.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/17.9f224025.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/18.3d4e971d.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/4.d3d21915.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/5.5d60b1a1.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/6.a2f59620.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/7.7d22ddee.js"><link rel="prefetch" href="/aw-ui-vue/assets/js/9.dd5c7b02.js">
+    <link rel="stylesheet" href="/aw-ui-vue/assets/css/0.styles.fccfd7de.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/aw-ui-vue/" class="home-link router-link-active"><img src="/aw-ui-vue/logo.jpg" alt="aw-ui-vue" class="logo"> <span class="site-name can-hide">aw-ui-vue</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aw-ui-vue/" class="nav-link">
+  Home⚡️
+</a></div><div class="nav-item"><a href="/aw-ui-vue/componentDocs/update/doc.html" class="nav-link">
+  更新日志🎨
+</a></div><div class="nav-item"><a href="https://gitee.com/hbowen/aw-ui-vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/aw-ui-vue/" class="nav-link">
+  Home⚡️
+</a></div><div class="nav-item"><a href="/aw-ui-vue/componentDocs/update/doc.html" class="nav-link">
+  更新日志🎨
+</a></div><div class="nav-item"><a href="https://gitee.com/hbowen/aw-ui-vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Gitee
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>开始使用</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/aw-ui-vue/componentDocs/explain.html" class="sidebar-link">介绍</a></li><li><a href="/aw-ui-vue/componentDocs/install.html" class="sidebar-link">安装</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>基础组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/aw-ui-vue/componentDocs/button.html" class="sidebar-link">Button 按钮</a></li><li><a href="/aw-ui-vue/componentDocs/card.html" class="sidebar-link">Card 卡片</a></li><li><a href="/aw-ui-vue/componentDocs/link.html" class="sidebar-link">Link 链接</a></li><li><a href="/aw-ui-vue/componentDocs/label.html" class="sidebar-link">Label 标签</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>高阶组件</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/aw-ui-vue/componentDocs/form.html" class="sidebar-link">Form 表单</a></li><li><a href="/aw-ui-vue/componentDocs/table.html" aria-current="page" class="active sidebar-link">Table 表格</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="table-表格"><a href="#table-表格" class="header-anchor">#</a> Table 表格</h1> <br> <div class="demo"><h3 class="name">
+    基础用法
+  </h3> <p class="info">
+    基础的标签用法。
+  </p> <div class="component-wrapper"><div class="component-wrapper-demo"><div class="aw-table"><div class="aw-table-search"><form class="el-form el-form--inline"> <div class="el-form-item el-form-item--small"><label class="el-form-item__label" style="width:100px;">用户姓名 :</label><div class="el-form-item__content"><div><div class="el-input el-input--small el-input--suffix" style="width:px;"><!----><input type="text" autocomplete="off" placeholder="请输入" class="el-input__inner"><!----><!----><!----><!----></div> <!----> <!----> <!----></div><!----></div></div><div class="el-form-item el-form-item--small"><label class="el-form-item__label" style="width:100px;">性别 :</label><div class="el-form-item__content"><div><!----> <div class="el-select el-select--small" style="width:120px;"><!----><div class="el-input el-input--small el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择姓别" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----><!----><!----><!----></span><!----></span><!----><!----></div><div class="el-select-dropdown el-popper" style="min-width:;display:none;"><div class="el-scrollbar" style="display:none;"><div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"><ul class="el-scrollbar__view el-select-dropdown__list"><!----><li class="el-select-dropdown__item selected"><span>男</span></li><li class="el-select-dropdown__item"><span>女</span></li></ul></div><div class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb" style="width:0;transform:translateX(0%);ms-transform:translateX(0%);webkit-transform:translateX(0%);"></div></div><div class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb" style="height:0;transform:translateY(0%);ms-transform:translateY(0%);webkit-transform:translateY(0%);"></div></div></div><p class="el-select-dropdown__empty">
+          无数据
+        </p></div></div> <!----> <!----></div><!----></div></div><div class="el-form-item el-form-item--small"><label class="el-form-item__label" style="width:100px;">身份证号 :</label><div class="el-form-item__content"><div><!----> <div class="el-select el-select--small" style="width:px;"><!----><div class="el-input el-input--small el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----><!----><!----><!----></span><!----></span><!----><!----></div><div class="el-select-dropdown el-popper" style="min-width:;display:none;"><div class="el-scrollbar" style="display:none;"><div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"><ul class="el-scrollbar__view el-select-dropdown__list"></ul></div><div class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb" style="width:0;transform:translateX(0%);ms-transform:translateX(0%);webkit-transform:translateX(0%);"></div></div><div class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb" style="height:0;transform:translateY(0%);ms-transform:translateY(0%);webkit-transform:translateY(0%);"></div></div></div><p class="el-select-dropdown__empty">
+          无数据
+        </p></div></div> <!----> <!----></div><!----></div></div> <div class="el-form-item el-form-item--small"><label class="el-form-item__label" style="width:100px;">结算时间:</label><div class="el-form-item__content"><div class="el-date-editor el-range-editor el-input__inner el-date-editor--daterange el-range-editor--small"><i class="el-input__icon el-range__icon el-icon-date"></i><input autocomplete="off" placeholder="开始日期" name="" value="" class="el-range-input"><span class="el-range-separator">至</span><input autocomplete="off" placeholder="结束日期" name="" value="" class="el-range-input"><i class="el-input__icon el-range__close-icon"></i></div><!----></div></div></form> <div class="aw-table-search-operation"><button type="button" class="el-button el-button--primary el-button--small"><!----><i class="el-icon-search"></i><span>搜索</span></button> <button type="button" class="el-button el-button--default el-button--small"><!----><i class="el-icon-delete"></i><span>重置</span></button> </div></div> <div class="aw-table-header"><div class="header-button-lf"><button type="button" class="el-button el-button--primary el-button--small"><!----><i class="el-icon-circle-plus-outline"></i><span>新增用户</span></button> <button type="button" class="el-button el-button--primary el-button--small is-plain"><!----><i class="el-icon-upload2"></i><span>批量添加用户</span></button> <button type="button" class="el-button el-button--primary el-button--small is-plain"><!----><i class="el-icon-download"></i><span>导出用户数据</span></button> <button disabled="disabled" type="button" class="el-button el-button--danger el-button--small is-disabled is-plain"><!----><i class="el-icon-delete"></i><span>
+        批量删除用户
+      </span></button></div> <div class="header-button-ri"><button type="button" class="el-button el-button--default el-button--small is-circle"><!----><i class="el-icon-refresh"></i><!----></button> <button type="button" class="el-button el-button--primary el-button--small is-circle"><!----><i class="el-icon-search"></i><!----></button></div></div> <div class="el-table el-table--fit el-table--fluid-height el-table--enable-row-hover el-table--small"><div class="hidden-columns"><div><div></div> <!----> <!----></div><div><!----> <div></div> <!----></div><div><!----> <!----> <!----></div><div><!----> <!----> <div></div></div><div><!----> <!----> <div></div></div><div><!----> <!----> <div></div></div><div><!----> <!----> <div></div></div><div><!----> <!----> <div></div></div><div><!----> <!----> <div></div></div></div><div class="el-table__header-wrapper"><table cellspacing="0" cellpadding="0" border="0" class="el-table__header" style="width:;"><colgroup></colgroup><thead><tr></tr></thead></table></div><div class="el-table__body-wrapper is-scrolling-none" style="max-height:512px;"><table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width:;"><colgroup></colgroup><tbody><!----></tbody></table><div class="el-table__empty-block" style="width:;height:100%;"><span class="el-table__empty-text">暂无数据</span></div><!----></div><!----><!----><!----><!----><div class="el-table__column-resize-proxy" style="display:none;"></div></div> <div class="aw-table-pagination el-pagination is-background"><span class="el-pagination__total">共 0 条</span><span class="el-pagination__sizes"><div class="el-select el-select--mini"><!----><div class="el-input el-input--mini el-input--suffix"><!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner"><!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----><!----><!----><!----></span><!----></span><!----><!----></div><div class="el-select-dropdown el-popper" style="min-width:;display:none;"><div class="el-scrollbar" style="display:none;"><div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"><ul class="el-scrollbar__view el-select-dropdown__list"><!----><li class="el-select-dropdown__item"><span>5条/页</span></li><li class="el-select-dropdown__item selected"><span>10条/页</span></li><li class="el-select-dropdown__item"><span>50条/页</span></li><li class="el-select-dropdown__item"><span>100条/页</span></li><li class="el-select-dropdown__item"><span>200条/页</span></li></ul></div><div class="el-scrollbar__bar is-horizontal"><div class="el-scrollbar__thumb" style="width:0;transform:translateX(0%);ms-transform:translateX(0%);webkit-transform:translateX(0%);"></div></div><div class="el-scrollbar__bar is-vertical"><div class="el-scrollbar__thumb" style="height:0;transform:translateY(0%);ms-transform:translateY(0%);webkit-transform:translateY(0%);"></div></div></div><p class="el-select-dropdown__empty">
+          无数据
+        </p></div></div></span><button type="button" disabled="disabled" class="btn-prev"><i class="el-icon el-icon-arrow-left"></i></button><ul class="el-pager"><li class="number active">1</li><!----><!----><!----></ul><button type="button" disabled="disabled" class="btn-next"><i class="el-icon el-icon-arrow-right"></i></button><span class="el-pagination__jump">前往<div class="el-input el-pagination__editor is-in-pagination"><!----><input type="number" autocomplete="off" min="1" max="1" class="el-input__inner"><!----><!----><!----><!----></div>页</span></div></div></div> <div class="code-content" style="height:0;"><div class="code-content-height"><pre class="pre"><code class="code" style="white-space: pre-wrap;">&lt;template&gt;
+  &lt;el-card shadow=&quot;never&quot;&gt;
+    &lt;aw-table
+      :columns=&quot;columns&quot;
+      :height=&quot;600&quot;
+      :request=&quot;getUserList&quot;
+      :initParam=&quot;initParam&quot;
+      :resetInitParam=&quot;resetInitParam&quot;
+      :size=&quot;size&quot;
+      tag=&quot;id&quot;
+      :remote=&quot;remoteList&quot;
+      ref=&quot;ProTable&quot;
+    &gt;
+      &lt;template slot=&quot;searchFormAfter&quot;&gt;
+        &lt;el-form-item label=&quot;结算时间:&quot;&gt;
+          &lt;el-date-picker
+            v-model=&quot;initParam.createTime&quot;
+            value-format=&quot;yyyy-MM-dd&quot;
+            type=&quot;daterange&quot;
+            range-separator=&quot;至&quot;
+            start-placeholder=&quot;开始日期&quot;
+            end-placeholder=&quot;结束日期&quot;
+            :size=&quot;size&quot;
+          &gt;
+          &lt;/el-date-picker&gt;
+        &lt;/el-form-item&gt;
+      &lt;/template&gt;
+      &lt;template slot=&quot;tableHeader&quot; slot-scope=&quot;scope&quot;&gt;
+        &lt;el-button type=&quot;primary&quot; icon=&quot;el-icon-circle-plus-outline&quot; :size=&quot;size&quot;&gt;新增用户&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; icon=&quot;el-icon-upload2&quot; plain :size=&quot;size&quot;&gt;批量添加用户&lt;/el-button&gt;
+        &lt;el-button type=&quot;primary&quot; icon=&quot;el-icon-download&quot; plain :size=&quot;size&quot;&gt;导出用户数据&lt;/el-button&gt;
+        &lt;el-button
+          type=&quot;danger&quot;
+          icon=&quot;el-icon-delete&quot;
+          plain
+          :size=&quot;size&quot;
+          :disabled=&quot;!scope.isSelected&quot;
+          @click=&quot;batchDelete(scope.ids)&quot;
+        &gt;
+          批量删除用户
+        &lt;/el-button&gt;
+      &lt;/template&gt;
+      &lt;template slot=&quot;gender&quot; slot-scope=&quot;scope&quot;&gt;
+        &lt;div&gt;{{ scope.row.gender == '1' ? '男' : '女' }}&lt;/div&gt;
+      &lt;/template&gt;
+      &lt;template slot=&quot;status&quot; slot-scope=&quot;scope&quot;&gt;
+        &lt;div&gt;{{ scope.row.status ? '开启' : '关闭' }}&lt;/div&gt;
+      &lt;/template&gt;
+
+      &lt;!-- 表格操作 --&gt;
+      &lt;template #operation=&quot;scope&quot;&gt;
+        &lt;el-button type=&quot;text&quot; @click=&quot;deleteAccount(scope.row)&quot;&gt;查看&lt;/el-button&gt;
+        &lt;el-button type=&quot;text&quot; @click=&quot;deleteAccount(scope.row)&quot;&gt;删除&lt;/el-button&gt;
+      &lt;/template&gt;
+    &lt;/aw-table&gt;
+  &lt;/el-card&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+  export default {
+    name: 'App',
+    data() {
+      return {
+        size: 'small',
+        // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
+        initParam: {},
+        columns: [
+          {
+            type: 'selection',
+            width: 80,
+            fixed: 'left'
+          },
+          {
+            type: 'index',
+            label: '#',
+            width: 80
+          },
+          {
+            type: 'expand',
+            label: 'Expand',
+            width: 120
+          },
+          {
+            prop: 'username',
+            label: '用户姓名',
+            search: true,
+            initSearchParam: '黄博文'
+          },
+          {
+            prop: 'gender', // 关键字段
+            label: '性别', // 查询条件提示词
+            enum: [
+              // 查询条件的枚举值
+              { label: '男', value: 1 },
+              { label: '女', value: 2 }
+            ],
+            search: true, // 是否为查询条件
+            sortable: true, // 是否可排序
+            searchType: 'select', // 查询类型
+            placeholder: '请选择姓别', // 默认显示内容
+            initSearchParam: 1, // 默认值
+            inputWidth: 120 // 输入框的宽度
+          },
+          {
+            prop: 'idCard',
+            label: '身份证号',
+            width: '140', //表格宽度
+            search: true,
+            searchType: 'select', // 查询类型
+            remote: true,
+            remoteFunc: 'getName',
+            props: { value: 'value', label: 'label' }
+          },
+          {
+            prop: 'status',
+            label: '用户状态',
+            sortable: true,
+            width: 180
+          },
+          {
+            prop: 'avatar',
+            label: '头像',
+            width: 140,
+            image: true
+          },
+          {
+            prop: 'operation',
+            label: '操作',
+            width: 150,
+            fixed: 'right'
+          }
+        ],
+        remoteList: {
+          getName(resolve) {
+            setTimeout(() =&gt; {
+              const options = [
+                { value: '1', label: '身份证1' },
+                { value: '2', label: '身份证2' },
+                { value: '3', label: '身份证3' }
+              ]
+              resolve(options)
+            }, 1000)
+          },
+          funcGetToken(resolve) {
+            request.get('http://tools-server.making.link/api/uptoken').then((res) =&gt; {
+              resolve(res.uptoken)
+            })
+          }
+        },
+      }
+    },
+    methods: {
+      getUserList() {
+        return new Promise((resolve) =&gt; {
+          setTimeout(() =&gt; {
+            resolve({
+              rows: [
+                {
+                  id: '1',
+                  username: '侯秀英',
+                  gender: 1,
+                  age: 30,
+                  idCard: '05763240829223234475',
+                  createTime: '1983-10-30 20:07:53',
+                  status: 1,
+                  avatar: 'http://dummyimage.com/100x100/79f2b8&amp;text=梁刚'
+                },
+                {
+                  id: '2',
+                  username: '黄博文',
+                  gender: 2,
+                  age: 22,
+                  idCard: '05763240829223234475',
+                  createTime: '1983-10-30 20:07:53',
+                  status: 2,
+                  avatar: 'http://dummyimage.com/100x100/79f2b8&amp;text=梁刚'
+                }
+              ],
+              pageNum: 1,
+              pageSize: 10,
+              total: 15
+            })
+          }, 300)
+        })
+      },
+      resetInitParam() {
+        this.initParam = {}
+      },
+      batchDelete(rows) {
+        console.log('需要删除的对象：', rows)
+      },
+      deleteAccount(id) {
+        console.log('查看的对象：', row)
+      }
+    }
+  }
+&lt;/script&gt;</code></pre></div></div> <div class="code-tool"><span class="code-tool-word">显示代码</span></div></div></div> <h3 id="attributes"><a href="#attributes" class="header-anchor">#</a> Attributes</h3> <table><thead><tr><th style="text-align:left;">属性</th> <th style="text-align:left;">说明</th> <th style="text-align:left;">类型</th> <th style="text-align:left;">默认值</th> <th style="text-align:left;">可选值</th></tr></thead> <tbody><tr><td style="text-align:left;">columns</td> <td style="text-align:left;">列配置项(包含 table 中的 columns 与 搜索栏中的字段 )</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">-</td> <td style="text-align:left;">- 必填</td></tr> <tr><td style="text-align:left;">request</td> <td style="text-align:left;">请求表数据方法</td> <td style="text-align:left;">Function</td> <td style="text-align:left;">-</td> <td style="text-align:left;">- 必填</td></tr> <tr><td style="text-align:left;">initParam</td> <td style="text-align:left;">初始化请求参数</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">-</td> <td style="text-align:left;">-</td></tr> <tr><td style="text-align:left;">resetInitParam</td> <td style="text-align:left;">重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置)</td> <td style="text-align:left;">Function</td> <td style="text-align:left;">-</td> <td style="text-align:left;">-</td></tr> <tr><td style="text-align:left;">toolButton</td> <td style="text-align:left;">是否显示表格功能按钮(刷新以及显示隐藏搜索栏)</td> <td style="text-align:left;">Boolean</td> <td style="text-align:left;">true</td> <td style="text-align:left;">true / false</td></tr> <tr><td style="text-align:left;">size</td> <td style="text-align:left;">整个页面中 Element 组件的大小</td> <td style="text-align:left;">string</td> <td style="text-align:left;">small</td> <td style="text-align:left;">medium / small / mini</td></tr> <tr><td style="text-align:left;">border</td> <td style="text-align:left;">表格边框</td> <td style="text-align:left;">Boolean</td> <td style="text-align:left;">true</td> <td style="text-align:left;">true / false</td></tr> <tr><td style="text-align:left;">pagination</td> <td style="text-align:left;">是否需要分页组件</td> <td style="text-align:left;">Boolean</td> <td style="text-align:left;">true</td> <td style="text-align:left;">true / false</td></tr> <tr><td style="text-align:left;">height</td> <td style="text-align:left;">表格高度（超出此高度 Table 会滚动）</td> <td style="text-align:left;">Number</td> <td style="text-align:left;">-</td> <td style="text-align:left;">-</td></tr> <tr><td style="text-align:left;">isShowSearch</td> <td style="text-align:left;">是否显示查询条件</td> <td style="text-align:left;">Boolean</td> <td style="text-align:left;">true</td> <td style="text-align:left;">-</td></tr> <tr><td style="text-align:left;">pageSizes</td> <td style="text-align:left;">分页大小</td> <td style="text-align:left;">Array</td> <td style="text-align:left;">[10, 50, 100, 200]</td> <td style="text-align:left;">-</td></tr> <tr><td style="text-align:left;">labelWidth</td> <td style="text-align:left;">表单域标签的宽度</td> <td style="text-align:left;">Number</td> <td style="text-align:left;">100</td> <td style="text-align:left;">-</td></tr> <tr><td style="text-align:left;">tag</td> <td style="text-align:left;">表格数据唯一标识符</td> <td style="text-align:left;">String</td> <td style="text-align:left;">id</td> <td style="text-align:left;">-</td></tr> <tr><td style="text-align:left;">remote</td> <td style="text-align:left;">远程请求接口列表集合</td> <td style="text-align:left;">Object</td> <td style="text-align:left;">-</td> <td style="text-align:left;">-</td></tr></tbody></table> <h3 id="slots"><a href="#slots" class="header-anchor">#</a> Slots</h3> <table><thead><tr><th style="text-align:left;">事件</th> <th style="text-align:left;">说明</th></tr></thead> <tbody><tr><td style="text-align:left;">searchFormBefore</td> <td style="text-align:left;">查询条件中 前置输入框插槽</td></tr> <tr><td style="text-align:left;">searchFormAfter</td> <td style="text-align:left;">搜索栏尾部内容</td></tr> <tr><td style="text-align:left;">searchButton</td> <td style="text-align:left;">查询条件中 后置按钮插槽</td></tr> <tr><td style="text-align:left;">tableHeader</td> <td style="text-align:left;">表格头部 操作按钮</td></tr> <tr><td style="text-align:left;">columns 中的每一个 prop 对应一个 slot</td> <td style="text-align:left;">自定义配置每一列 slot(值的意思 请看 HTML 代码)</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/aw-ui-vue/componentDocs/form.html" class="prev">
+        Form 表单
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/aw-ui-vue/assets/js/app.e2ba645a.js" defer></script><script src="/aw-ui-vue/assets/js/2.e223ee06.js" defer></script><script src="/aw-ui-vue/assets/js/8.ed047311.js" defer></script><script src="/aw-ui-vue/assets/js/3.8935453e.js" defer></script>
+  </body>
+</html>
