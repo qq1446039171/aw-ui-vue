@@ -82,7 +82,7 @@ export default {
 </template>
 </demo>
 
-<demo name="栅格布局" info="栅格布局以及表单默认值的用法。" :code='form[1].template+form[1].script'>
+<demo name="表单默认值" info="表单默认值以及栅格布局的用法。" :code='form[1].template+form[1].script'>
 <template v-slot:container>
 <aw-form :data="form[1].columns" :value="form[1].defaultValue" :remote="form[1].remote" @on-change="handleDataChange" ref="awForm1">
     <template v-slot:blank> 这里是自定义的 </template>

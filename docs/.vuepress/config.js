@@ -45,7 +45,12 @@ module.exports = {
         {
           title: '基础组件',
           collapsable: false,
-          children: ['button', 'card', 'link', 'label','form']
+          children: ['button', 'card', 'link', 'label']
+        },
+        {
+          title: '高阶组件',
+          collapsable: false,
+          children: ['form', 'table']
         }
       ]
     }
