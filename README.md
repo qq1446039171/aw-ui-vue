@@ -4,7 +4,7 @@
 
 <img src="https://aw-photo-app.oss-cn-guangzhou.aliyuncs.com/%E7%BB%84%E4%BB%B6%E5%BA%93%E6%96%87%E6%A1%A3/1.png"/>
 
-<img src="https://aw-photo-app.oss-cn-guangzhou.aliyuncs.com/%E7%BB%84%E4%BB%B6%E5%BA%93%E6%96%87%E6%A1%A3/2.png"/>
+<img src="https://aw-photo-app.oss-cn-guangzhou.aliyuncs.com/%E7%BB%84%E4%BB%B6%E5%BA%93%E6%96%87%E6%A1%A3/3.png"/>
 
 # aw-ui-vue 组件库
 
