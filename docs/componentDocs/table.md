@@ -1,5 +1,10 @@
 # Table 表格
 
+
+::: tip
+  搜索条件可在控制台查看 ✨
+:::
+
 <script>
 import tableTemplate from './table-template.js';
 export default {

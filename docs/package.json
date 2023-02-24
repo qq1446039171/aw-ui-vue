@@ -16,6 +16,8 @@
     "highlight.js": "^10.7.2"
   },
   "dependencies": {
-    "async-validator": "^1.11.5"
+    "async-validator": "^1.11.5",
+    "aw-move": "0.0.12",
+    "aw-ui-vue": "^1.4.0"
   }
 }
