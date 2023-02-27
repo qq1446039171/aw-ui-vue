@@ -2,10 +2,11 @@
   <div
     class="aw-dialog"
     :class="theme == 'dark' ? 'aw-dialog-dark' : ''"
-    :style="{ width: width }"
+    :style="style"
     v-show="visible"
     v-move="draggable ? '.aw-dialog-header' : ''"
   >
+    <!-- :style="{ width: width, marginLeft: calc(~width / 2) }" -->
     <div class="aw-dialog-header">
       <div class="clearfix" :style="{ justifyContent: center ? 'center' : '' }">
         <div class="tab">{{ title }}</div>
@@ -46,6 +47,16 @@ export default {
     width: {
       type: String,
       default: '30%'
+    }
+  },
+  computed: {
+    style() {
+      let style = {}
+      style.width = this.width
+      let num = this.width.match(/^\d+/)
+      let char = this.width.match(/[^\d]+$/)
+      style.marginLeft = -num / 2 + char 
+      return style
     }
   },
   methods: {

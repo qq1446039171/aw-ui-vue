@@ -57,23 +57,14 @@
       </template>
     </aw-table>
 
-    <aw-dialog title="这是一个可拖拽的" :visible.sync="visible">
+    <aw-dialog title="这是一个可拖拽的" :visible.sync="visible" width="600px" >
       <template slot="header"> </template>
       <template> 需要注意的是内容是默认不居中的 </template>
       <template slot="footer">
-        <el-button @click="centerDialogVisible = false" size="small">取 消</el-button>
-        <el-button type="primary" @click="centerDialogVisible = true" size="small">确 定</el-button>
+        <el-button @click="visible = false" size="small">取 消</el-button>
+        <el-button type="primary" @click="visible = true" size="small">确 定</el-button>
       </template>
     </aw-dialog>
-    <aw-dialog title="这是一个可拖拽的2" :visible.sync="centerDialogVisible" theme="dark">
-      <template slot="header"> </template>
-      <template> 需要注意的是内容是默认不居中的 </template>
-      <template slot="footer">
-        <el-button @click="centerDialogVisible = false" size="small">取 消</el-button>
-        <el-button type="primary" @click="centerDialogVisible = false" size="small">确 定</el-button>
-      </template>
-    </aw-dialog>
-
     <Dialog ref="refDialog" />
   </div>
 </template>
@@ -87,7 +78,6 @@ export default {
   },
   data() {
     return {
-      centerDialogVisible: false,
       size: 'small',
       // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
       initParam: {},
@@ -129,7 +119,7 @@ export default {
           placeholder: '请选择姓别', // 默认显示内容
           initSearchParam: 1, // 默认选中的值
           inputWidth: 120, // 输入框的宽度
-          turnProp: 'gender', // 需要转化的字段
+          turnProp: 'gender' // 需要转化的字段
         },
         {
           prop: 'idCard',
