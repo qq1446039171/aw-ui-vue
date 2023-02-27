@@ -9,7 +9,6 @@ import '../../components/css/index.scss'
 // import AwUI from 'aw-ui-vue'
 // import 'aw-ui-vue/dist/css/index.css'
 
-
 import hljs from 'highlight.js'
 import 'highlight.js/styles/ir-black.css'
 

@@ -1,0 +1,1 @@
+git push -f https://github.com/qq1446039171/aw-ui-vue.git master:gh-pages

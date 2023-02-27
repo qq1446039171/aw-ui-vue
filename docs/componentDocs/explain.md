@@ -1,6 +1,6 @@
 # 介绍
 
-<div style="text-align: center;margin-bottom:20px;"><img width="300" src="/logo.jpg" style="border-radius: 50%;"></img></div>
+<div style="text-align: center;margin-bottom:20px;"><img width="300" src="/aw-ui-vue/logo.jpg" style="border-radius: 50%;"></img></div>
 
 <font color=#5e6d82 size=3 >
 在企业开发中，常常会为了一些业务需求，会重复开发一些通用的组件。会导致这些组件越积攒越多，后期使用会有很多复杂的问题。比如一些组件的重复性太高，风格不统一的问题。因此开发一个企业级ui框架变得尤为重要。目前这个ui框架吸收了一些成熟的ui框架，例如ElementUi，AntDesignVue，去开发一个常用的风格统一的ui框架。
