@@ -57,7 +57,7 @@
       </template>
     </aw-table>
 
-    <aw-dialog title="这是一个可拖拽的" :visible.sync="visible" width="600px" >
+    <aw-dialog title="这是一个可拖拽的" :visible.sync="visible" width="600px">
       <template slot="header"> </template>
       <template> 需要注意的是内容是默认不居中的 </template>
       <template slot="footer">
@@ -66,6 +66,13 @@
       </template>
     </aw-dialog>
     <Dialog ref="refDialog" />
+
+    <div style="height:300px;border: 1px solid #e5e6eb;">
+      <aw-split :value.sync="split">
+        <div slot="left"><el-input></el-input></div>
+        <div slot="right"><el-input></el-input></div>
+      </aw-split>
+    </div>
   </div>
 </template>
 
@@ -78,6 +85,7 @@ export default {
   },
   data() {
     return {
+      split: 0.5,
       size: 'small',
       // 如果表格需要初始化请求参数,直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上)
       initParam: {},

@@ -16,6 +16,7 @@ import Input from './input'
 import Table from './table'
 import Dialog from './dialog'
 import Form from './form'
+import Split from './split'
 
 const components = {
   // Demo,
@@ -27,7 +28,8 @@ const components = {
   Input,
   Table,
   Dialog,
-  Form
+  Form,
+  Split
 }
 // console.log(components)
 const install = function (Vue) {
