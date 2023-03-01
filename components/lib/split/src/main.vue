@@ -9,7 +9,7 @@
       @mousedown="handleMouseDown"
     >
       <!-- 中间分割按钮 -->
-      <div class="aw-pane-trigger-button">
+      <div class="aw-pane-trigger-button" :style="triggerBtn">
         <div v-for="i in 5" :key="i"></div>
       </div>
     </div>
@@ -62,6 +62,13 @@ export default {
     },
     cursor() {
       return this.direction === 'row' ? 'col-resize' : 'row-resize'
+    },
+    triggerBtn() {
+      if (this.direction === 'row') {
+        return 'width: calc(100% - 2px);height: 10px;'
+      } else {
+        return 'height: calc(100% - 2px);width: 10px;'
+      }
     }
   },
   methods: {

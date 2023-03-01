@@ -28,12 +28,14 @@
     opacity: 0.2;
     user-select: none; //禁止选中的效果
     &-button {
-      width: calc(100% - 2px);
-      height: 10px;
+      // row
+      // width: calc(100% - 2px);
+      // height: 10px;
 
+      // column
       // height: calc(100% - 2px);
       // width: 10px;
-      
+
       margin: 0 auto;
       position: relative;
       top: 50%; /*偏移*/

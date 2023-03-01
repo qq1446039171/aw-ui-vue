@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div style="height:300px;border: 1px solid #e5e6eb;">
-      <aw-split  direction="row" :paneLengthPercent.sync="paneLengthPercent">
+      <aw-split  direction="column" :paneLengthPercent.sync="paneLengthPercent">
         <div slot="left"><el-input></el-input></div>
         <div slot="right"><el-input></el-input></div>
       </aw-split>
