@@ -1,19 +1,15 @@
 <template>
-  <div class="aw-split-pane-wrapper" ref="AwSplit">
-    <div class="pane pane-left" :style="{ width: leftOffsetPercent }">
+  <div class="aw-split-pane" ref="splitPane" :class="direction" :style="{ flexDirection: direction }">
+    <div class="aw-pane aw-pane-left" :style="lengthType + ':' + paneLengthValue">
       <slot name="left"></slot>
     </div>
-    <div
-      class="pane-trigger-con"
-      @mousedown="handleMousedown"
-      :style="{ left: triggerLeft, width: `${triggerWidth}px` }"
-    >
+    <div class="aw-pane-trigger" :style="lengthType + ':' + triggerLengthValue" @mousedown="handleMouseDown">
       <!-- 中间分割按钮 -->
-      <div class="pane-trigger-con__button">
+      <div class="aw-pane-trigger-button" >
         <div v-for="i in 5" :key="i"></div>
       </div>
     </div>
-    <div class="pane pane-right" :style="{ left: leftOffsetPercent }">
+    <div class="aw-pane aw-pane-right">
       <slot name="right"></slot>
     </div>
   </div>
@@ -22,63 +18,105 @@
 export default {
   name: 'aw-split',
   props: {
-    //分割值
-    value: {
-      type: Number,
-      default: 0.5
+    direction: {
+      type: String,
+      default: 'row' // column
     },
-    //按钮宽度
-    triggerWidth: {
-      type: Number,
-      default: 6
-    },
-    //最大分割值/最小分割值
     min: {
       type: Number,
-      default: 0.1
+      default: 10
     },
     max: {
       type: Number,
-      default: 0.9
+      default: 90
+    },
+    paneLengthPercent: {
+      // 区域1宽度 (%)
+      type: Number,
+      default: 50
+    },
+    triggerLength: {
+      // 滑动器宽度 （px）
+      type: Number,
+      default: 6
     }
   },
   data() {
     return {
-      // leftOffset: 0.3,
-      canMove: false,
-      initOffset: 0
+      triggerLeftOffset: 0 // 鼠标距滑动器左(顶)侧偏移量
     }
   },
   computed: {
-    //计算左边面板的宽度
-    leftOffsetPercent() {
-      return `${this.value * 100}%`
+    lengthType() {
+      return this.direction === 'row' ? 'width' : 'height'
     },
-    //右边面板的marginleft
-    triggerLeft() {
-      return `calc(${this.value * 100}% - ${this.triggerWidth / 2}px)`
+    paneLengthValue() {
+      return `calc(${this.paneLengthPercent}% - ${this.triggerLength / 2 + 'px'})`
+    },
+    triggerLengthValue() {
+      return this.triggerLength + 'px'
+    },
+    cursor(){
+      return this.direction === 'row' ? 'col-resize' : 'row-resize'
     }
   },
   methods: {
-    //鼠标点击  鼠标移动事件  计算偏差
-    handleMousedown(event) {
-      document.addEventListener('mousemove', this.handleMousemove)
-      document.addEventListener('mouseup', this.handleMouseup)
-      this.initOffset = event.pageX - event.srcElement.getBoundingClientRect().left
-      this.canMove = true
+    handleMouseDown(e) {
+      document.addEventListener('mousemove', this.handleMouseMove)
+      document.addEventListener('mouseup', this.handleMouseUp)
+
+      let div = document.querySelector('.aw-split-pane')
+      div.style.cursor = this.cursor
+
+      if (this.direction === 'row') {
+        this.triggerLeftOffset = e.pageX - e.srcElement.getBoundingClientRect().left
+      } else {
+        this.triggerLeftOffset = e.pageY - e.srcElement.getBoundingClientRect().top
+      }
     },
+
     //鼠标移动事件 计算移动距离
-    handleMousemove(event) {
-      if (!this.canMove) return
-      const outerRect = this.$refs.AwSplit.getBoundingClientRect()
-      let offsetPercent = (event.pageX - this.initOffset + this.triggerWidth / 2 - outerRect.left) / outerRect.width
-      if (offsetPercent < this.min) offsetPercent = this.min
-      if (offsetPercent > this.max) offsetPercent = this.max
-      // this.$emit('input', offsetPercent)
-      this.$emit('update:value', offsetPercent)
+    handleMouseMove(e) {
+      this.debounce(this.move(e), 1500)
     },
-    handleMouseup() {
-      this.canMove = false
+    move(e) {
+      const clientRect = this.$refs.splitPane.getBoundingClientRect()
+      let paneLengthPercent = 0
+      if (this.direction === 'row') {
+        const offset = e.pageX - clientRect.left - this.triggerLeftOffset + this.triggerLength / 2
+        paneLengthPercent = (offset / clientRect.width) * 100
+      } else {
+        const offset = e.pageY - clientRect.top - this.triggerLeftOffset + this.triggerLength / 2
+        paneLengthPercent = (offset / clientRect.height) * 100
+      }
+      if (paneLengthPercent < this.min) {
+        paneLengthPercent = this.min
+      }
+      if (paneLengthPercent > this.max) {
+        paneLengthPercent = this.max
+      }
+      this.$emit('update:paneLengthPercent', paneLengthPercent)
+    },
+    // 防抖包装函数
+    debounce(f, delay = 500, immediate = true) {
+      let waiting = false,
+        clock
+      return function () {
+        if (!waiting) {
+          waiting = true
+          immediate && f.apply(this, arguments)
+        }
+        clearTimeout(clock)
+        clock = setTimeout(() => {
+          waiting = false
+          !immediate && f.apply(this, arguments)
+        }, delay)
+      }
+    },
+    handleMouseUp() {
+      let div = document.querySelector('.aw-split-pane')
+      div.style.cursor = 'default'
+      document.removeEventListener('mousemove', this.handleMouseMove)
     }
   }
 }
