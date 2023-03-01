@@ -10,7 +10,7 @@
     >
       <!-- 中间分割按钮 -->
       <div class="aw-pane-trigger-button" :style="triggerBtn">
-        <div v-for="i in 5" :key="i"></div>
+        <div v-for="i in direction === 'row' ? 5 : 1" :key="i"></div>
       </div>
     </div>
     <div class="aw-pane aw-pane-right">
@@ -76,6 +76,7 @@ export default {
       document.addEventListener('mousemove', this.handleMouseMove)
       document.addEventListener('mouseup', this.handleMouseUp)
 
+      // 按下后一直显示可以拖拽的鼠标样式，有利于用户体验。
       let div = document.querySelector('.aw-split-pane')
       div.style.cursor = this.cursor
 
@@ -125,8 +126,8 @@ export default {
       }
     },
     handleMouseUp() {
-      let div = document.querySelector('.aw-split-pane')
-      div.style.cursor = 'default'
+      // let div = document.querySelector('.aw-split-pane')
+      // div.style.cursor = 'default'
       document.removeEventListener('mousemove', this.handleMouseMove)
     }
   }
