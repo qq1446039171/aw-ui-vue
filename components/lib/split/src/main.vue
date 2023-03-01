@@ -3,9 +3,13 @@
     <div class="aw-pane aw-pane-left" :style="lengthType + ':' + paneLengthValue">
       <slot name="left"></slot>
     </div>
-    <div class="aw-pane-trigger" :style="lengthType + ':' + triggerLengthValue" @mousedown="handleMouseDown">
+    <div
+      class="aw-pane-trigger"
+      :style="{ [`${lengthType}`]: triggerLengthValue, cursor: cursor }"
+      @mousedown="handleMouseDown"
+    >
       <!-- 中间分割按钮 -->
-      <div class="aw-pane-trigger-button" >
+      <div class="aw-pane-trigger-button">
         <div v-for="i in 5" :key="i"></div>
       </div>
     </div>
@@ -56,7 +60,7 @@ export default {
     triggerLengthValue() {
       return this.triggerLength + 'px'
     },
-    cursor(){
+    cursor() {
       return this.direction === 'row' ? 'col-resize' : 'row-resize'
     }
   },
