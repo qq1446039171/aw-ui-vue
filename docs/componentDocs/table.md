@@ -1,8 +1,7 @@
 # Table 表格
 
-
 ::: tip
-  搜索条件可在控制台查看 ✨
+搜索条件可在控制台查看 ✨
 :::
 
 <script>
@@ -196,15 +195,23 @@ export default {
 | isShowSearch   | 是否显示查询条件                                          | Boolean  | true               | -                     |
 | pageSizes      | 分页大小                                                  | Array    | [10, 50, 100, 200] | -                     |
 | labelWidth     | 表单域标签的宽度                                          | Number   | 100                | -                     |
+| isCacheList    | 是否缓存上一页选中的数据                                  | Boolean  | true               | true / false        |
 | tag            | 表格数据唯一标识符                                        | String   | id                 | -                     |
 | remote         | 远程请求接口列表集合                                      | Object   | -                  | -                     |
 
 ### Slots
 
-| 事件                                  | 说明                                           |
+| 插槽名                                  | 说明                                           |
 | :------------------------------------ | :--------------------------------------------- |
 | searchFormBefore                      | 查询条件中 前置输入框插槽                      |
 | searchFormAfter                       | 搜索栏尾部内容                                 |
 | searchButton                          | 查询条件中 后置按钮插槽                        |
 | tableHeader                           | 表格头部 操作按钮                              |
 | columns 中的每一个 prop 对应一个 slot | 自定义配置每一列 slot(值的意思 请看 HTML 代码) |
+
+
+### Methods
+| 事件名                                  | 说明                                           |
+| :------------------------------------ | :--------------------------------------------- |
+| search                      | 不重置条件的刷新操作                     |
+| refresh                       | 表格数据刷新 普遍用于表格数据改变后更新的操作                                 |

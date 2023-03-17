@@ -55,12 +55,12 @@
       v-loading="loading"
       @selection-change="selectionChange"
     >
-    <!-- :row-key="isTag ? getRowKeys : null" -->
+      <!-- :row-key="isCacheList ? getRowKeys : null" -->
       <div v-for="(item, index) in tableColumns" :key="index">
         <el-table-column
           v-if="item.type == 'selection'"
           :type="item.type"
-          :reserve-selection="item.type == 'selection'"
+          :reserve-selection="item.type == 'selection' && isCacheList"
           :label="item.label"
           :width="item.width"
           :fixed="item.fixed"
@@ -192,11 +192,11 @@ export default {
       type: Number,
       default: 100
     },
-    // //  是否缓存上一页选中的数据
-    // isTag: {
-    //   type: Boolean,
-    //   default: false
-    // },
+    //  是否缓存上一页选中的数据
+    isCacheList: {
+      type: Boolean,
+      default: true
+    },
     //  表格数据特殊标识符
     tag: {
       type: String,
