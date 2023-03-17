@@ -55,6 +55,7 @@
       v-loading="loading"
       @selection-change="selectionChange"
     >
+    <!-- :row-key="isTag ? getRowKeys : null" -->
       <div v-for="(item, index) in tableColumns" :key="index">
         <el-table-column
           v-if="item.type == 'selection'"
@@ -191,6 +192,11 @@ export default {
       type: Number,
       default: 100
     },
+    // //  是否缓存上一页选中的数据
+    // isTag: {
+    //   type: Boolean,
+    //   default: false
+    // },
     //  表格数据特殊标识符
     tag: {
       type: String,
