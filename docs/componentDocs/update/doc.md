@@ -9,6 +9,10 @@ sidebar: false
 feat: ✨ [comment] 新增 Split 组件
 
 
+**修复**
+
+fix: 🐛 [comment] 修复Table 组件 在查询条件只有一个时，按回车会自动刷新的问题。（原因：键盘回车刷新是因为Form默认执行提交事件）
+
 ## 1.4.1
 ### 2023/02/27
 

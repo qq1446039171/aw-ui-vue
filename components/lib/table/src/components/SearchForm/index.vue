@@ -1,7 +1,7 @@
 <template>
   <div class="aw-table-search">
     <!-- :style="`max-width: ${maxWidth}px`" -->
-    <el-form ref="formRef" :model="searchParam" :size="size" :inline="true" :label-width="labelWidth + 'px'">
+    <el-form ref="formRef" :model="searchParam" @submit.native.prevent :size="size" :inline="true" :label-width="labelWidth + 'px'">
       <slot name="searchFormBefore"></slot>
       <el-form-item
         :label="`${item.label} :`"
