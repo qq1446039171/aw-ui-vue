@@ -1,4 +1,4 @@
-# Dialog 标签
+# Dialog 弹窗
 
 <script>
   export default {
