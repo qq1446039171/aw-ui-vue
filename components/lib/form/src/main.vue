@@ -1,7 +1,7 @@
 <template>
   <div class="aw-form">
     <el-form
-      ref="awForm"
+      ref="Form"
       label-suffix=":"
       :size="data.config.size"
       :model="models"
@@ -173,7 +173,7 @@ export default {
       })
     },
     reset() {
-      this.$refs.awForm.resetFields()
+      this.$refs.Form.resetFields()
     },
     onInputChange(value, field) {
       this.$emit('on-change', field, value, this.models)

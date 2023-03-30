@@ -181,27 +181,27 @@ export default {
 
 ### Attributes
 
-| 属性           | 说明                                                      | 类型     | 默认值             | 可选值                |
-| :------------- | :-------------------------------------------------------- | :------- | :----------------- | :-------------------- |
-| columns        | 列配置项(包含 table 中的 columns 与 搜索栏中的字段 )      | Object   | -                  | - 必填                |
-| request        | 请求表数据方法                                            | Function | -                  | - 必填                |
-| initParam      | 初始化请求参数                                            | Object   | -                  | -                     |
-| resetInitParam | 重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置) | Function | -                  | -                     |
-| toolButton     | 是否显示表格功能按钮(刷新以及显示隐藏搜索栏)              | Boolean  | true               | true / false          |
-| size           | 整个页面中 Element 组件的大小                             | string   | small              | medium / small / mini |
-| border         | 表格边框                                                  | Boolean  | true               | true / false          |
-| pagination     | 是否需要分页组件                                          | Boolean  | true               | true / false          |
-| height         | 表格高度（超出此高度 Table 会滚动）                       | Number   | -                  | -                     |
-| isShowSearch   | 是否显示查询条件                                          | Boolean  | true               | -                     |
-| pageSizes      | 分页大小                                                  | Array    | [10, 50, 100, 200] | -                     |
-| labelWidth     | 表单域标签的宽度                                          | Number   | 100                | -                     |
-| isCacheList    | 是否缓存上一页选中的数据                                  | Boolean  | true               | true / false        |
-| tag            | 表格数据唯一标识符                                        | String   | id                 | -                     |
-| remote         | 远程请求接口列表集合                                      | Object   | -                  | -                     |
+| 属性           | 说明                                                         | 类型     | 默认值             | 可选值                |
+| :------------- | :----------------------------------------------------------- | :------- | :----------------- | :-------------------- |
+| columns        | 列配置项(包含 table 中的 columns 与 搜索栏中的字段 )         | Object   | -                  | - 必填                |
+| request        | 请求表数据方法                                               | Function | -                  | - 必填                |
+| initParam      | 初始化请求参数                                               | Object   | -                  | -                     |
+| resetInitParam | 重置 initParam 方法(主要用于搜索栏中时间选择中字段的重置)    | Function | -                  | -                     |
+| toolButton     | 是否显示表格功能按钮(刷新以及显示隐藏搜索栏)                 | Boolean  | true               | true / false          |
+| size           | 整个页面中 Element 组件的大小                                | string   | small              | medium / small / mini |
+| border         | 表格边框                                                     | Boolean  | true               | true / false          |
+| pagination     | 是否需要分页组件                                             | Boolean  | true               | true / false          |
+| height         | 表格高度（超出此高度 Table 会滚动）                          | Number   | -                  | -                     |
+| isShowSearch   | 是否显示查询条件                                             | Boolean  | true               | -                     |
+| pageSizes      | 分页大小                                                     | Array    | [10, 50, 100, 200] | -                     |
+| labelWidth     | 表单域标签的宽度                                             | Number   | 100                | -                     |
+| isCacheList    | 是否缓存上一页选中的数据(为 true 时表格每一项需要有唯一标识tag) | Boolean  | true               | true / false          |
+| tag            | 表格数据唯一标识符                                           | String   | id                 | -                     |
+| remote         | 远程请求接口列表集合                                         | Object   | -                  | -                     |
 
 ### Slots
 
-| 插槽名                                  | 说明                                           |
+| 插槽名                                | 说明                                           |
 | :------------------------------------ | :--------------------------------------------- |
 | searchFormBefore                      | 查询条件中 前置输入框插槽                      |
 | searchFormAfter                       | 搜索栏尾部内容                                 |
@@ -209,9 +209,9 @@ export default {
 | tableHeader                           | 表格头部 操作按钮                              |
 | columns 中的每一个 prop 对应一个 slot | 自定义配置每一列 slot(值的意思 请看 HTML 代码) |
 
-
 ### Methods
-| 事件名                                  | 说明                                           |
-| :------------------------------------ | :--------------------------------------------- |
-| search                      | 不重置条件的刷新操作                     |
-| refresh                       | 表格数据刷新 普遍用于表格数据改变后更新的操作                                 |
+
+| 事件名  | 说明                                          |
+| :------ | :-------------------------------------------- |
+| search  | 不重置条件的刷新操作                          |
+| refresh | 表格数据刷新 普遍用于表格数据改变后更新的操作 |
